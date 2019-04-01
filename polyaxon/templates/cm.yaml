@@ -117,7 +117,10 @@ data:
   {{- end }}
   # SSL
   {{- if and .Values.ssl.enabled .Values.ssl.secret }}
-  POLYAXON_NGINX_ENABLE_SSL: "true"
+  POLYAXON_SSL_ENABLED: "true"
+  {{- if and .Values.ssl.path }}
+  POLYAXON_SSL_PATH:  {{ .Values.ssl.path | quote }}
+  {{- end }}
   {{- end }}
   # Queues
   POLYAXON_QUEUES_REPOS: {{ .Values.queues.repos | quote }}
