@@ -119,7 +119,7 @@ spec:
           httpGet:
             path: /healthz/
             port: {{ .Values.streams.service.internalPort }}
-            scheme: {{ .Values.api.service.scheme | default "HTTP" }}
+            scheme: {{ .Values.streams.service.scheme | default "HTTP" }}
           initialDelaySeconds: 100
           periodSeconds: 30
           successThreshold: 1
@@ -129,7 +129,7 @@ spec:
           httpGet:
             path: /healthz/
             port: {{ .Values.streams.service.internalPort }}
-            scheme: {{ .Values.api.service.scheme | default "HTTP" }}
+            scheme: {{ .Values.streams.service.scheme | default "HTTP" }}
           initialDelaySeconds: 150
           periodSeconds: 30
           successThreshold: 1
