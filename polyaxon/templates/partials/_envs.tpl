@@ -33,9 +33,9 @@ secrets config
   valueFrom:
     secretKeyRef:
 {{- if .Values.postgresql.enabled }}
-      name: {{ template "postgresql.fullname" . }}
+      name: {{ template "pgsql.fullname" . }}
 {{- else }}
-      name: {{ template "polyaxon.fullname" . }}-postgres-secret
+      name: {{ template "polyaxon.fullname" . }}-postgresql-secret
 {{- end }}
-      key: postgres-password
+      key: postgresql-password
 {{- end -}}

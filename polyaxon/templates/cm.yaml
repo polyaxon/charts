@@ -61,9 +61,9 @@ data:
   POLYAXON_K8S_REDIS_SECRET_NAME: {{ template "polyaxon.fullname" . }}-redis-secret
   {{- end}}
   {{- if .Values.postgresql.enabled }}
-  POLYAXON_K8S_DB_SECRET_NAME: {{ template "postgresql.fullname" . }}
+  POLYAXON_K8S_DB_SECRET_NAME: {{ template "pgsql.fullname" . }}
   {{- else }}
-  POLYAXON_K8S_DB_SECRET_NAME: {{ template "polyaxon.fullname" . }}-postgres-secret
+  POLYAXON_K8S_DB_SECRET_NAME: {{ template "pgsql.fullname" . }}-postgresql-secret
   {{- end}}
   POLYAXON_ENVIRONMENT: {{ default "production" .Values.environment | quote }}
   POLYAXON_TIME_ZONE: {{ .Values.timeZone | quote }}
@@ -124,11 +124,11 @@ data:
   POLYAXON_INTERVALS_OPERATIONS_DEFAULT_RETRY_DELAY: {{ .Values.intervals.operationsDefaultRetryDelay | quote }}
   POLYAXON_INTERVALS_OPERATIONS_MAX_RETRY_DELAY: {{ .Values.intervals.operationsMaxRetryDelay | quote }}
   # DB
-  POLYAXON_DB_USER: {{ template "postgresql.user" . }}
-  POLYAXON_DB_NAME: {{ template "postgresql.database" . }}
-  POLYAXON_DB_PORT: "{{ template "postgresql.port" . }}"
-  POLYAXON_DB_CONN_MAX_AGE: "{{ template "postgresql.connMaxAge" . }}"
-  POLYAXON_DB_HOST: "{{ template "postgresql.host" . }}"
+  POLYAXON_DB_USER: {{ template "pgsql.user" . }}
+  POLYAXON_DB_NAME: {{ template "pgsql.database" . }}
+  POLYAXON_DB_PORT: "{{ template "pgsql.port" . }}"
+  POLYAXON_DB_CONN_MAX_AGE: "{{ template "pgsql.connMaxAge" . }}"
+  POLYAXON_DB_HOST: "{{ template "pgsql.host" . }}"
   # Broker
   {{ if ( .Values.broker ) and eq .Values.broker "redis" -}}
   POLYAXON_BROKER_BACKEND: {{ .Values.broker }}

@@ -1,43 +1,43 @@
-{{- define "postgresql.fullname" -}}
+{{- define "pgsql.fullname" -}}
 {{- $name := "postgresql" -}}
 {{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
-{{- define "postgresql.host" -}}
-{{- if .Values.postgresql.enabled }}
-{{- template "postgresql.fullname" . }}
+{{- define "pgsql.host" -}}
+{{- if .Values.postgresql.enabled -}}
+{{- template "pgsql.fullname" . }}
 {{- else }}
 {{- .Values.externalServices.postgresql.host }}
 {{- end }}
 {{- end -}}
 
-{{- define "postgresql.port" -}}
-{{- if .Values.postgresql.enabled }}
-{{- default 5432 .Values.postgresql.port -}}
+{{- define "pgsql.port" -}}
+{{- if .Values.postgresql.enabled -}}
+{{- default 5432 .Values.postgresql.service.port -}}
 {{- else }}
 {{- default 5432 .Values.externalServices.postgresql.port }}
 {{- end }}
 {{- end -}}
 
-{{- define "postgresql.user" -}}
-{{- if .Values.postgresql.enabled }}
-{{- default "polyaxon" .Values.postgresql.postgresUser -}}
+{{- define "pgsql.user" -}}
+{{- if .Values.postgresql.enabled -}}
+{{- default "polyaxon" .Values.postgresql.postgresqlUsername -}}
 {{- else }}
 {{- default "polyaxon" .Values.externalServices.postgresql.user }}
 {{- end }}
 {{- end -}}
 
-{{- define "postgresql.database" -}}
-{{- if .Values.postgresql.enabled }}
-{{- default "polyaxon" .Values.postgresql.postgresDatabase -}}
+{{- define "pgsql.database" -}}
+{{- if .Values.postgresql.enabled -}}
+{{- default "polyaxon" .Values.postgresql.postgresqlDatabase -}}
 {{- else }}
 {{- default "polyaxon" .Values.externalServices.postgresql.database }}
 {{- end }}
 {{- end -}}
 
 
-{{- define "postgresql.connMaxAge" -}}
-{{- if .Values.postgresql.enabled }}
+{{- define "pgsql.connMaxAge" -}}
+{{- if .Values.postgresql.enabled -}}
 {{- default "polyaxon" .Values.postgresql.connMaxAge -}}
 {{- else }}
 {{- .Values.externalServices.postgresql.connMaxAge }}

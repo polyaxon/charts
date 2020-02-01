@@ -396,25 +396,25 @@ postgresql:
   #  * configure external postgresql required attributes in services.postgresql
   enabled: true
   connMaxAge: 60
-  postgresUser: polyaxon
-  postgresPassword: polyaxon
-  postgresDatabase: polyaxon
-  imageTag: 9.6.1
+  postgresqlUsername: polyaxon
+  postgresqlPassword: polyaxon
+  postgresqlDatabase: polyaxon
   persistence:
     enabled: false
     size: 2Gi
-  affinity:
-    podAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          podAffinityTerm:
-            labelSelector:
-              matchExpressions:
-              - key: type
-                operator: In
-                values:
-                - "polyaxon-core"
-            topologyKey: "kubernetes.io/hostname"
+  master:
+    affinity:
+      podAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: type
+                  operator: In
+                  values:
+                  - "polyaxon-core"
+              topologyKey: "kubernetes.io/hostname"
 
 redis:
   # Whether to deploy a redis server in-cluster.
