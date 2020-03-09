@@ -1,29 +1,36 @@
 {{- /*
-Config outputs stores secrets
+Config artifacts store secrets/configmap
 */}}
-{{- define "config.storesSecrets.outputs" -}}
-{{- if .Values.persistence.outputs }}
-{{- range $key, $val := .Values.persistence.outputs }}
-{{- if $val.store }}
-- name: {{ $val.secretKey | quote }}
-  valueFrom:
-    secretKeyRef:
-      name: {{ $val.secret | quote }}
-      key: {{ $val.secretKey | quote }}
-{{- end }} {{- /* end store check */ -}}
-{{- end}}  {{- /* end range */ -}}
-{{- end }} {{- /* end persistence check */ -}}
+{{- define "config.artifactsStore.envFrom" -}}
+{{- if and .Values.artifactsStore .Values.artifactsStore.secret }}
+- secretRef:
+    name: {{ .Values.artifactsStore.secret.name | quote }}
+{{- end }} {{- /* endif */ -}}
+{{- if and .Values.artifactsStore .Values.artifactsStore.configMap }}
+- configMapRef:
+    name: {{ .Values.artifactsStore.configMap.name | quote }}
+{{- end }} {{- /* endif */ -}}
 {{- end -}}
 
-{{- /*
-Config logs stores secrets
-*/}}
-{{- define "config.storesSecrets.logs" -}}
-{{- if .Values.persistence.logs.store }}
-- name: {{ .Values.persistence.logs.secretKey | quote }}
-  valueFrom:
-    secretKeyRef:
-      name: {{ .Values.persistence.logs.secret | quote }}
-      key: {{ .Values.persistence.logs.secretKey | quote }}
+{{- define "config.artifactsStore.mount" -}}
+{{- if and .Values.artifactsStore (or (eq .Values.artifactsStore.kind "host_path") (eq .Values.artifactsStore.kind "volume_claim")) }}
+- mountPath: {{ .Values.artifactsStore.schema.mountPath | quote }}
+  name: {{ .Values.artifactsStore.name }}
+  {{ if .Values.artifactsStore.schema.subPath -}}
+  subPath: {{ .Values.artifactsStore.schema.subPath | quote }}
+  {{- end }}
+{{- end }}
+{{- end -}}  {{- /* end def artifactsStore volume mounts */ -}}
+
+{{- define "config.artifactsStore.volume" -}}
+{{- if and .Values.artifactsStore (or (eq .Values.artifactsStore.kind "host_path") (eq .Values.artifactsStore.kind "volume_claim")) }}
+- name: {{ .Values.artifactsStore.name }}
+{{- if eq .Values.artifactsStore.kind "volume_claim" }}
+  persistentVolumeClaim:
+    claimName: {{ .Values.artifactsStore.schema.volumeClaim | quote }}
+{{- else }}
+  hostPath:
+    path: {{ .Values.artifactsStore.schema.hostPath | quote }}
 {{- end }} {{- /* end store check */ -}}
-{{- end -}}
+{{- end }}
+{{- end -}}  {{- /* end def artifactsStore volume mounts */ -}}

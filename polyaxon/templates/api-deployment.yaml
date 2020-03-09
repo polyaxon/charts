@@ -4,8 +4,10 @@ metadata:
   name: {{ template "polyaxon.fullname" . }}-api
   annotations:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
-    checksum/config: {{ include (print $.Template.BasePath "/cm.yaml") . | sha256sum }}
-    checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
+    checksum/common-config: {{ include (print $.Template.BasePath "/common-cm.yaml") . | sha256sum }}
+    checksum/proxies-config: {{ include (print $.Template.BasePath "/proxies-cm.yaml") . | sha256sum }}
+    checksum/platform-config: {{ include (print $.Template.BasePath "/platform-cm.yaml") . | sha256sum }}
+    checksum/platform-secrets: {{ include (print $.Template.BasePath "/platform-secrets.yaml") . | sha256sum }}
   labels:
     app: {{ template "polyaxon.fullname" . }}-api
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
@@ -29,8 +31,10 @@ spec:
     metadata:
       annotations:
         chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
-        checksum/config: {{ include (print $.Template.BasePath "/cm.yaml") . | sha256sum }}
-        checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
+        checksum/common-config: {{ include (print $.Template.BasePath "/common-cm.yaml") . | sha256sum }}
+        checksum/proxies-config: {{ include (print $.Template.BasePath "/proxies-cm.yaml") . | sha256sum }}
+        checksum/platform-config: {{ include (print $.Template.BasePath "/platform-cm.yaml") . | sha256sum }}
+        checksum/platform-secrets: {{ include (print $.Template.BasePath "/platform-secrets.yaml") . | sha256sum }}
       labels:
         app: {{ template "polyaxon.fullname" . }}-api
         release: "{{ .Release.Name }}"
@@ -42,37 +46,26 @@ spec:
 {{ include "securityContext" . | indent 6 }}
 {{ include "config.scheduling" . | indent 6 }}
 {{ include "config.sa" . | indent 6 }}
+{{ include "config.imagePullSecrets" . | indent 6}}
       containers:
       - name: {{ .Chart.Name }}-api
         image: "{{ .Values.api.image }}:{{ .Values.api.imageTag }}"
         imagePullPolicy: {{ .Values.api.imagePullPolicy }}
         ports:
-        - containerPort: {{ .Values.api.service.internalPort }}
+        - containerPort: {{ .Values.api.service.targetPort }}
         envFrom:
-{{ include "config.envFrom" . | indent 8 }}
+{{ include "config.envFrom.common" . | indent 8 }}
+{{ include "config.envFrom.secret" . | indent 8 }}
+{{ include "config.envFrom.platform" . | indent 8 }}
+{{ include "config.envFrom.proxies" . | indent 8 }}
         env:
-{{ include "config.dns" . | indent 8 }}
 {{ include "config.envs" . | indent 8 }}
-{{ include "config.persistence.outputs" . | indent 8 }}
-{{ include "config.persistence.data" . | indent 8 }}
-{{ include "config.persistence.logs" . | indent 8 }}
-{{ include "config.persistence.upload" . | indent 8 }}
-{{ include "config.persistence.repos" . | indent 8 }}
-{{ include "config.storesSecrets.outputs" . | indent 8 }}
-{{ include "config.storesSecrets.logs" . | indent 8 }}
 {{ include "config.debugMode" . | indent 8 }}
-        volumeMounts:
-{{ include "volumes.volumeMounts.logs" . | indent 8}}
-{{ include "volumes.volumeMounts.outputs" . | indent 8}}
-{{ include "volumes.volumeMounts.repos" . | indent 8}}
-{{ include "volumes.volumeMounts.upload" . | indent 8}}
-{{ include "volumes.volumeMounts.ssl" . | indent 8}}
-{{ include "volumes.dirMounts" . | indent 8}}
         livenessProbe:
           failureThreshold: 10
           httpGet:
             path: /healthz/
-            port: {{ .Values.api.service.internalPort }}
+            port: {{ .Values.api.service.targetPort }}
             scheme: {{ .Values.api.service.scheme | default "HTTP" }}
             {{- if .Values.allowedHosts }}
             httpHeaders:
@@ -87,7 +80,7 @@ spec:
           failureThreshold: 30
           httpGet:
             path: /healthz/
-            port: {{ .Values.api.service.internalPort }}
+            port: {{ .Values.api.service.targetPort }}
             scheme: {{ .Values.api.service.scheme | default "HTTP" }}
             {{- if .Values.allowedHosts }}
             httpHeaders:
@@ -105,46 +98,3 @@ spec:
           limits:
 {{ toYaml .Values.api.resources.limits | indent 12 }}
           {{- end }}
-      - name: {{ .Chart.Name }}-streams
-        image: "{{ .Values.streams.image }}:{{ .Values.streams.imageTag }}"
-        imagePullPolicy: {{ .Values.streams.imagePullPolicy }}
-        ports:
-        - containerPort: {{ .Values.streams.service.internalPort }}
-        envFrom:
-{{ include "config.envFrom" . | indent 8 }}
-        env:
-{{ include "config.envs" . | indent 8 }}
-        livenessProbe:
-          failureThreshold: 10
-          httpGet:
-            path: /healthz/
-            port: {{ .Values.streams.service.internalPort }}
-            scheme: {{ .Values.streams.service.scheme | default "HTTP" }}
-          initialDelaySeconds: 100
-          periodSeconds: 30
-          successThreshold: 1
-          timeoutSeconds: 2
-        readinessProbe:
-          failureThreshold: 30
-          httpGet:
-            path: /healthz/
-            port: {{ .Values.streams.service.internalPort }}
-            scheme: {{ .Values.streams.service.scheme | default "HTTP" }}
-          initialDelaySeconds: 150
-          periodSeconds: 30
-          successThreshold: 1
-          timeoutSeconds: 2
-        resources:
-          requests:
-{{ toYaml .Values.streams.resources.requests | indent 12 }}
-          {{- if .Values.limitResources }}
-          limits:
-{{ toYaml .Values.streams.resources.limits | indent 12 }}
-          {{- end }}
-      volumes:
-{{ include "volumes.volumes.logs" . | indent 6}}
-{{ include "volumes.volumes.outputs" . | indent 6}}
-{{ include "volumes.volumes.repos" . | indent 6}}
-{{ include "volumes.volumes.upload" . | indent 6}}
-{{ include "volumes.volumes.ssl" . | indent 6}}
-{{ include "volumes.dirs" . | indent 6 }}

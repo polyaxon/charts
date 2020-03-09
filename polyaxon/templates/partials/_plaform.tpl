@@ -1,11 +1,27 @@
 {{- /*
+Secret envFrom
+*/}}
+{{- define "config.envFrom.secret" -}}
+- secretRef:
+    name: {{ template "polyaxon.fullname" . }}-secret
+{{- if .Values.encryptionSecret }}
+- secretRef:
+    name: {{ .Values.encryptionSecret }}
+{{- end }}
+{{- end -}}
+
+{{- /*
+Platform envFrom
+*/}}
+{{- define "config.envFrom.platform" -}}
+- configMapRef:
+    name: {{ template "polyaxon.fullname" . }}-platform-config
+{{- end -}}
+
+{{- /*
 secrets config
 */}}
 {{- define "config.envs" -}}
-- name: POLYAXON_K8S_NODE_NAME
-  valueFrom:
-    fieldRef:
-      fieldPath: spec.nodeName
 - name: POLYAXON_RABBITMQ_PASSWORD
   valueFrom:
     secretKeyRef:

@@ -1,5 +1,6 @@
 namespace: "polyaxon"
 deploymentType: "kubernetes"
+limitResources: false
 
 rbac:
   enabled: true
@@ -30,167 +31,45 @@ ingress:
 
   # kubernetes.io/tls-acme: 'true'
 
-# If you enable ingress, please set this value to ClusterIP or NodePort (on GKE you canot use ClusterIP)
-# Otherwise you should set it to LoadBalancer
-serviceType: LoadBalancer
-limitResources: false
-
 # To set ssl and serve https with Polyaxon deployed with NodePort service
 ssl: {}
 
 dns: {}
 
-# Initial admin user to create
-user:
-  username: "root"
-  email: "root@polyaxon.local"
-  password: "rootpassword"
+auth:
+  enabled: true
+  external:
+  useResolver: true
 
-# Time zone
-timeZone: 'UTC'
-adminViewEnabled: true
-encryptionSecret:
+# If you enable ingress, please set the gateway service type value to:
+#    * ClusterIP or NodePort (on GKE you cannot use ClusterIP)
+# Otherwise you should set it to LoadBalancer (default)
+gateway:
+  image: polyaxon/polyaxon-gateway
+  imageTag: 1.0.5
+  imagePullPolicy: Always
+  replicas: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2000Mi
+    requests:
+      cpu: 128m
+      memory: 300Mi
 
-# Include helm chart release revision
-includeChartRevision: true
+  service:
+    name: gateway
+    type: LoadBalancer
+    port: 80
+    targetPort: 80
+    nodePort: 31833
+    annotations: {}
 
-dirs:
-  nvidia:
-    lib: ""  # e.g. "/usr/lib/nvidia-384"
-    bin: ""  # e.g. "/usr/lib/nvidia-384/bin"
-    libcuda: ""  # e.g. "/usr/lib/x86_64-linux-gnu/libcuda.so.1"
-
-# This is where we mount nvidia on hosts
-mountPaths:
-  nvidia:
-    lib: ""
-    bin: ""
-    libcuda: ""
-
-# N.B. this is in beta
-securityContext:
-  enabled: false
-  user: 2222
-  group: 2222
-
-persistence:
-  logs:
-    existingClaim:
-    mountPath: "/polyaxon-logs"
-    hostPath: "/tmp/logs"
-  repos:
-    existingClaim:
-    mountPath: "/polyaxon-repos"
-    hostPath: "/tmp/repos"
-  upload:
-    existingClaim:
-    mountPath: "/tmp/upload"
-    hostPath: "/tmp/upload"
-  outputs: {}
-  data: {}
-
-# e.g.
-  # data:
-  #   data1:
-  #     mountPath: "/data/1"
-  #     hostPath: "/path/to/data"
-  #     readOnly: true
-  #   data2:
-  #     mountPath: "/data/2"
-  #     existingClaim: "data-2-pvc"
-  #   data-gcs:
-  #     store: gcs
-  #     bucket: gs://data-bucket
-  #     secret: secret-name
-  #     secretKey: secret-key
-  #   data-s3:
-  #     store: s3
-  #     bucket: s3://data-bucket
-  #     secret: secret-name
-  #     secretKey: secret-key
-  #   data-azure:
-  #     store: azure
-  #     bucket: wasbs://data-container@account.blob.core.windows.net/
-  #     secret: secret-name
-  #     secretKey: secret-key
-  # outputs:
-  #   outputs1:
-  #     mountPath: "/outputs/1"
-  #     hostPath: "/path/to/outputs"
-  #     readOnly: true
-  #   outputs2:
-  #     mountPath: "/outputs/2"
-  #     existingClaim: "outputs-2-pvc"
-  #   outputs-gcs:
-  #     store: gcs
-  #     bucket: gs://outputs-bucket
-  #     secret: secret-name
-  #     secretKey: secret-key
-  #   outputs-s3:
-  #     store: s3
-  #     bucket: s3://outputs-bucket
-  #     secret: secret-name
-  #     secretKey: secret-key
-  #   outputs-azure:
-  #     store: azure
-  #     bucket: wasbs://outputs-container@account.blob.core.windows.net/
-  #     secret: secret-name
-  #     secretKey: secret-key
-  #
-  # Possible values for S3 secret:
-  #   {AWS_ACCESS_KEY_ID: , AWS_SECRET_ACCESS_KEY: , AWS_SECURITY_TOKEN: , AWS_REGION_NAME: }
-  # Possible values for Azure storage secret:
-  #   {AZURE_ACCOUNT_NAME: , AZURE_ACCOUNT_KEY: , AZURE_CONNECTION_STRING:}
-  # Possible values for GCS secret:
-  #   The key.json
-
-defaultPersistence:
-  data:
-    data:
-      mountPath: "/data"
-      hostPath: "/tmp/data"
-  outputs:
-    outputs:
-      mountPath: "/outputs"
-      hostPath: "/tmp/outputs"
-
-ldap:
-  enabled: false
-  serverUri:
-  globalOptions: {}
-  connectionOptions: {}
-  bindDN:
-  bindPassword:
-  userSearchBaseDN:
-  userSearchFilterStr:
-  userDNTemplate:
-  startTLS: false
-  userAttrMap: {}
-  groupSearchBaseDN:
-  groupSearchGroupType:
-  requireGroup:
-  denyGroup:
-
-nodeSelector: {}
-tolerations: []
-affinity:
-  podAffinity:
-    preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 100
-        podAffinityTerm:
-          labelSelector:
-            matchExpressions:
-            - key: type
-              operator: In
-              values:
-              - "polyaxon-core"
-          topologyKey: "kubernetes.io/hostname"
-
-passwordLength: 8
 
 api:
+  enabled: true
   image: polyaxon/polyaxon-api
-  imageTag: 0.6.1
+  imageTag: 1.0.5
   imagePullPolicy: Always
   replicas: 1
   resources:
@@ -203,29 +82,91 @@ api:
 
   service:
     name: api
-    externalPort: 80
-    internalPort: 80
+    type: ClusterIP
+    port: 80
+    targetPort: 80
     nodePort: 31811
     annotations: {}
 
 streams:
   image: polyaxon/polyaxon-streams
-  imageTag: 0.6.1
+  imageTag: 1.0.5
+  imagePullPolicy: Always
+  replicas: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2000Mi
+    requests:
+      cpu: 128m
+      memory: 300Mi
+
+  service:
+    name: streams
+    type: ClusterIP
+    port: 80
+    targetPort: 80
+    nodePort: 31822
+    annotations: {}
+
+init:
+  image: polyaxon/polyaxon-init
+  imageTag: 1.0.5
   imagePullPolicy: Always
   resources:
     limits:
-      cpu: 700m
-      memory: 1000Mi
+      cpu: 1000m
+      memory: 2000Mi
+    requests:
+      cpu: 128m
+      memory: 300Mi
+
+sidecar:
+  image: polyaxon/polyaxon-sidecar
+  imageTag: 1.0.5
+  imagePullPolicy: Always
+  sleepInterval: 10
+  syncInterval: 10
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2000Mi
+    requests:
+      cpu: 128m
+      memory: 300Mi
+
+agent:
+  token:
+  instance:
+  enabled: false
+  image: polyaxon/polyaxon-agent
+  imageTag: 1.0.5
+  imagePullPolicy: Always
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2000Mi
+    requests:
+      cpu: 128m
+      memory: 300Mi
+
+operator:
+  enabled: false
+  image: polyaxon/polyaxon-agent
+  imageTag: 1.0.5
+  imagePullPolicy: Always
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
     requests:
       cpu: 100m
-      memory: 128Mi
-  service:
-    name: streams
-    internalPort: 1337
+      memory: 20Mi
 
 scheduler:
+  enabled: false
   image: polyaxon/polyaxon-scheduler
-  imageTag: 0.6.1
+  imageTag: 1.0.5
   imagePullPolicy: Always
   replicas: 1
   concurrency: 2
@@ -238,37 +179,10 @@ scheduler:
       memory: 200Mi
   celery: {}
 
-hpsearch:
-  image: polyaxon/polyaxon-hpsearch
-  imageTag: 0.6.1
-  imagePullPolicy: Always
-  replicas: 1
-  concurrency: 2
-  resources:
-    requests:
-      cpu: 150m
-      memory: 200Mi
-  celery: {workerMaxMemoryPerChild: 600000}
-
-eventsHandlers:
-  image: polyaxon/polyaxon-events-handlers
-  imageTag: 0.6.1
-  imagePullPolicy: Always
-  replicas: 1
-  concurrency: 2
-  resources:
-    limits:
-      cpu: 200m
-      memory: 300Mi
-    requests:
-      cpu: 130m
-      memory: 200Mi
-  celery: {workerPrefetchMultiplier: 10}
-
-
-k8sEventsHandlers:
-  image: polyaxon/polyaxon-k8s-events-handlers
-  imageTag: 0.6.1
+worker:
+  enabled: false
+  image: polyaxon/worker
+  imageTag: 1.0.5
   imagePullPolicy: Always
   replicas: 1
   concurrency: 2
@@ -282,82 +196,22 @@ k8sEventsHandlers:
   celery: {workerPrefetchMultiplier: 10}
 
 beat:
-  image: polyaxon/polyaxon-beat
-  imageTag: 0.6.1
-  imagePullPolicy: Always
-  replicas: 1
-  resources:
-    limits:
-      cpu: 50m
-      memory: 128Mi
-    requests:
-      cpu: 50m
-      memory: 128Mi
-
-crons:
-  image: polyaxon/polyaxon-crons
-  imageTag: 0.6.1
-  imagePullPolicy: Always
-  replicas: 1
-  concurrency: 2
-  resources:
-    limits:
-      cpu: 100m
-      memory: 256Mi
-    requests:
-      cpu: 100m
-      memory: 100Mi
-
-eventMonitors:
-  namespace:
-    enabled: false
-    image: polyaxon/polyaxon-monitor-namespace
-    imageTag: 0.6.1
-    imagePullPolicy: Always
-    resources:
-      limits:
-        cpu: 120m
-        memory: 200Mi
-      requests:
-        cpu: 80m
-        memory: 128Mi
-    persists: false
-    sleepInterval: 1
-
-  statuses:
-    enabled: true
-    image: polyaxon/polyaxon-monitor-statuses
-    imageTag: 0.6.1
-    imagePullPolicy: Always
-    resources:
-      limits:
-        cpu: 120m
-        memory: 200Mi
-      requests:
-        cpu: 80m
-        memory: 128Mi
-    persists: false
-    sleepInterval: 1
-
-resourcesDaemon:
   enabled: false
-  image: polyaxon/polyaxon-monitor-resources
-  imageTag: 0.6.1
+  image: polyaxon/polyaxon-beat
+  imageTag: 1.0.5
   imagePullPolicy: Always
+  replicas: 1
   resources:
     limits:
-      cpu: 150m
-      memory: 200Mi
+      cpu: 50m
+      memory: 128Mi
     requests:
-      cpu: 150m
-      memory: 200Mi
-  persists: false
-  sleepInterval: 1
-  tolerations:
+      cpu: 50m
+      memory: 128Mi
 
 hooks:
   image: polyaxon/polyaxon-manage
-  imageTag: 0.6.1
+  imageTag: 1.0.5
   imagePullPolicy: Always
 
 tablesHook:
@@ -387,6 +241,10 @@ externalServices:
     host:
     port:
 
+  api:
+    host:
+    port:
+
 broker:
 
 postgresql:
@@ -406,15 +264,15 @@ postgresql:
     affinity:
       podAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                - key: type
-                  operator: In
-                  values:
-                  - "polyaxon-core"
-              topologyKey: "kubernetes.io/hostname"
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+              - key: type
+                operator: In
+                values:
+                - "polyaxon-core"
+            topologyKey: "kubernetes.io/hostname"
 
 redis:
   # Whether to deploy a redis server in-cluster.
@@ -499,6 +357,67 @@ docker-registry:
                 - "polyaxon-core"
             topologyKey: "kubernetes.io/hostname"
 
+
+artifactsStore:
+connections:
+notificationConnections:
+
+imagePullSecrets: []
+
+# Initial admin user to create
+user:
+  username: "root"
+  email: "root@polyaxon.local"
+  password: "rootpassword"
+
+# Time zone
+timezone: 'UTC'
+adminViewEnabled: true
+encryptionSecret:
+
+# Include helm chart release revision
+includeChartRevision: true
+
+# N.B. this is in beta
+securityContext:
+  enabled: false
+  user: 2222
+  group: 2222
+
+ldap:
+  enabled: false
+  serverUri:
+  globalOptions: {}
+  connectionOptions: {}
+  bindDN:
+  bindPassword:
+  userSearchBaseDN:
+  userSearchFilterStr:
+  userDNTemplate:
+  startTLS: false
+  userAttrMap: {}
+  groupSearchBaseDN:
+  groupSearchGroupType:
+  requireGroup:
+  denyGroup:
+
+nodeSelector: {}
+tolerations: []
+affinity:
+  podAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+              - "polyaxon-core"
+          topologyKey: "kubernetes.io/hostname"
+
+passwordLength: 8
+
 types:
   core: "polyaxon-core"
   runner: "polyaxon-runner"
@@ -511,8 +430,6 @@ roles:
   hooks: "polyaxon-hooks"
   worker: "polyaxon-workers"
   dashboard: "polyaxon-dashboard"
-
-k8s: {}
 
 email:
   host: smtp
@@ -530,14 +447,9 @@ email:
 #  - 159.203.150.212
 
 intervals:  # in seconds
-  experimentsScheduler: 15
-  experimentsSync: 60
-  clustersUpdateSystemInfo: 150
-  clustersUpdateSystemNodes: 150
-  pipelinesScheduler: 60
+  runsScheduler: 15
   operationsDefaultRetryDelay: 60
   operationsMaxRetryDelay: 3600
 
-plugins:
-  notebook: {port: 8888}
-  tensorboard: {port: 6006}
+services:
+  port: 80

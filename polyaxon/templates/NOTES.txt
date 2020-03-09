@@ -22,37 +22,37 @@ Polyaxon is currently running:
 
     export POLYAXON_IP=$(minikube ip)
 
-    export POLYAXON_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ template "polyaxon.fullname" . }}-api)
+    export POLYAXON_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ template "polyaxon.fullname" . }}-gateway)
 
     echo http://$POLYAXON_IP:$POLYAXON_PORT
 
 {{- else }}
 
-{{- if contains "NodePort" .Values.serviceType }}
+{{- if contains "NodePort" .Values.gateway.service.type }}
 
-  export POLYAXON_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ template "polyaxon.fullname" . }}-api)
+  export POLYAXON_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ template "polyaxon.fullname" . }}-gateway)
 
   export POLYAXON_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[1].address}")
 
   echo http://$POLYAXON_IP:$POLYAXON_PORT
 
-{{- else if contains "LoadBalancer" .Values.serviceType }}
+{{- else if contains "LoadBalancer" .Values.gateway.service.type }}
 
      NOTE: It may take a few minutes for the LoadBalancer IP to be available.
            You can watch the status by running:
-           'kubectl get --namespace {{ .Release.Namespace }} svc -w {{ template "polyaxon.fullname" . }}-api'
+           'kubectl get --namespace {{ .Release.Namespace }} svc -w {{ template "polyaxon.fullname" . }}-gateway'
 
 
-  export POLYAXON_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ template "polyaxon.fullname" . }}-api -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+  export POLYAXON_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ template "polyaxon.fullname" . }}-gateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 
-  export POLYAXON_PORT={{ .Values.api.service.externalPort }}
+  export POLYAXON_PORT={{ .Values.gateway.service.port }}
 
   echo http://$POLYAXON_IP:$POLYAXON_PORT
 
-{{- else if contains "ClusterIP" .Values.serviceType }}
+{{- else if contains "ClusterIP" .Values.gateway.service.type }}
 
   export POLYAXON_IP=<YOUR HOSTNAME/IP>
-  export POLYAXON_PORT={{ .Values.api.service.externalPort }}
+  export POLYAXON_PORT={{ .Values.gateway.service.port }}
 
   echo http://$POLYAXON_IP:$POLYAXON_PORT
 

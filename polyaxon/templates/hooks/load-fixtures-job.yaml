@@ -33,15 +33,19 @@ spec:
 {{ include "securityContext" . | indent 6 }}
 {{ include "config.scheduling" . | indent 6 }}
 {{ include "config.sa" . | indent 6 }}
+{{ include "config.imagePullSecrets" . | indent 6}}
       restartPolicy: Never
       activeDeadlineSeconds: 360
       containers:
       - name: load-fixtures-job
         image: "{{ .Values.hooks.image }}:{{ .Values.hooks.imageTag }}"
         imagePullPolicy: {{ .Values.hooks.imagePullPolicy }}
-        args: ["loaddata", "polyaxon/fixtures/db.json"]
+        args: ["loaddata", "/fixtures/db.json"]
         envFrom:
-{{ include "config.envFrom" . | indent 8 }}
+{{ include "config.envFrom.common" . | indent 8 }}
+{{ include "config.envFrom.secret" . | indent 8 }}
+{{ include "config.envFrom.platform" . | indent 8 }}
         env:
 {{ include "config.envs" . | indent 8 }}
+{{ include "config.manageEnvs" . | indent 8 }}
 {{- end }}
