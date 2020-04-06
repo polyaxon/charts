@@ -88,6 +88,12 @@ api:
     nodePort: 31811
     annotations: {}
 
+  hpa:
+    enabled: false
+    cputhreshold: 70
+    minpods: 1
+    maxpods: 4
+
 streams:
   image: polyaxon/polyaxon-streams
   imageTag: 1.0.6
@@ -108,6 +114,12 @@ streams:
     targetPort: 80
     nodePort: 31822
     annotations: {}
+
+  hpa:
+    enabled: false
+    cputhreshold: 70
+    minpods: 1
+    maxpods: 4
 
 init:
   image: polyaxon/polyaxon-init
@@ -178,6 +190,11 @@ scheduler:
       cpu: 150m
       memory: 200Mi
   celery: {}
+  hpa:
+    enabled: false
+    cputhreshold: 70
+    minpods: 1
+    maxpods: 4
 
 worker:
   enabled: false
@@ -194,6 +211,11 @@ worker:
       cpu: 130m
       memory: 200Mi
   celery: {workerPrefetchMultiplier: 10}
+  hpa:
+    enabled: false
+    cputhreshold: 70
+    minpods: 1
+    maxpods: 4
 
 beat:
   enabled: false
@@ -329,6 +351,66 @@ rabbitmq-ha:
                 - "polyaxon-core"
             topologyKey: "kubernetes.io/hostname"
 
+
+## Prometheus Exporter / Metrics
+metrics:
+  enabled: false
+
+  ## Configure extra options for liveness and readiness probes
+  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes)
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 30
+    periodSeconds: 5
+    timeoutSeconds: 2
+    failureThreshold: 3
+    successThreshold: 1
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 30
+    periodSeconds: 5
+    timeoutSeconds: 2
+    failureThreshold: 3
+    successThreshold: 1
+
+  ## Metrics exporter resource requests and limits
+  ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+  resources: {}
+  #   limits:
+  #     cpu: 100m
+  #     memory: 100Mi
+  #   requests:
+  #     cpu: 100m
+  #     memory: 100Mi
+
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  # schedulerName:
+  # Optional extra labels for pod, i.e. redis-client: "true"
+  # podLabels: []
+  service:
+    type: ClusterIP
+    labels: {}
+
+  image:
+    repository: prom/statsd-exporter
+    tag: v0.10.5
+    pullPolicy: IfNotPresent
+
+  # Enable this if you're using https://github.com/coreos/prometheus-operator
+  serviceMonitor:
+    enabled: false
+    ## Specify a namespace if needed
+    # namespace: monitoring
+    # fallback to the prometheus default unless specified
+    # interval: 10s
+    ## Defaults to what's used if you follow CoreOS [Prometheus Install Instructions](https://github.com/helm/charts/tree/master/stable/prometheus-operator#tldr)
+    ## [Prometheus Selector Label](https://github.com/helm/charts/tree/master/stable/prometheus-operator#prometheus-operator-1)
+    ## [Kube Prometheus Selector Label](https://github.com/helm/charts/tree/master/stable/prometheus-operator#exporters)
+    selector:
+      prometheus: kube-prometheus
+
 artifactsStore: {}
 connections: []
 notificationConnections: []
@@ -393,6 +475,7 @@ types:
   core: "polyaxon-core"
   runner: "polyaxon-runner"
   config: "polyaxon-config"
+  metrics: "polyaxon-metrics"
 
 roles:
   api: "polyaxon-api"
