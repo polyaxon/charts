@@ -7,7 +7,7 @@
 
 Polyaxon charts is a set of Helm charts for creating reproducible and maintainable deployments of Polyaxon and it's components with Kubernetes.
 
-N.B. This is a read-only repo, please open an issue ir create a PR in the main repo. 
+> N.B. This is a read-only repo, please open an issue ir create a PR in the [main repo](https://github.com/polyaxon/polyaxon/issues). 
 
 This repo include: 
 
