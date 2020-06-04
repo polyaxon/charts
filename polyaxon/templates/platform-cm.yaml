@@ -26,9 +26,6 @@ data:
   POLYAXON_ADMIN_MAIL: {{ .Values.user.email | quote }}
   POLYAXON_PASSWORD_LENGTH: {{ default "6" .Values.passwordLength | quote }}
   POLYAXON_ADMIN_VIEW_ENABLED: {{ default "false" .Values.adminViewEnabled | quote }}
-  {{- if .Values.adminModels }}
-  POLYAXON_ADMIN_MODELS: {{ toJson .Values.adminModels | quote }}
-  {{- end }}
   # Email
   {{- if .Values.email.from }}
   POLYAXON_EMAIL_FROM: {{ .Values.email.from | quote }}
@@ -44,6 +41,9 @@ data:
   {{- end }}
   {{- if .Values.email.backend }}
   POLYAXON_EMAIL_BACKEND: {{ .Values.email.backend | quote }}
+  {{- end }}
+  {{- if .Values.organizationKey }}
+  POLYAXON_ORGANIZATION_KEY: {{ .Values.organizationKey | quote }}
   {{- end }}
   # Queues
   POLYAXON_INTERVALS_RUNS_SCHEDULER: {{ .Values.intervals.runsScheduler | quote }}
