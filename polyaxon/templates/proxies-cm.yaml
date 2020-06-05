@@ -46,6 +46,8 @@ data:
   POLYAXON_SSL_PATH:  {{ .Values.ssl.path | quote }}
   {{- end }}
   {{- end }}
-  # Services
-  POLYAXON_PROXY_SERVICES_PORT: {{ .Values.services.port | quote }}
   POLYAXON_K8S_IN_CLUSTER: "true"
+  # Services
+  {{- if (not (empty .Values.services)) }}
+  POLYAXON_PROXY_SERVICES_PORT: {{ .Values.services.port | quote }}
+  {{- end }}
