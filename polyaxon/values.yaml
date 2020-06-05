@@ -503,3 +503,8 @@ intervals:  # in seconds
   runsScheduler: 15
   operationsDefaultRetryDelay: 60
   operationsMaxRetryDelay: 3600
+
+auth:
+  enabled: false
+  external:
+  useResolver: true
