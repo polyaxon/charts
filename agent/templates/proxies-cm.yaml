@@ -51,3 +51,10 @@ data:
   {{- if (not (empty .Values.services)) }}
   POLYAXON_PROXY_SERVICES_PORT: {{ .Values.services.port | quote }}
   {{- end }}
+  # UI
+  {{- if (not (empty .Values.jsOffline)) }}
+  POLYAXON_JS_OFFLINE: {{ .Values.jsOffline | quote }}
+  {{- end }}
+  {{- if (not (empty .Values.uiEnabled)) }}
+  POLYAXON_UI_ENABLED: {{ .Values.uiEnabled | quote }}
+  {{- end }}
