@@ -1,3 +1,1 @@
-polyaxon-cli==0.6.1
-polyaxon-client==0.6.1
-polyaxon-schemas==0.6.1
+-e git+https://github.com/polyaxon/polyaxon.git@master#egg=polyaxon==1.1.0&subdirectory=core

@@ -25,22 +25,14 @@ postgresql:
       memory: 40Mi
       cpu: 20m
 
-broker: redis
+broker: rabbitmq
 
-redis:
+rabbitmq-ha:
   enabled: true
-  master:
-    persistence: {enabled: false}
-    resources:
-      requests:
-        memory: 20Mi
-        cpu: 10m
-  slave:
-    persistence: {enabled: false}
-    resources:
-      requests:
-        memory: 20Mi
-        cpu: 10m
+  resources:
+    requests:
+      memory: 40Mi
+      cpu: 20m
 
 api:
   imagePullPolicy: Always

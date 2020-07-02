@@ -33,7 +33,7 @@ echo "deploy polyaxon"
 helm install --name polyaxon-test --namespace $TEST_NAMESPACE ./polyaxon/ -f ./ci/test-config${CONFIG_VERSION}.yml
 
 echo "waiting for servers to become responsive"
-until curl --fail -s $TEST_URL/api/v1/versions/cli/; do
+until curl --fail -s $TEST_URL/api/v1/version/; do
     kubectl --namespace=$TEST_NAMESPACE get pod
     sleep 10
 done
