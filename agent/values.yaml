@@ -19,13 +19,16 @@ ingress:
   hostName:
   # Default path is `/`
   path:
+  # e.g. `ImplementationSpecific` if you are using gke, default `Prefix`
+  pathType:
   # Extra paths to prepend to every host configuration. This is useful when configuring custom actions with
   # [AWS ALB Ingress Controller](https://kubernetes-sigs.github.io/aws-alb-ingress-controller/guide/ingress/annotation/#actions).
   extraPaths: []
   # - path: /*
   #   backend:
-  #     serviceName: ssl-redirect
-  #     servicePort: use-annotation
+  #     service:
+  #       name: ssl-redirect
+  #       port: use-annotation
   # Ingress TLS configuration
   # Secrets must be manually created in the namespace
   tls: []
@@ -68,7 +71,7 @@ agentSecret:
 gateway:
   enabled: true
   image: polyaxon/polyaxon-gateway
-  imageTag: 1.11.3
+  imageTag: 1.12.0
   imagePullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -90,7 +93,7 @@ gateway:
 streams:
   enabled: true
   image: polyaxon/polyaxon-streams
-  imageTag: 1.11.3
+  imageTag: 1.12.0
   imagePullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -117,7 +120,7 @@ streams:
 
 init:
   image: polyaxon/polyaxon-init
-  imageTag: 1.11.3
+  imageTag: 1.12.0
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -129,7 +132,7 @@ init:
 
 sidecar:
   image: polyaxon/polyaxon-sidecar
-  imageTag: 1.11.3
+  imageTag: 1.12.0
   imagePullPolicy: IfNotPresent
   sleepInterval: 10
   syncInterval: 10
@@ -147,7 +150,7 @@ agent:
   compressedLogs: false
   enabled: true
   image: polyaxon/polyaxon-agent
-  imageTag: 1.11.3
+  imageTag: 1.12.0
   imagePullPolicy: IfNotPresent
   # A flag to simplify configuring a replica agent on a different cluster
   isReplica: false
@@ -163,9 +166,8 @@ agent:
 operator:
   enabled: true
   skipCRD: false
-  useCRDV1Beta1: false
   image: polyaxon/polyaxon-operator
-  imageTag: 1.11.3
+  imageTag: 1.12.0
   imagePullPolicy: IfNotPresent
   maxConcurrentReconciles: 1
   resources:
@@ -178,7 +180,7 @@ operator:
 
 cleanHooks:
   image: polyaxon/polyaxon-cli
-  imageTag: 1.11.3
+  imageTag: 1.12.0
   imagePullPolicy: IfNotPresent
 
 securityContext:
