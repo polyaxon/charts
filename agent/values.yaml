@@ -149,6 +149,7 @@ agent:
   instance:
   compressedLogs: false
   enabled: true
+  watchCluster: false
   image: polyaxon/polyaxon-agent
   imageTag: 1.12.2
   imagePullPolicy: IfNotPresent
@@ -166,10 +167,11 @@ agent:
 operator:
   enabled: true
   skipCRD: false
+  leaderElection: false
   image: polyaxon/polyaxon-operator
   imageTag: 1.12.2
   imagePullPolicy: IfNotPresent
-  maxConcurrentReconciles: 1
+  maxConcurrentReconciles: 8
   resources:
     limits:
       cpu: 200m
@@ -187,6 +189,9 @@ securityContext:
   enabled: false
   user: 2222
   group: 2222
+  fs: 2222
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
 
 nodeSelector: {}
 tolerations: []

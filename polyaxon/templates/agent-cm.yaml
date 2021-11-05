@@ -23,7 +23,9 @@ data:
   {{- end }}
   POLYAXON_AGENT_SIDECAR: {{ toJson .Values.sidecar | quote }}
   POLYAXON_AGENT_INIT: {{ toJson .Values.init | quote }}
+  {{- if .Values.rbac.enabled }}
   POLYAXON_AGENT_RUNS_SA: {{ template "polyaxon.fullname" . }}-runs-sa
+  {{- end }}
   {{- if .Values.agentSecret }}
   POLYAXON_AGENT_SECRET_NAME: {{ .Values.agentSecret | quote }}
   {{- else }}
@@ -40,6 +42,9 @@ data:
   POLYAXON_AGENT_COMPRESSED_LOGS: {{ .Values.agent.compressedLogs | quote }}
   {{- if .Values.operator.maxConcurrentReconciles }}
   POLYAXON_MAX_CONCURRENT_RECONCILES: {{ .Values.operator.maxConcurrentReconciles | quote }}
+  {{- end }}
+  {{- if .Values.operator.leaderElection }}
+  POLYAXON_LEADER_ELECTION: {{ .Values.operator.leaderElection | quote }}
   {{- end }}
   {{- if .Values.operators.tfjob }}
   POLYAXON_TFJOB_ENABLED: "true"

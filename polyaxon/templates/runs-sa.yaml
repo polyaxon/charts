@@ -1,3 +1,4 @@
+{{- if .Values.rbac.enabled }}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -51,3 +52,4 @@ subjects:
   - kind: ServiceAccount
     name: {{ template "polyaxon.fullname" . }}-runs-sa
     namespace: {{ .Release.Namespace }}
+{{- end }}
