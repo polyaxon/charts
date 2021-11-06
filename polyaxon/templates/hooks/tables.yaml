@@ -20,7 +20,7 @@ spec:
       labels:
         app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-tables
     spec:
-{{ include "securityContext" . | indent 6 }}
+{{ include "securityContext.pod" . | indent 6 }}
 {{ include "config.scheduling" . | indent 6 }}
 {{ include "config.imagePullSecrets" . | indent 6}}
       restartPolicy: Never
@@ -29,6 +29,7 @@ spec:
       - name: tables-job
         image: "{{ .Values.tablesHook.image }}:{{ .Values.tablesHook.imageTag }}"
         imagePullPolicy: {{ .Values.tablesHook.imagePullPolicy }}
+{{ include "securityContext.container" . | indent 8 }}
         args: ["--db=$(POLYAXON_DB_NAME)", "--host=$(POLYAXON_DB_HOST)", "--port=$(POLYAXON_DB_PORT)", "--username=$(POLYAXON_DB_USER)", "--password=$(POLYAXON_DB_PASSWORD)"]
         envFrom:
 {{ include "config.envFrom.common" . | indent 8 }}

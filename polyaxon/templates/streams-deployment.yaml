@@ -25,7 +25,7 @@ spec:
 {{ include "config.labels.common" . | indent 8 }}
 {{ include "config.labels.roles.coreApi" . | indent 8 }}
     spec:
-{{ include "securityContext" . | indent 6 }}
+{{ include "securityContext.pod" . | indent 6 }}
 {{ include "config.scheduling" . | indent 6 }}
 {{ include "config.agent.sa" . | indent 6 }}
 {{ include "config.imagePullSecrets" . | indent 6}}
@@ -33,6 +33,7 @@ spec:
       - name: {{ .Chart.Name }}-streams
         image: "{{ .Values.streams.image }}:{{ .Values.streams.imageTag }}"
         imagePullPolicy: {{ .Values.streams.imagePullPolicy }}
+{{ include "securityContext.container" . | indent 8 }}
         ports:
         - containerPort: {{ .Values.streams.service.targetPort }}
         envFrom:

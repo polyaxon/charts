@@ -27,13 +27,14 @@ spec:
 {{ include "config.labels.roles.coreApi" . | indent 8 }}
 {{ include "config.labels.apps.gateway" . | indent 8 }}
     spec:
-{{ include "securityContext" . | indent 6 }}
+{{ include "securityContext.pod" . | indent 6 }}
 {{ include "config.scheduling" . | indent 6 }}
 {{ include "config.imagePullSecrets" . | indent 6}}
       containers:
       - name: {{ .Chart.Name }}-gateway
         image: "{{ .Values.gateway.image }}:{{ .Values.gateway.imageTag }}"
         imagePullPolicy: {{ .Values.gateway.imagePullPolicy }}
+{{ include "securityContext.container" . | indent 8 }}
         ports:
         - containerPort: {{ .Values.gateway.service.targetPort }}
         envFrom:

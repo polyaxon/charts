@@ -19,7 +19,7 @@ spec:
       labels:
         app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-clean-runs
     spec:
-{{ include "securityContext" . | indent 6 }}
+{{ include "securityContext.pod" . | indent 6 }}
 {{ include "config.scheduling" . | indent 6 }}
 {{ include "config.agent.sa" . | indent 6 }}
 {{ include "config.imagePullSecrets" . | indent 6}}
@@ -29,6 +29,7 @@ spec:
       - name: clean-runs
         image: "{{ .Values.cleanHooks.image }}:{{ .Values.cleanHooks.imageTag }}"
         imagePullPolicy: {{ .Values.cleanHooks.imagePullPolicy }}
+{{ include "securityContext.container" . | indent 8 }}
         command: ["polyaxon"]
         args: ["clean-ops", "--namespace={{ .Release.Namespace }}", "--in-cluster", "--delete"]
         envFrom:
