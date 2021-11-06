@@ -1,10 +1,6 @@
 name: Helm Charts
 
-on:
-  push:
-    branches:
-    - master
-    - testing
+on: [push]
 
 jobs:
   lint-test:
