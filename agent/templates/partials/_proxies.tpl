@@ -60,7 +60,11 @@ Proxies apis
 {{- end -}}
 
 {{- define "proxies.api.targetPort" -}}
+{{- if .Values.api.enabled }}
 {{- default 8000 .Values.api.service.targetPort -}}
+{{- else }}
+{{- default 443 }}
+{{- end }}
 {{- end -}}
 
 {{- define "proxies.api.useResolver" -}}
