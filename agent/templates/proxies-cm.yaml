@@ -9,11 +9,18 @@ metadata:
 data:
   # Cluster
   POLYAXON_HOST: "{{ template "gateway.scheme" . }}://{{ template "gateway.host" . }}:{{ template "gateway.port" . }}"
+  {{- if .Values.gateway.enabled }}
+  POLYAXON_PROXY_GATEWAY_PORT: "{{ template "gateway.port" . }}"
+  POLYAXON_PROXY_GATEWAY_TARGET_PORT: "{{ template "gateway.targetPort" . }}"
+  POLYAXON_PROXY_GATEWAY_HOST: {{ template "gateway.host" . }}
+  {{- end }}
   {{- if .Values.streams.enabled }}
   POLYAXON_PROXY_STREAMS_PORT: "{{ template "proxies.streams.port" . }}"
+  POLYAXON_PROXY_STREAMS_TARGET_PORT: "{{ template "proxies.streams.targetPort" . }}"
   POLYAXON_PROXY_STREAMS_HOST: {{ template "proxies.streams.host" . }}
   {{- end }}
   POLYAXON_PROXY_API_PORT: "{{ template "proxies.api.port" . }}"
+  POLYAXON_PROXY_API_TARGET_PORT: "{{ template "proxies.api.targetPort" . }}"
   POLYAXON_PROXY_API_HOST: {{ template "proxies.api.host" . }}
   POLYAXON_PROXY_API_USE_RESOLVER: "{{ template "proxies.api.useResolver" . }}"
   {{- if .Values.auth.enabled }}

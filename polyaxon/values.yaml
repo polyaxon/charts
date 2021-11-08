@@ -84,7 +84,7 @@ gateway:
     name: gateway
     type: ClusterIP
     port: 80
-    targetPort: 80
+    targetPort: 8000
     nodePort: 31833
     annotations: {}
 
@@ -108,7 +108,7 @@ api:
     name: api
     type: ClusterIP
     port: 80
-    targetPort: 80
+    targetPort: 8000
     nodePort: 31811
     annotations: {}
 
@@ -136,7 +136,7 @@ streams:
     name: streams
     type: ClusterIP
     port: 80
-    targetPort: 80
+    targetPort: 8000
     nodePort: 31822
     annotations: {}
 

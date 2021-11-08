@@ -1,5 +1,5 @@
 {{- /*
-Config securityContext with static GID
+Config pod securityContext
 */}}
 {{- define "securityContext.pod" -}}
 {{- if .Values.securityContext.enabled }}
@@ -12,7 +12,7 @@ securityContext:
 
 
 {{- /*
-Config securityContext with static GID
+Config container securityContext
 */}}
 {{- define "securityContext.container" -}}
 {{- if .Values.securityContext.enabled }}

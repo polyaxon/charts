@@ -29,6 +29,10 @@ Proxies apis
 {{- end }}
 {{- end -}}
 
+{{- define "gateway.targetPort" -}}
+{{- default 8000 .Values.gateway.service.targetPort -}}
+{{- end -}}
+
 {{- define "gateway.scheme" -}}
 {{- if .Values.gateway.enabled }}
 {{- printf "http" -}}
@@ -55,6 +59,10 @@ Proxies apis
 {{- end }}
 {{- end -}}
 
+{{- define "proxies.api.targetPort" -}}
+{{- default 8000 .Values.api.service.targetPort -}}
+{{- end -}}
+
 {{- define "proxies.api.useResolver" -}}
 {{- if .Values.api.enabled }}
 {{- default "false" .Values.api.useResolver -}}
@@ -69,4 +77,8 @@ Proxies apis
 
 {{- define "proxies.streams.port" -}}
 {{- default 80 .Values.streams.service.port -}}
+{{- end -}}
+
+{{- define "proxies.streams.targetPort" -}}
+{{- default 8000 .Values.streams.service.targetPort -}}
 {{- end -}}
