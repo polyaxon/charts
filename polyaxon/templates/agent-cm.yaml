@@ -52,6 +52,12 @@ data:
   {{- if .Values.operators.pytorchjob }}
   POLYAXON_PYTORCH_JOB_ENABLED: "true"
   {{- end }}
+  {{- if .Values.operators.xgbjob }}
+  POLYAXON_XGBOOST_JOB_ENABLED: "true"
+  {{- end }}
+  {{- if .Values.operators.mxjob }}
+  POLYAXON_MXJOB_ENABLED: "true"
+  {{- end }}
   {{- if .Values.operators.mpijob }}
   POLYAXON_MPIJOB_ENABLED: "true"
   {{- end }}
