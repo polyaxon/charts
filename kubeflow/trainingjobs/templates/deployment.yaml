@@ -3,13 +3,13 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}
   labels:
-    app: {{ template "pytorchjob.fullname" . }}-deployment
+    app: {{ template "training.fullname" . }}-deployment
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
     type: {{ template "type" . }}
     role: {{ template "roles.worker" . }}
-    app.kubernetes.io/name: {{ template "pytorchjob.fullname" . }}-deployment
+    app.kubernetes.io/name: {{ template "training.fullname" . }}-deployment
     app.kubernetes.io/instance: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     app.kubernetes.io/version: "{{ .Chart.Version }}"
     app.kubernetes.io/part-of: {{ template "type" . }}
@@ -33,11 +33,34 @@ spec:
     spec:
       serviceAccountName: {{ .Release.Name }}-{{ .Chart.Name }}
       containers:
-      - command:
-        - /pytorch-operator.v1
-        - --alsologtostderr
-        - -v=1
-        - --monitoring-port=8443
+      - name: {{ .Release.Name }}-{{ .Chart.Name }}
+        image: "{{ .Values.image }}:{{ .Values.imageTag }}"
+        imagePullPolicy: IfNotPresent
+        command:
+        - /manager
+        ports:
+          - containerPort: 8080
+        securityContext:
+          allowPrivilegeEscalation: false
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8081
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8081
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        resources:
+          limits:
+            cpu: 100m
+            memory: 30Mi
+          requests:
+            cpu: 100m
+            memory: 20Mi
         env:
         - name: MY_POD_NAMESPACE
           valueFrom:
@@ -47,6 +70,3 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
-        image: "{{ .Values.image }}:{{ .Values.imageTag }}"
-        name: pytorch-operator
-        imagePullPolicy: IfNotPresent

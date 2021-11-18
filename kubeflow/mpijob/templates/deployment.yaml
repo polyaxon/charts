@@ -38,8 +38,6 @@ spec:
         imagePullPolicy: IfNotPresent
         args: [
           "-alsologtostderr",
-          "--kubectl-delivery-image",
-          "{{ .Values.kubectlDelivery.image }}:{{ .Values.kubectlDelivery.imageTag }}",
           "--namespace",
           "{{ .Release.Namespace }}",
           "--lock-namespace",

@@ -3,13 +3,13 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}
   labels:
-    app: {{ template "pytorchjob.fullname" . }}-deployment
+    app: {{ template "training.fullname" . }}-deployment
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
     type: {{ template "type" . }}
     role: {{ template "roles.worker" . }}
-    app.kubernetes.io/name: {{ template "pytorchjob.fullname" . }}-deployment
+    app.kubernetes.io/name: {{ template "training.fullname" . }}-deployment
     app.kubernetes.io/instance: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     app.kubernetes.io/version: "{{ .Chart.Version }}"
     app.kubernetes.io/part-of: {{ template "type" . }}
@@ -22,8 +22,8 @@ metadata:
 spec:
   ports:
   - name: monitoring-port
-    port: 8443
-    targetPort: 8443
+    port: 8080
+    targetPort: 8080
   selector:
-    name: {{ template "pytorchjob.fullname" . }}-deployment
+    name: {{ template "training.fullname" . }}-deployment
   type: ClusterIP

@@ -1,6 +1,3 @@
-image: mpioperator/mpi-operator
-imageTag: latest
-kubectlDelivery:
-  image: mpioperator/kubectl-delivery
-  imageTag: latest
+image: polyaxon/mpi-operator
+imageTag: 1.13
 skipCRD: false

@@ -37,16 +37,10 @@ $ helm repo add polyaxon https://charts.polyaxon.com
 $ helm repo update
 ```
 
-### TFJob
+### TFJob/PytorchJob/MXJob/XGBoostJob
 
 ```bash
-helm install plxtf polyaxon/tfjob --namespace=polyaxon
-```
-
-### PytorchJob
-
-```bash
-helm install plxpytorch polyaxon/pytorchjob --namespace=polyaxon
+helm install plxtf polyaxon/trainingjobs --namespace=polyaxon
 ```
 
 ### MpiJob 
