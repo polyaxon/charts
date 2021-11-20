@@ -1,3 +1,0 @@
-image: polyaxon/mpi-operator
-imageTag: 1.13
-skipCRD: false
