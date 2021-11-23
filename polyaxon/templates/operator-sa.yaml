@@ -120,6 +120,7 @@ rules:
   - get
   - patch
   - update
+{{- if .Values.operators.mpijob }}
 - apiGroups:
   - kubeflow.org
   resources:
@@ -140,6 +141,8 @@ rules:
   - get
   - patch
   - update
+{{- end }}
+{{- if .Values.operators.pytorchjob }}
 - apiGroups:
   - kubeflow.org
   resources:
@@ -160,6 +163,8 @@ rules:
   - get
   - patch
   - update
+{{- end }}
+{{- if .Values.operators.tfjob }}
 - apiGroups:
   - kubeflow.org
   resources:
@@ -180,6 +185,8 @@ rules:
   - get
   - patch
   - update
+{{- end }}
+{{- if .Values.operators.mxjob }}
 - apiGroups:
   - kubeflow.org
   resources:
@@ -200,6 +207,8 @@ rules:
   - get
   - patch
   - update
+{{- end }}
+{{- if .Values.operators.xgbjob }}
 - apiGroups:
   - kubeflow.org
   resources:
@@ -232,6 +241,8 @@ rules:
   - patch
   - update
   - watch
+{{- end }}
+{{- if .Values.istio.enabled }}
 - apiGroups:
   - networking.istio.io
   resources:
@@ -260,6 +271,7 @@ rules:
   - get
   - patch
   - update
+{{- end }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
