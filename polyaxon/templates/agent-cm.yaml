@@ -32,12 +32,12 @@ data:
   {{- if .Values.agent.token }}
   POLYAXON_AGENT_SECRET_NAME: {{ template "polyaxon.fullname" . }}-agent-secret
   {{- end }}
+  {{- end }}
   {{- if .Values.agent.isReplica }}
   POLYAXON_AGENT_IS_REPLICA: {{ .Values.agent.isReplica | quote }}
   {{- end }}
   {{- if .Values.agent.spawnerRefreshInterval }}
   POLYAXON_AGENT_SPAWNER_REFRESH_INTERVAL: {{ .Values.agent.spawnerRefreshInterval | quote }}
-  {{- end }}
   {{- end }}
   POLYAXON_AGENT_COMPRESSED_LOGS: {{ .Values.agent.compressedLogs | quote }}
   {{- if .Values.operator.maxConcurrentReconciles }}
