@@ -2978,10 +2978,12 @@ spec:
     storage: true
     subresources:
       status: {}
+{{- if (not .Values.operator.skipStatus) }}
 status:
   acceptedNames:
     kind: ''
     plural: ''
   conditions: []
   storedVersions: []
+{{- end }}
 {{- end }}
