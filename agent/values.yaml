@@ -188,11 +188,12 @@ cleanHooks:
 
 securityContext:
   enabled: false
-  user: 2222
-  group: 2222
-  fs: 2222
+  runAsUser: 2222
+  runAsGroup: 2222
+  fsGroup: 2222
   allowPrivilegeEscalation: false
   runAsNonRoot: true
+  fsGroupChangePolicy:
 
 nodeSelector: {}
 tolerations: []
