@@ -40,7 +40,7 @@ data:
   {{- if .Values.dns.customCluster }}
   POLYAXON_DNS_CUSTOM_CLUSTER: {{ .Values.dns.customCluster | quote }}
   {{- end }}
-  {{- if .Values.dns.POLYAXON_DNS_PREFIX }}
+  {{- if .Values.dns.prefix }}
   POLYAXON_DNS_PREFIX: {{ .Values.dns.prefix | quote }}
   {{- end }}
   # SSL
