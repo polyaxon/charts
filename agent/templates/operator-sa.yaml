@@ -104,6 +104,7 @@ rules:
   - core.polyaxon.com
   resources:
   - operations
+  - operations/finalizers
   verbs:
   - create
   - delete
