@@ -5,9 +5,6 @@
 [![GitHub](https://img.shields.io/badge/issue_tracker-github-blue?logo=github)](https://github.com/polyaxon/polyaxon/issues)
 [![GitHub](https://img.shields.io/badge/roadmap-github-blue?logo=github)](https://github.com/polyaxon/polyaxon/milestones)
 
-
-> N.B. Please create issues in the [main repo](https://github.com/polyaxon/polyaxon/issues). 
-
 # Polyaxon-charts
 
 Polyaxon charts is a set of Helm charts for creating reproducible and maintainable deployments of Polyaxon and it's components with Kubernetes.
