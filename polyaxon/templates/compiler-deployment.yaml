@@ -26,9 +26,9 @@ spec:
 {{ include "config.labels.roles.coreWorker" . | indent 8 }}
     spec:
 {{ include "securityContext.pod" . | indent 6 }}
-{{ include "config.celeryScheduling" . | indent 6 }}
 {{ include "config.agent.sa" . | indent 6 }}
-{{ include "config.imagePullSecrets" . | indent 6}}
+{{ include "config.compiler.scheduling" . | indent 6 }}
+{{ include "config.compiler.imagePullSecrets" . | indent 6}}
       containers:
       - name: {{ .Chart.Name }}-compiler
         image: "{{ .Values.compiler.image }}:{{ .Values.compiler.imageTag }}"
@@ -42,7 +42,7 @@ spec:
 {{ include "config.envFrom.proxies" . | indent 8 }}
         env:
 {{ include "config.envs" . | indent 8 }}
-{{ include "config.celery.compiler" . | indent 8 }}
+{{ include "config.compiler.celery" . | indent 8 }}
         livenessProbe:
           exec:
             command: ["/bin/bash", "./entrypoint.sh", "healthz"]

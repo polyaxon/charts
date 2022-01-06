@@ -68,6 +68,9 @@ timezone: 'UTC'
 # * agent: key
 agentSecret:
 
+# If you enable ingress, please set the gateway service type value to:
+#    * ClusterIP or NodePort (on GKE you cannot use ClusterIP)
+# Otherwise you should set it to ClusterIP (default)
 gateway:
   enabled: true
   image: polyaxon/polyaxon-gateway
@@ -89,6 +92,9 @@ gateway:
     targetPort: 8000
     nodePort: 31833
     annotations: {}
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
 
 streams:
   enabled: true
@@ -118,6 +124,90 @@ streams:
     minpods: 1
     maxpods: 4
 
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+agent:
+  token:
+  instance:
+  compressedLogs: false
+  enabled: true
+  watchCluster: false
+  image: polyaxon/polyaxon-agent
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+  # A flag to simplify configuring a replica agent on a different cluster
+  isReplica: false
+  spawnerRefreshInterval: 300
+  resources:
+    limits:
+      cpu: 500m
+      memory: 2000Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+operator:
+  enabled: true
+  skipCRD: false
+  skipStatus: false
+  leaderElection: false
+  image: polyaxon/polyaxon-operator
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+  maxConcurrentReconciles: 8
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 50Mi
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+notifier:
+  image: polyaxon/polyaxon-events-handlers
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2000Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+cleaner:
+  image: polyaxon/polyaxon-init
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2000Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+cleanHooks:
+  image: polyaxon/polyaxon-cli
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
 init:
   image: polyaxon/polyaxon-init
   imageTag: 1.14.0
@@ -144,48 +234,6 @@ sidecar:
       cpu: 100m
       memory: 100Mi
 
-agent:
-  token:
-  instance:
-  compressedLogs: false
-  enabled: true
-  watchCluster: false
-  image: polyaxon/polyaxon-agent
-  imageTag: 1.14.0
-  imagePullPolicy: IfNotPresent
-  # A flag to simplify configuring a replica agent on a different cluster
-  isReplica: false
-  spawnerRefreshInterval: 300
-  resources:
-    limits:
-      cpu: 500m
-      memory: 2000Mi
-    requests:
-      cpu: 100m
-      memory: 100Mi
-
-operator:
-  enabled: true
-  skipCRD: false
-  skipStatus: false
-  leaderElection: false
-  image: polyaxon/polyaxon-operator
-  imageTag: 1.14.0
-  imagePullPolicy: IfNotPresent
-  maxConcurrentReconciles: 8
-  resources:
-    limits:
-      cpu: 200m
-      memory: 256Mi
-    requests:
-      cpu: 100m
-      memory: 50Mi
-
-cleanHooks:
-  image: polyaxon/polyaxon-cli
-  imageTag: 1.14.0
-  imagePullPolicy: IfNotPresent
-
 securityContext:
   enabled: false
   runAsUser: 2222
@@ -195,6 +243,7 @@ securityContext:
   runAsNonRoot: true
   fsGroupChangePolicy:
 
+# Default node scheduling
 nodeSelector: {}
 tolerations: []
 affinity:

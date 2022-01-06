@@ -25,7 +25,8 @@ spec:
 {{ include "config.labels.roles.coreHelpers" . | indent 8 }}
 {{ include "config.labels.apps.pgbouncer" . | indent 8 }}
     spec:
-{{ include "config.scheduling" . | indent 6 }}
+{{ include "config.pgbouncer.scheduling" . | indent 6 }}
+{{ include "config.pgbouncer.imagePullSecrets" . | indent 6}}
       containers:
         - name: {{ .Chart.Name }}-pgbouncer
           image: "{{ .Values.externalServices.postgresql.pgbouncer.image }}:{{ .Values.externalServices.postgresql.pgbouncer.imageTag }}"

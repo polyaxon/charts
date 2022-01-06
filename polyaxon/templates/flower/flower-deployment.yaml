@@ -26,8 +26,8 @@ spec:
 {{ include "config.labels.apps.flower" . | indent 4 }}
     spec:
 {{ include "securityContext.pod" . | indent 6 }}
-{{ include "config.scheduling" . | indent 6 }}
-{{ include "config.imagePullSecrets" . | indent 6}}
+{{ include "config.flower.scheduling" . | indent 6 }}
+{{ include "config.flower.imagePullSecrets" . | indent 6}}
       containers:
       - name: {{ .Chart.Name }}-flower
         image: "{{ .Values.flower.image }}:{{ .Values.flower.imageTag }}"

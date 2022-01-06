@@ -88,6 +88,8 @@ gateway:
     nodePort: 31833
     annotations: {}
 
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
 
 api:
   enabled: true
@@ -118,6 +120,9 @@ api:
     minpods: 1
     maxpods: 4
 
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
 streams:
   enabled: true
   image: polyaxon/polyaxon-streams
@@ -126,8 +131,8 @@ streams:
   replicas: 1
   resources:
     limits:
-      cpu: 1000m
-      memory: 2000Mi
+      cpu: 2000m
+      memory: 4000Mi
     requests:
       cpu: 128m
       memory: 300Mi
@@ -145,6 +150,202 @@ streams:
     cputhreshold: 70
     minpods: 1
     maxpods: 4
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+
+agent:
+  token:
+  instance:
+  compressedLogs: false
+  enabled: false
+  watchCluster: false
+  image: polyaxon/polyaxon-agent
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+  resources:
+    limits:
+      cpu: 500m
+      memory: 2000Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+operator:
+  enabled: true
+  skipCRD: false
+  skipStatus: false
+  leaderElection: false
+  image: polyaxon/polyaxon-operator
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+  maxConcurrentReconciles: 8
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 50Mi
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+scheduler:
+  enabled: false
+  image: polyaxon/polyaxon-scheduler
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+  replicas: 1
+  concurrency: 2
+  resources:
+    limits:
+      cpu: 350m
+      memory: 350Mi
+    requests:
+      cpu: 150m
+      memory: 200Mi
+  celery: {}
+  hpa:
+    enabled: false
+    cputhreshold: 70
+    minpods: 1
+    maxpods: 4
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+compiler:
+  enabled: false
+  image:
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+  replicas: 1
+  concurrency: 2
+  resources:
+    limits:
+      cpu: 200m
+      memory: 300Mi
+    requests:
+      cpu: 130m
+      memory: 200Mi
+  celery: {}
+  hpa:
+    enabled: false
+    cputhreshold: 70
+    minpods: 1
+    maxpods: 4
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+worker:
+  enabled: false
+  image:
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+  replicas: 1
+  concurrency: 2
+  resources:
+    limits:
+      cpu: 200m
+      memory: 300Mi
+    requests:
+      cpu: 130m
+      memory: 200Mi
+  celery: {workerPrefetchMultiplier: 10}
+  hpa:
+    enabled: false
+    cputhreshold: 70
+    minpods: 1
+    maxpods: 4
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+beat:
+  enabled: false
+  image:
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+  replicas: 1
+  resources:
+    limits:
+      cpu: 50m
+      memory: 128Mi
+    requests:
+      cpu: 50m
+      memory: 128Mi
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+flower:
+  enabled: false
+  image: mher/flower
+  imageTag: latest
+  imagePullPolicy: IfNotPresent
+  replicas: 1
+  resources:
+    limits:
+      cpu: 200m
+      memory: 300Mi
+    requests:
+      cpu: 130m
+      memory: 200Mi
+
+  service:
+    name: flower
+    type: NodePort
+    port: 8888
+    targetPort: 8888
+    nodePort: 30679
+    annotations: {}
+
+notifier:
+  image: polyaxon/polyaxon-events-handlers
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2000Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+cleaner:
+  image: polyaxon/polyaxon-init
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2000Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+
+  # Use the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+
+apiHooks: {}
+
+cleanHooks:
+  image: polyaxon/polyaxon-cli
+  imageTag: 1.14.0
+  imagePullPolicy: IfNotPresent
+
+tablesHook:
+  image: polyaxon/polyaxon-tables
+  imageTag: 0.4.4
+  imagePullPolicy: IfNotPresent
 
 init:
   image: polyaxon/polyaxon-init
@@ -171,151 +372,6 @@ sidecar:
     requests:
       cpu: 100m
       memory: 100Mi
-
-agent:
-  token:
-  instance:
-  compressedLogs: false
-  enabled: false
-  watchCluster: false
-  image: polyaxon/polyaxon-agent
-  imageTag: 1.14.0
-  imagePullPolicy: IfNotPresent
-  resources:
-    limits:
-      cpu: 500m
-      memory: 2000Mi
-    requests:
-      cpu: 100m
-      memory: 100Mi
-
-operator:
-  enabled: true
-  skipCRD: false
-  skipStatus: false
-  leaderElection: false
-  image: polyaxon/polyaxon-operator
-  imageTag: 1.14.0
-  imagePullPolicy: IfNotPresent
-  maxConcurrentReconciles: 8
-  resources:
-    limits:
-      cpu: 200m
-      memory: 256Mi
-    requests:
-      cpu: 100m
-      memory: 50Mi
-
-scheduler:
-  enabled: false
-  image: polyaxon/polyaxon-scheduler
-  imageTag: 1.14.0
-  imagePullPolicy: IfNotPresent
-  replicas: 1
-  concurrency: 2
-  resources:
-    limits:
-      cpu: 350m
-      memory: 350Mi
-    requests:
-      cpu: 150m
-      memory: 200Mi
-  celery: {}
-  hpa:
-    enabled: false
-    cputhreshold: 70
-    minpods: 1
-    maxpods: 4
-
-compiler:
-  enabled: false
-  image:
-  imageTag: 1.14.0
-  imagePullPolicy: IfNotPresent
-  replicas: 1
-  concurrency: 2
-  resources:
-    limits:
-      cpu: 200m
-      memory: 300Mi
-    requests:
-      cpu: 130m
-      memory: 200Mi
-  celery: {}
-  hpa:
-    enabled: false
-    cputhreshold: 70
-    minpods: 1
-    maxpods: 4
-
-worker:
-  enabled: false
-  image:
-  imageTag: 1.14.0
-  imagePullPolicy: IfNotPresent
-  replicas: 1
-  concurrency: 2
-  resources:
-    limits:
-      cpu: 200m
-      memory: 300Mi
-    requests:
-      cpu: 130m
-      memory: 200Mi
-  celery: {workerPrefetchMultiplier: 10}
-  hpa:
-    enabled: false
-    cputhreshold: 70
-    minpods: 1
-    maxpods: 4
-
-beat:
-  enabled: false
-  image:
-  imageTag: 1.14.0
-  imagePullPolicy: IfNotPresent
-  replicas: 1
-  resources:
-    limits:
-      cpu: 50m
-      memory: 128Mi
-    requests:
-      cpu: 50m
-      memory: 128Mi
-
-flower:
-  enabled: false
-  image: mher/flower
-  imageTag: latest
-  imagePullPolicy: IfNotPresent
-  replicas: 1
-  resources:
-    limits:
-      cpu: 200m
-      memory: 300Mi
-    requests:
-      cpu: 130m
-      memory: 200Mi
-
-  service:
-    name: flower
-    type: NodePort
-    port: 8888
-    targetPort: 8888
-    nodePort: 30679
-    annotations: {}
-
-apiHooks: {}
-
-cleanHooks:
-  image: polyaxon/polyaxon-cli
-  imageTag: 1.14.0
-  imagePullPolicy: IfNotPresent
-
-tablesHook:
-  image: polyaxon/polyaxon-tables
-  imageTag: 0.4.4
-  imagePullPolicy: IfNotPresent
 
 externalServices:
   postgresql:

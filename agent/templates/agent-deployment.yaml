@@ -26,9 +26,9 @@ spec:
 {{ include "config.labels.roles.coreWorker" . | indent 8 }}
     spec:
 {{ include "securityContext.pod" . | indent 6 }}
-{{ include "config.scheduling" . | indent 6 }}
+{{ include "config.agent.scheduling" . | indent 6 }}
 {{ include "config.agent.sa" . | indent 6 }}
-{{ include "config.imagePullSecrets" . | indent 6}}
+{{ include "config.agent.imagePullSecrets" . | indent 6}}
       containers:
       - name: {{ .Chart.Name }}-agent
         image: "{{ .Values.agent.image }}:{{ .Values.agent.imageTag }}"

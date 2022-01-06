@@ -24,3 +24,61 @@ checksum/proxies-config: {{ include (print $.Template.BasePath "/proxies-cm.yaml
 checksum/agent-secrets: {{ include (print $.Template.BasePath "/agent-secrets.yaml") . | sha256sum }}
 {{- end }}
 {{- end -}}
+
+{{- /*
+service account
+*/}}
+{{- define "config.agent.sa" -}}
+{{- if and .Values.rbac.enabled (or .Values.agent.enabled (not .Values.organizationKey)) }}
+serviceAccountName: {{ template "polyaxon.fullname" . }}-agent-sa
+{{- end }}
+{{- end -}}
+
+{{- /*
+Config agent scheduling
+*/}}
+{{- define "config.agent.scheduling" -}}
+{{- if .Values.agent.nodeSelector }}
+nodeSelector:
+{{ toYaml .Values.agent.nodeSelector | indent 2}}
+{{- else }}
+{{- if .Values.nodeSelector }}
+nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 2}}
+{{- end }}
+{{- end }}
+{{- if .Values.agent.affinity }}
+affinity:
+{{ toYaml .Values.agent.affinity | indent 2 }}
+{{- else }}
+{{- if .Values.affinity }}
+affinity:
+{{ toYaml .Values.affinity | indent 2 }}
+{{- end }}
+{{- end }}
+{{- if .Values.agent.tolerations }}
+tolerations:
+{{ toYaml .Values.agent.tolerations | indent 2 }}
+{{- else }}
+{{- if .Values.tolerations }}
+tolerations:
+{{ toYaml .Values.tolerations | indent 2 }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.agent.imagePullSecrets" -}}
+{{- if .Values.agent.imagePullSecrets }}
+imagePullSecrets:
+{{- range .Values.agent.imagePullSecrets }}
+  - name: {{ . }}
+{{- end }}
+{{- else }}
+{{- if .Values.imagePullSecrets }}
+imagePullSecrets:
+{{- range .Values.imagePullSecrets }}
+  - name: {{ . }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end -}}

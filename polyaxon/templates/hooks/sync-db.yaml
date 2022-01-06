@@ -20,8 +20,8 @@ spec:
         app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-sync-db
     spec:
 {{ include "securityContext.pod" . | indent 6 }}
-{{ include "config.scheduling" . | indent 6 }}
-{{ include "config.imagePullSecrets" . | indent 6}}
+{{ include "config.api.scheduling" . | indent 6 }}
+{{ include "config.api.imagePullSecrets" . | indent 6}}
       restartPolicy: Never
       activeDeadlineSeconds: 900
       containers:

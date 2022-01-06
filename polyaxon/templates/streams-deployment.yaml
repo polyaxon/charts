@@ -26,9 +26,9 @@ spec:
 {{ include "config.labels.roles.coreApi" . | indent 8 }}
     spec:
 {{ include "securityContext.pod" . | indent 6 }}
-{{ include "config.scheduling" . | indent 6 }}
 {{ include "config.agent.sa" . | indent 6 }}
-{{ include "config.imagePullSecrets" . | indent 6}}
+{{ include "config.streams.scheduling" . | indent 6 }}
+{{ include "config.streams.imagePullSecrets" . | indent 6}}
       containers:
       - name: {{ .Chart.Name }}-streams
         image: "{{ .Values.streams.image }}:{{ .Values.streams.imageTag }}"

@@ -1,7 +1,7 @@
 {{- /*
 Worker celery config
 */}}
-{{- define "config.celery.worker" -}}
+{{- define "config.worker.celery" -}}
 {{- if .Values.worker.celery.taskTrackStarted }}
 - name: POLYAXON_CELERY_TASK_TRACK_STARTED
   value: {{ .Values.worker.celery.taskTrackStarted | quote }}
@@ -29,5 +29,54 @@ Worker celery config
 {{- if .Values.worker.celery.taskAlwaysEager }}
 - name: POLYAXON_CELERY_TASK_ALWAYS_EAGER
   value: {{ .Values.worker.celery.taskAlwaysEager | quote }}
+{{- end }}
+{{- end -}}
+
+{{- /*
+Config worker scheduling
+*/}}
+{{- define "config.worker.scheduling" -}}
+{{- if .Values.worker.nodeSelector }}
+nodeSelector:
+{{ toYaml .Values.worker.nodeSelector | indent 2}}
+{{- else }}
+{{- if .Values.nodeSelector }}
+nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 2}}
+{{- end }}
+{{- end }}
+{{- if .Values.worker.affinity }}
+affinity:
+{{ toYaml .Values.worker.affinity | indent 2 }}
+{{- else }}
+{{- if .Values.affinity }}
+affinity:
+{{ toYaml .Values.affinity | indent 2 }}
+{{- end }}
+{{- end }}
+{{- if .Values.worker.tolerations }}
+tolerations:
+{{ toYaml .Values.worker.tolerations | indent 2 }}
+{{- else }}
+{{- if .Values.tolerations }}
+tolerations:
+{{ toYaml .Values.tolerations | indent 2 }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.worker.imagePullSecrets" -}}
+{{- if .Values.worker.imagePullSecrets }}
+imagePullSecrets:
+{{- range .Values.worker.imagePullSecrets }}
+  - name: {{ . }}
+{{- end }}
+{{- else }}
+{{- if .Values.imagePullSecrets }}
+imagePullSecrets:
+{{- range .Values.imagePullSecrets }}
+  - name: {{ . }}
+{{- end }}
+{{- end }}
 {{- end }}
 {{- end -}}

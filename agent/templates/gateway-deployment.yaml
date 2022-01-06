@@ -28,8 +28,8 @@ spec:
 {{ include "config.labels.apps.gateway" . | indent 8 }}
     spec:
 {{ include "securityContext.pod" . | indent 6 }}
-{{ include "config.scheduling" . | indent 6 }}
-{{ include "config.imagePullSecrets" . | indent 6}}
+{{ include "config.gateway.scheduling" . | indent 6 }}
+{{ include "config.gateway.imagePullSecrets" . | indent 6}}
       containers:
       - name: {{ .Chart.Name }}-gateway
         image: "{{ .Values.gateway.image }}:{{ .Values.gateway.imageTag }}"
