@@ -1,4 +1,4 @@
 image: polyaxon/training-operator
-imageTag: 1.13
+imageTag: 1.14
 skipCRD: false
 skipStatus: false
