@@ -11905,6 +11905,8 @@ spec:
             type: object
           serviceSpec:
             properties:
+              isExternal:
+                type: boolean
               ports:
                 items:
                   format: int32
