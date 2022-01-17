@@ -1,0 +1,18 @@
+{{- if .Values.gateway.hpa.enabled -}}
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ template "polyaxon.fullname" . }}-gateway
+  labels:
+{{ include "config.labels.common" . | indent 4 }}
+{{ include "config.labels.roles.coreApi" . | indent 4 }}
+{{ include "config.labels.apps.gateway" . | indent 4 }}
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    apiVersion: apps/v1
+    name: {{ template "polyaxon.fullname" . }}-gateway
+  minReplicas: {{ .Values.gateway.hpa.minpods }}
+  maxReplicas: {{ .Values.gateway.hpa.maxpods }}
+  targetCPUUtilizationPercentage: {{ .Values.gateway.hpa.cputhreshold }}
+{{- end }}

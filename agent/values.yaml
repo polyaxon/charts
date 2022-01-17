@@ -93,6 +93,12 @@ gateway:
     nodePort: 31833
     annotations: {}
 
+  hpa:
+    enabled: false
+    cputhreshold: 70
+    minpods: 1
+    maxpods: 4
+
   # Use the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
 
