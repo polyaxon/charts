@@ -42,6 +42,49 @@ $ helm repo update
 
 ### TFJob/PytorchJob/MXJob/XGBoostJob/MPIJob
 
+To install the distributed training jobs:
+
 ```bash
-helm install plxtf polyaxon/trainingjobs --namespace=polyaxon
+helm install plxtj polyaxon/trainingjobs --namespace=polyaxon
 ```
+
+## Deploying Polyaxon Agent to a Kubernetes namespace
+
+The agent chart can be installed on a single node or on a multi-node cluster,
+in which case you need to provide a volume with `ReadWriteMany` or a cloud bucket for the artifacts store.
+
+For more information, please visit the docs for the [agent deployment](https://polyaxon.com/docs/setup/agent/).
+
+## Deploying Polyaxon to a Kubernetes namespace
+
+This platform chart can be installed on a single node or on a multi-node cluster,
+in which case you need to provide a volume with `ReadWriteMany` or a cloud bucket for the artifacts store.
+
+For more information, please visit the docs for the [platform deployment](https://polyaxon.com/docs/setup/platform/).
+
+The platform chart bootstraps a [Polyaxon](https://polyaxon.com) deployment on
+a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+
+It also packages a postgres dependency for Polyaxon (we recommend that you bring your own postgres instance instead of using the built-in subchart):
+
+ * [PostgreSQL](https://github.com/kubernetes/charts/tree/master/stable/postgresql)
+ 
+If you deploy the scheduler or deploy our enterprise version you will need Redis (we recommend that you bring your own postgres instance instead of using the built-in subchart):
+
+ * [Redis](https://github.com/kubernetes/charts/tree/master/stable/redis)
+
+## Uninstalling the Chart
+
+To uninstall/delete the `<RELEASE_NAME>` deployment:
+
+```bash
+$ helm delete <RELEASE_NAME>
+```
+
+or with `--purge` flag
+
+```bash
+$ helm delete <RELEASE_NAME> --purge
+```
+
+The command removes all the Kubernetes components associated with the chart and deletes the release.
