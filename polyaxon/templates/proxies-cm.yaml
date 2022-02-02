@@ -96,7 +96,7 @@ data:
   POLYAXON_PROXY_FORWARD_PROXY_HOST: {{ .Values.proxy.host | quote }}
   {{- end -}}
   {{- if .Values.proxy.type }}
-  POLYAXON_PROXY_FORWARD_PROXY_TYPE: {{ .Values.proxy.type | quote }}
+  POLYAXON_PROXY_FORWARD_PROXY_KIND: {{ .Values.proxy.kind | quote }}
   {{- end -}}
   {{- if .Values.proxy.httpsProxy }}
   HTTPS_PROXY: {{ .Values.proxy.httpsProxy | quote }}

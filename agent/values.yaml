@@ -17,7 +17,7 @@ proxy:
   # noProxy:
   # host:
   # port:
-  # type: transparent or connect
+  # kind: transparent or connect
 auth:
   enabled: true
 
