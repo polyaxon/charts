@@ -10,6 +10,14 @@ externalServices:
   gateway: {}
   api: {}
 
+proxy:
+  enabled: false
+  # httpsProxy:
+  # httpProxy:
+  # noProxy:
+  # host:
+  # port:
+  # type: transparent or connect
 auth:
   enabled: true
 

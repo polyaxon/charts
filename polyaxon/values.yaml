@@ -675,6 +675,7 @@ intervals:  # in seconds
   operationsMaxRetryDelay: 3600
   compatibilityCheck: 1800
 
+proxy: {}
 auth: {}
 
 istio: {}
