@@ -87,3 +87,27 @@ data:
   {{- if .Values.istio.timeout }}
   POLYAXON_ISTIO_TIMEOUT: {{ .Values.istio.timeout  | quote }}
   {{- end }}
+  {{- if .Values.proxy.enabled }}
+  POLYAXON_PROXY_HAS_FORWARD_PROXY: {{ .Values.proxy.enabled | quote }}
+  {{- if .Values.proxy.port }}
+  POLYAXON_PROXY_FORWARD_PROXY_PORT: {{ .Values.proxy.port | quote }}
+  {{- end -}}
+  {{- if .Values.proxy.host }}
+  POLYAXON_PROXY_FORWARD_PROXY_HOST: {{ .Values.proxy.host | quote }}
+  {{- end -}}
+  {{- if .Values.proxy.type }}
+  POLYAXON_PROXY_FORWARD_PROXY_TYPE: {{ .Values.proxy.type | quote }}
+  {{- end -}}
+  {{- if .Values.proxy.httpsProxy }}
+  HTTPS_PROXY: {{ .Values.proxy.httpsProxy | quote }}
+  https_proxy: {{ .Values.proxy.httpsProxy | quote }}
+  {{- end -}}
+  {{- if .Values.proxy.httpProxy }}
+  HTTP_PROXY: {{ .Values.proxy.httpProxy | quote }}
+  http_proxy: {{ .Values.proxy.httpProxy | quote }}
+  {{- end -}}
+  {{- if .Values.proxy.noProxy }}
+  NO_PROXY: {{ .Values.proxy.noProxy | quote }}
+  no_proxy: {{ .Values.proxy.noProxy | quote }}
+  {{- end -}}
+  {{- end }}
