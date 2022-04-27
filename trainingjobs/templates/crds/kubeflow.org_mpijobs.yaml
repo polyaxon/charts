@@ -2965,6 +2965,29 @@ spec:
                     failed:
                       format: int32
                       type: integer
+                    labelSelector:
+                      properties:
+                        matchExpressions:
+                          items:
+                            properties:
+                              key:
+                                type: string
+                              operator:
+                                type: string
+                              values:
+                                items:
+                                  type: string
+                                type: array
+                            required:
+                            - key
+                            - operator
+                            type: object
+                          type: array
+                        matchLabels:
+                          additionalProperties:
+                            type: string
+                          type: object
+                      type: object
                     succeeded:
                       format: int32
                       type: integer
@@ -2982,7 +3005,7 @@ spec:
     storage: true
     subresources:
       status: {}
-{{- if (not .Values.operator.skipStatus) }}
+{{- if (not .Values.skipStatus) }}
 status:
   acceptedNames:
     kind: ''
