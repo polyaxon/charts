@@ -2,3 +2,10 @@ image: polyaxon/training-operator
 imageTag: 1.15
 skipCRD: false
 skipStatus: false
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 50Mi
