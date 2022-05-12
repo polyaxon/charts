@@ -93,6 +93,7 @@ spec:
               '--dir=/cloudsql',
               '-instances={{ .Values.externalServices.postgresql.host }}',
               '-credential_file=/secrets/cloudsql/credentials.json',
+              '-verbose=false',
             ]
           volumeMounts:
             - name: cloudsql-credentials
