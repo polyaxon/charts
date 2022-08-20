@@ -9,6 +9,7 @@ rbac:
 ingress:
   enabled: false
   backend: gateway
+  className: ""
   hostName:
   # Default path is `/`
   path:
@@ -262,7 +263,7 @@ worker:
     requests:
       cpu: 130m
       memory: 200Mi
-  celery: {workerPrefetchMultiplier: 10}
+  celery: { workerPrefetchMultiplier: 10 }
   hpa:
     enabled: false
     cputhreshold: 70
@@ -458,15 +459,15 @@ postgresql:
     affinity:
       podAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          podAffinityTerm:
-            labelSelector:
-              matchExpressions:
-              - key: type
-                operator: In
-                values:
-                - "polyaxon-core"
-            topologyKey: "kubernetes.io/hostname"
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                  - key: type
+                    operator: In
+                    values:
+                      - "polyaxon-core"
+              topologyKey: "kubernetes.io/hostname"
 
 redis:
   # Whether to deploy a redis server in-cluster.
@@ -477,9 +478,9 @@ redis:
   usePassword: false
   password:
   image:
-#    repository: redis
+    #    repository: redis
     tag: 5.0.4
-#  password: polyaxon
+  #  password: polyaxon
   port: 6379
   master:
     persistence:
@@ -491,10 +492,10 @@ redis:
           podAffinityTerm:
             labelSelector:
               matchExpressions:
-              - key: type
-                operator: In
-                values:
-                - "polyaxon-core"
+                - key: type
+                  operator: In
+                  values:
+                    - "polyaxon-core"
             topologyKey: "kubernetes.io/hostname"
 
 rabbitmq-ha:
@@ -517,12 +518,11 @@ rabbitmq-ha:
           podAffinityTerm:
             labelSelector:
               matchExpressions:
-              - key: type
-                operator: In
-                values:
-                - "polyaxon-core"
+                - key: type
+                  operator: In
+                  values:
+                    - "polyaxon-core"
             topologyKey: "kubernetes.io/hostname"
-
 
 ## Prometheus Exporter / Metrics
 metrics:
@@ -589,7 +589,7 @@ metrics:
 defaultArtifactsStore:
   name: default-artifacts-store
   kind: host_path
-  schema: {"hostPath": "/tmp/artifactsStore", "mountPath": "/artifactsStore"}
+  schema: { "hostPath": "/tmp/artifactsStore", "mountPath": "/artifactsStore" }
 
 artifactsStore:
 connections: []
@@ -603,7 +603,7 @@ user:
   password: "rootpassword"
 
 # Time zone
-timezone: 'UTC'
+timezone: "UTC"
 encryptionSecret:
 
 # Include helm chart release revision
@@ -645,10 +645,10 @@ affinity:
         podAffinityTerm:
           labelSelector:
             matchExpressions:
-            - key: type
-              operator: In
-              values:
-              - "polyaxon-core"
+              - key: type
+                operator: In
+                values:
+                  - "polyaxon-core"
           topologyKey: "kubernetes.io/hostname"
 
 passwordLength: 8
@@ -669,7 +669,7 @@ email:
 #  - 127.0.0.1
 #  - 159.203.150.212
 
-intervals:  # in seconds
+intervals: # in seconds
   runsScheduler: 15
   operationsDefaultRetryDelay: 60
   operationsMaxRetryDelay: 3600
