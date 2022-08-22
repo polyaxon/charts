@@ -24,6 +24,7 @@ auth:
 ingress:
   enabled: false
   backend: gateway
+  className: ""
   hostName:
   # Default path is `/`
   path:
@@ -69,7 +70,7 @@ ssl: {}
 dns: {}
 
 # Time zone
-timezone: 'UTC'
+timezone: "UTC"
 
 # To provide a secret name with all passwords and api keys instead of using the config.yaml deployment file
 # possible values:
@@ -267,10 +268,10 @@ affinity:
         podAffinityTerm:
           labelSelector:
             matchExpressions:
-            - key: type
-              operator: In
-              values:
-              - "polyaxon-core"
+              - key: type
+                operator: In
+                values:
+                  - "polyaxon-core"
           topologyKey: "kubernetes.io/hostname"
 
 imagePullSecrets: []
@@ -281,7 +282,7 @@ imagePullSecrets: []
 defaultArtifactsStore:
   name: default-artifacts-store
   kind: host_path
-  schema: {"hostPath": "/tmp/artifactsStore", "mountPath": "/artifactsStore"}
+  schema: { "hostPath": "/tmp/artifactsStore", "mountPath": "/artifactsStore" }
 
 artifactsStore:
 connections: []
