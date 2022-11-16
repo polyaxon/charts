@@ -63,10 +63,3 @@ Config labels apps gateway
 {{- define "config.labels.apps.gateway" -}}
 app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-gateway
 {{- end -}}
-
-{{- /*
-Config labels apps streams
-*/}}
-{{- define "config.labels.apps.streams" -}}
-app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-streams
-{{- end -}}

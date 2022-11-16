@@ -52,7 +52,7 @@ spec:
                   key: POLYAXON_DB_PASSWORD
                 {{- else }}
                   name: {{ template "polyaxon.fullname" . }}-postgresql-secret
-                  key: postgresql-password
+                  key: postgres-password
                 {{- end }}
             - name: MAX_CLIENT_CONN
               value: {{ .Values.externalServices.postgresql.pgbouncer.maxClientConn | default "500" | quote }}

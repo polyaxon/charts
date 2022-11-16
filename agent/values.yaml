@@ -9,6 +9,7 @@ rbac:
 externalServices:
   gateway: {}
   api: {}
+  streams: {}
 
 proxy:
   enabled: false
@@ -82,39 +83,8 @@ agentSecret:
 # Otherwise you should set it to ClusterIP (default)
 gateway:
   enabled: true
-  image: polyaxon/polyaxon-gateway
-  imageTag: 1.20.0
-  imagePullPolicy: IfNotPresent
-  replicas: 1
-  resources:
-    limits:
-      cpu: 500m
-      memory: 2000Mi
-    requests:
-      cpu: 100m
-      memory: 50Mi
-
-  service:
-    name: gateway
-    type: ClusterIP
-    port: 80
-    targetPort: 8000
-    nodePort: 31833
-    annotations: {}
-
-  hpa:
-    enabled: false
-    cputhreshold: 70
-    minpods: 1
-    maxpods: 4
-
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
-
-streams:
-  enabled: true
   image: polyaxon/polyaxon-streams
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -126,7 +96,7 @@ streams:
       memory: 300Mi
 
   service:
-    name: streams
+    name: gateway
     type: ClusterIP
     port: 80
     targetPort: 8000
@@ -139,8 +109,13 @@ streams:
     minpods: 1
     maxpods: 4
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+
+  # This service is only routing the gateway and reverse proxying external services
+  routes:
+    gateway: true
+    streams: true
 
 agent:
   token:
@@ -149,7 +124,7 @@ agent:
   enabled: true
   watchCluster: false
   image: polyaxon/polyaxon-agent
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   # A flag to simplify configuring a replica agent on a different cluster
   isReplica: false
@@ -162,8 +137,8 @@ agent:
       cpu: 100m
       memory: 100Mi
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 operator:
   enabled: true
@@ -171,7 +146,7 @@ operator:
   skipStatus: false
   leaderElection: false
   image: polyaxon/polyaxon-operator
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   maxConcurrentReconciles: 8
   resources:
@@ -182,12 +157,12 @@ operator:
       cpu: 100m
       memory: 50Mi
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 notifier:
   image: polyaxon/polyaxon-events-handlers
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -197,12 +172,12 @@ notifier:
       cpu: 100m
       memory: 100Mi
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 cleaner:
   image: polyaxon/polyaxon-init
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -212,20 +187,20 @@ cleaner:
       cpu: 100m
       memory: 100Mi
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 cleanHooks:
   image: polyaxon/polyaxon-cli
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 init:
   image: polyaxon/polyaxon-init
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -237,7 +212,7 @@ init:
 
 sidecar:
   image: polyaxon/polyaxon-sidecar
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   sleepInterval: 10
   syncInterval: 10

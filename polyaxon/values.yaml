@@ -59,50 +59,19 @@ dns: {}
 platformSecret:
 agentSecret:
 
-# If scheduler is enabled a broker must be set options: redis | rabbitmq, default: rabbitmq
-# If broker == rabbitmq: rabbitmq-ha or external rabbitmq must be enabled
+# If scheduler is enabled a broker must be set options: redis | rabbitmq, default: redis
+# If broker == rabbitmq: rabbitmq or external rabbitmq must be enabled
 # If broker == redis: redis or external redis must be enabled
-broker: rabbitmq
+broker: redis
 
 # If you enable ingress, please set the gateway service type value to:
 #    * ClusterIP or NodePort (on GKE you cannot use ClusterIP)
 # Otherwise you should set it to ClusterIP (default)
 gateway:
   enabled: true
-  image: polyaxon/polyaxon-gateway
-  imageTag: 1.20.0
-  imagePullPolicy: IfNotPresent
-  replicas: 1
-  resources:
-    limits:
-      cpu: 500m
-      memory: 2000Mi
-    requests:
-      cpu: 100m
-      memory: 50Mi
-
-  service:
-    name: gateway
-    type: ClusterIP
-    port: 80
-    targetPort: 8000
-    nodePort: 31833
-    annotations: {}
-
-  hpa:
-    enabled: false
-    cputhreshold: 70
-    minpods: 1
-    maxpods: 4
-
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
-
-api:
-  enabled: true
   useResolver: true
   image: polyaxon/polyaxon-api
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -114,7 +83,7 @@ api:
       memory: 300Mi
 
   service:
-    name: api
+    name: gateway
     type: ClusterIP
     port: 80
     targetPort: 8000
@@ -127,39 +96,14 @@ api:
     minpods: 1
     maxpods: 4
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
-
-streams:
-  enabled: true
-  image: polyaxon/polyaxon-streams
-  imageTag: 1.20.0
-  imagePullPolicy: IfNotPresent
-  replicas: 1
-  resources:
-    limits:
-      cpu: 2000m
-      memory: 4000Mi
-    requests:
-      cpu: 128m
-      memory: 300Mi
-
-  service:
-    name: streams
-    type: ClusterIP
-    port: 80
-    targetPort: 8000
-    nodePort: 31822
-    annotations: {}
-
-  hpa:
-    enabled: false
-    cputhreshold: 70
-    minpods: 1
-    maxpods: 4
-
-  # Use the default node scheduling
+  # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+
+  # This service is only routing the gateway and reverse proxying external services
+  routes:
+    gateway: true
+    api: true
+    streams: true
 
 agent:
   token:
@@ -168,7 +112,7 @@ agent:
   enabled: false
   watchCluster: false
   image: polyaxon/polyaxon-agent
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -178,8 +122,8 @@ agent:
       cpu: 100m
       memory: 100Mi
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 operator:
   enabled: true
@@ -187,7 +131,7 @@ operator:
   skipStatus: false
   leaderElection: false
   image: polyaxon/polyaxon-operator
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   maxConcurrentReconciles: 8
   resources:
@@ -198,13 +142,13 @@ operator:
       cpu: 100m
       memory: 50Mi
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 scheduler:
   enabled: false
   image: polyaxon/polyaxon-scheduler
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
@@ -222,13 +166,13 @@ scheduler:
     minpods: 1
     maxpods: 4
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 compiler:
   enabled: false
   image:
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
@@ -246,13 +190,13 @@ compiler:
     minpods: 1
     maxpods: 4
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 worker:
   enabled: false
   image:
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
@@ -270,13 +214,13 @@ worker:
     minpods: 1
     maxpods: 4
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 beat:
   enabled: false
   image:
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -287,8 +231,8 @@ beat:
       cpu: 50m
       memory: 128Mi
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 flower:
   enabled: false
@@ -314,7 +258,7 @@ flower:
 
 notifier:
   image: polyaxon/polyaxon-events-handlers
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -324,12 +268,12 @@ notifier:
       cpu: 100m
       memory: 100Mi
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 cleaner:
   image: polyaxon/polyaxon-init
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -339,24 +283,19 @@ cleaner:
       cpu: 100m
       memory: 100Mi
 
-  # Use the default node scheduling
-  # To customize node scheduling, you can set nodeSelector, tolerations, affinity, imagePullSecrets
+  # Uses the default node scheduling
+  # To customize node scheduling, you can set nodeSelector, tolerations, affinity
 
 apiHooks: {}
 
 cleanHooks:
   image: polyaxon/polyaxon-cli
-  imageTag: 1.20.0
-  imagePullPolicy: IfNotPresent
-
-tablesHook:
-  image: polyaxon/polyaxon-tables
-  imageTag: 0.4.4
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
 
 init:
   image: polyaxon/polyaxon-init
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -368,7 +307,7 @@ init:
 
 sidecar:
   image: polyaxon/polyaxon-sidecar
-  imageTag: 1.20.0
+  imageTag: 1.21.0-rc6
   imagePullPolicy: IfNotPresent
   sleepInterval: 10
   syncInterval: 10
@@ -403,6 +342,7 @@ externalServices:
 
   gateway: {}
   api: {}
+  streams: {}
   allowedVersions: []
 
   metrics:
@@ -449,9 +389,17 @@ postgresql:
   #  * configure external postgresql required attributes in services.postgresql
   enabled: true
   connMaxAge: 60
-  postgresqlUsername: polyaxon
-  postgresqlPassword: polyaxon
-  postgresqlDatabase: polyaxon
+  auth:
+    enablePostgresUser: true
+    username: polyaxon
+    password: polyaxon
+    database: polyaxon
+    postgresPassword: polyaxon
+    existingSecret: ""
+  architecture: standalone
+  service:
+    ports:
+      postgresql: 5432
   persistence:
     enabled: false
     size: 2Gi
@@ -476,11 +424,12 @@ redis:
   #  * configure external redis required attributes in services.redis
   enabled: false
   usePassword: false
-  password:
-  image:
-    #    repository: redis
-    tag: 5.0.4
-  #  password: polyaxon
+  auth:
+    enabled: false
+    password: polyaxon
+  # image:
+  #   repository: redis
+  #   tag: 5.0.4
   port: 6379
   master:
     persistence:
@@ -498,7 +447,7 @@ redis:
                     - "polyaxon-core"
             topologyKey: "kubernetes.io/hostname"
 
-rabbitmq-ha:
+rabbitmq:
   # Whether to deploy a rabbitmq server in-cluster.
   # To use an external rabbitmq instance:
   #  * set enabled to False, to disable the in-cluster deployment
@@ -559,7 +508,7 @@ metrics:
   tolerations: []
   affinity: {}
   # schedulerName:
-  # Optional extra labels for pod, i.e. redis-client: "true"
+  # Optional extra labels for pod, i.e. metrics: "true"
   # podLabels: []
   service:
     type: ClusterIP
@@ -577,9 +526,9 @@ metrics:
     # namespace: monitoring
     # fallback to the prometheus default unless specified
     # interval: 10s
-    ## Defaults to what's used if you follow CoreOS [Prometheus Install Instructions](https://github.com/helm/charts/tree/master/stable/prometheus-operator#tldr)
-    ## [Prometheus Selector Label](https://github.com/helm/charts/tree/master/stable/prometheus-operator#prometheus-operator-1)
-    ## [Kube Prometheus Selector Label](https://github.com/helm/charts/tree/master/stable/prometheus-operator#exporters)
+    ## Defaults to what's used if you follow CoreOS [Prometheus Install Instructions](https://github.com/bitnami/charts/tree/main/bitnami/prometheus-operator#tldr)
+    ## [Prometheus Selector Label](https://github.com/bitnami/charts/tree/main/bitnami/prometheus-operator#prometheus-operator-1)
+    ## [Kube Prometheus Selector Label](https://github.com/bitnami/charts/tree/main/bitnami/prometheus-operator#exporters)
     selector:
       prometheus: kube-prometheus
 

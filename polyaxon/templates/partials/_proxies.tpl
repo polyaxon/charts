@@ -7,82 +7,164 @@ Proxies envFrom
 {{- end -}}
 
 {{- /*
-Proxies apis
+Proxies hosts
 */}}
-{{- define "gateway.host" -}}
-{{- if .Values.gateway.enabled }}
-{{- template "polyaxon.fullname" . }}-gateway
-{{- else if .Values.externalServices.gateway.host }}
+{{- define "proxies.gateway.host" -}}
+{{- if .Values.externalServices.gateway.host }}
 {{- .Values.externalServices.gateway.host }}
 {{- else }}
-{{- printf "localhost" -}}
+{{- template "polyaxon.fullname" . }}-gateway
 {{- end }}
 {{- end -}}
 
-{{- define "gateway.port" -}}
-{{- if .Values.gateway.enabled }}
-{{- default 80 .Values.gateway.service.port -}}
-{{- else if .Values.externalServices.gateway.port }}
+{{- define "proxies.gateway.port" -}}
+{{- if .Values.externalServices.gateway.host }}
 {{- default 443 .Values.externalServices.gateway.port }}
 {{- else }}
-{{- printf "80" -}}
+{{- default 80 .Values.gateway.service.port -}}
 {{- end }}
 {{- end -}}
 
-{{- define "gateway.targetPort" -}}
+{{- define "proxies.gateway.targetPort" -}}
+{{- if .Values.externalServices.gateway.host }}
+{{- default 443 .Values.externalServices.gateway.port }}
+{{- else }}
 {{- default 8000 .Values.gateway.service.targetPort -}}
+{{- end }}
 {{- end -}}
 
-{{- define "gateway.scheme" -}}
-{{- if .Values.gateway.enabled }}
-{{- printf "http" -}}
-{{- else if eq (default 443 .Values.externalServices.gateway.port) 443 }}
+{{- define "proxies.gateway.useResolver" -}}
+{{- if .Values.externalServices.gateway.host }}
+{{- default "false" .Values.externalServices.gateway.useResolver -}}
+{{- else }}
+{{- default "false" .Values.gateway.useResolver -}}
+{{- end }}
+{{- end -}}
+
+{{- define "proxies.gateway.scheme" -}}
+{{- if .Values.externalServices.gateway.host }}
+{{- if eq ((default 443 .Values.externalServices.gateway.port) | toString) "443" }}
 {{- printf "https" -}}
 {{- else }}
 {{- printf "http" -}}
 {{- end }}
+{{- else }}
+{{- if eq ((default 80 .Values.gateway.service.port) | toString) "443" }}
+{{- printf "https" -}}
+{{- else }}
+{{- printf "http" -}}
+{{- end }}
+{{- end }}
 {{- end -}}
 
 {{- define "proxies.api.host" -}}
-{{- if .Values.api.enabled }}
-{{- template "polyaxon.fullname" . }}-api
-{{- else }}
+{{- if .Values.externalServices.api.host }}
 {{- .Values.externalServices.api.host }}
+{{- else }}
+{{- template "polyaxon.fullname" . }}-gateway
 {{- end }}
 {{- end -}}
 
 {{- define "proxies.api.port" -}}
-{{- if .Values.api.enabled }}
-{{- default 80 .Values.api.service.port -}}
-{{- else }}
+{{- if .Values.externalServices.api.host }}
 {{- default 443 .Values.externalServices.api.port }}
+{{- else }}
+{{- default 80 .Values.gateway.service.port -}}
 {{- end }}
 {{- end -}}
 
 {{- define "proxies.api.targetPort" -}}
-{{- if .Values.api.enabled }}
-{{- default 8000 .Values.api.service.targetPort -}}
+{{- if .Values.externalServices.api.host }}
+{{- default 443 .Values.externalServices.api.port }}
 {{- else }}
-{{- default 443 }}
+{{- default 8000 .Values.gateway.service.targetPort -}}
 {{- end }}
 {{- end -}}
 
 {{- define "proxies.api.useResolver" -}}
-{{- if .Values.api.enabled }}
-{{- default "false" .Values.api.useResolver -}}
-{{- else }}
+{{- if .Values.externalServices.api.host }}
 {{- default "false" .Values.externalServices.api.useResolver -}}
+{{- else }}
+{{- default "false" .Values.gateway.useResolver -}}
+{{- end }}
+{{- end -}}
+
+{{- define "proxies.api.scheme" -}}
+{{- if .Values.externalServices.api.host }}
+{{- if eq ((default 443 .Values.externalServices.api.port) | toString) "443" }}
+{{- printf "https" -}}
+{{- else }}
+{{- printf "http" -}}
+{{- end }}
+{{- else }}
+{{- if eq ((default 80 .Values.gateway.service.port) | toString) "443" }}
+{{- printf "https" -}}
+{{- else }}
+{{- printf "http" -}}
+{{- end }}
 {{- end }}
 {{- end -}}
 
 {{- define "proxies.streams.host" -}}
-{{- template "polyaxon.fullname" . }}-streams
+{{- if .Values.externalServices.streams.host }}
+{{- .Values.externalServices.streams.host }}
+{{- else }}
+{{- template "polyaxon.fullname" . }}-gateway
+{{- end }}
+{{- .Values.externalServices.streams.host }}
 {{- end -}}
 
 {{- define "proxies.streams.port" -}}
-{{- default 80 .Values.streams.service.port -}}
+{{- if .Values.externalServices.streams.host }}
+{{- default 443 .Values.externalServices.streams.port }}
+{{- else }}
+{{- default 80 .Values.gateway.service.port -}}
+{{- end }}
 {{- end -}}
 
 {{- define "proxies.streams.targetPort" -}}
-{{- default 8000 .Values.streams.service.targetPort -}}
+{{- if .Values.externalServices.streams.host }}
+{{- default 443 .Values.externalServices.streams.port }}
+{{- else }}
+{{- default 8000 .Values.gateway.service.targetPort -}}
+{{- end }}
+{{- end -}}
+
+{{- define "proxies.streams.useResolver" -}}
+{{- if .Values.externalServices.streams.host }}
+{{- default "false" .Values.externalServices.streams.useResolver -}}
+{{- else }}
+{{- default "false" .Values.gateway.useResolver -}}
+{{- end }}
+{{- end -}}
+
+{{- define "proxies.streams.scheme" -}}
+{{- if .Values.externalServices.streams.host }}
+{{- if eq ((default 443 .Values.externalServices.streams.port) | toString) "443" }}
+{{- printf "https" -}}
+{{- else }}
+{{- printf "http" -}}
+{{- end }}
+{{- else }}
+{{- if eq ((default 80 .Values.gateway.service.port) | toString) "443" }}
+{{- printf "https" -}}
+{{- else }}
+{{- printf "http" -}}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- /*
+Proxy Host
+*/}}
+{{- define "proxies.host" -}}
+{{- if .Values.gateway.routes.gateway -}}
+"{{ template "proxies.gateway.scheme" . }}://{{ template "proxies.gateway.host" . }}:{{ template "proxies.gateway.port" . }}"
+{{- else if .Values.gateway.routes.api -}}
+"{{ template "proxies.api.scheme" . }}://{{ template "proxies.api.host" . }}:{{ template "proxies.api.port" . }}"
+{{- else if .Values.gateway.routes.streams -}}
+"{{ template "proxies.streams.scheme" . }}://{{ template "proxies.streams.host" . }}:{{ template "proxies.streams.port" . }}"
+{{- else -}}
+localhost
+{{- end -}}
 {{- end -}}

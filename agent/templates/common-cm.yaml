@@ -9,19 +9,7 @@ metadata:
 data:
   # Cluster
   POLYAXON_DEPLOYMENT_TYPE: {{ default "kubernetes" .Values.deploymentType | quote }}
-  {{- if .Values.ingress.enabled }}
-  POLYAXON_PLATFORM_HOST: {{ .Values.ingress.hostName | quote }}
-  {{- else }}
-  {{- if .Values.hostName }}
-  POLYAXON_PLATFORM_HOST: {{ .Values.hostName | quote }}
-  {{- else }}
-  {{- if eq .Values.gateway.service.type "NodePort" }}
-  POLYAXON_PLATFORM_HOST: http://{{ template "polyaxon.fullname" . }}-gateway:{{ .Values.gateway.service.nodePort }}
-  {{- else }}
-  POLYAXON_PLATFORM_HOST: http://{{ template "polyaxon.fullname" . }}-gateway:{{ .Values.gateway.service.port }}
-  {{- end }}
-  {{- end }}
-  {{- end }}
+  POLYAXON_PLATFORM_HOST: {{ template "config.platformHost" . }}
   POLYAXON_K8S_NAMESPACE: {{ .Release.Namespace | quote }}
   POLYAXON_K8S_APP_SECRET_NAME: {{ template "config.platformSecret" . }}
   POLYAXON_LOG_LEVEL: {{ default "WARNING" .Values.logLevel | quote }}

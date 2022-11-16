@@ -15,7 +15,7 @@
 
 {{- define "pgsql.port" -}}
 {{- if .Values.postgresql.enabled -}}
-{{- default 5432 .Values.postgresql.service.port -}}
+{{- default 5432 .Values.postgresql.service.ports.postgresql -}}
 {{- else }}
 {{- default 5432 .Values.externalServices.postgresql.port }}
 {{- end }}
@@ -23,7 +23,7 @@
 
 {{- define "pgsql.user" -}}
 {{- if .Values.postgresql.enabled -}}
-{{- default "polyaxon" .Values.postgresql.postgresqlUsername -}}
+{{- default "polyaxon" .Values.postgresql.auth.username -}}
 {{- else }}
 {{- default "polyaxon" .Values.externalServices.postgresql.user }}
 {{- end }}
@@ -31,7 +31,7 @@
 
 {{- define "pgsql.database" -}}
 {{- if .Values.postgresql.enabled -}}
-{{- default "polyaxon" .Values.postgresql.postgresqlDatabase -}}
+{{- default "polyaxon" .Values.postgresql.auth.database -}}
 {{- else }}
 {{- default "polyaxon" .Values.externalServices.postgresql.database }}
 {{- end }}

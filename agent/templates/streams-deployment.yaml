@@ -1,4 +1,3 @@
-{{- if .Values.streams.enabled -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -7,35 +6,35 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 {{ include "config.checksum.agent" . | indent 4 }}
   labels:
-{{ include "config.labels.apps.streams" . | indent 4 }}
+{{ include "config.labels.apps.gateway" . | indent 4 }}
 {{ include "config.labels.common" . | indent 4 }}
 {{ include "config.labels.roles.coreApi" . | indent 4 }}
 spec:
-  replicas: {{ .Values.streams.replicas }}
+  replicas: {{ .Values.gateway.replicas }}
   selector:
     matchLabels:
-{{ include "config.labels.apps.streams" . | indent 6 }}
+{{ include "config.labels.apps.gateway" . | indent 6 }}
   template:
     metadata:
       annotations:
         chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 {{ include "config.checksum.agent" . | indent 8 }}
       labels:
-{{ include "config.labels.apps.streams" . | indent 8 }}
+{{ include "config.labels.apps.gateway" . | indent 8 }}
 {{ include "config.labels.common" . | indent 8 }}
 {{ include "config.labels.roles.coreApi" . | indent 8 }}
     spec:
 {{ include "securityContext.pod" . | indent 6 }}
 {{ include "config.agent.sa" . | indent 6 }}
-{{ include "config.streams.scheduling" . | indent 6 }}
-{{ include "config.streams.imagePullSecrets" . | indent 6}}
+{{ include "config.gateway.scheduling" . | indent 6 }}
+{{ include "config.gateway.imagePullSecrets" . | indent 6}}
       containers:
       - name: {{ .Chart.Name }}-streams
-        image: "{{ .Values.streams.image }}:{{ .Values.streams.imageTag }}"
-        imagePullPolicy: {{ .Values.streams.imagePullPolicy }}
+        image: "{{ .Values.gateway.image }}:{{ .Values.gateway.imageTag }}"
+        imagePullPolicy: {{ .Values.gateway.imagePullPolicy }}
 {{ include "securityContext.container" . | indent 8 }}
         ports:
-        - containerPort: {{ .Values.streams.service.targetPort }}
+        - containerPort: {{ .Values.gateway.service.targetPort }}
         envFrom:
 {{ include "config.envFrom.common" . | indent 8 }}
 {{ include "config.envFrom.agent" . | indent 8 }}
@@ -48,8 +47,8 @@ spec:
         livenessProbe:
           httpGet:
             path: /healthz/
-            port: {{ .Values.streams.service.targetPort }}
-            scheme: {{ .Values.streams.service.scheme | default "HTTP" }}
+            port: {{ .Values.gateway.service.targetPort }}
+            scheme: {{ .Values.gateway.service.scheme | default "HTTP" }}
             {{- if .Values.allowedHosts }}
             httpHeaders:
               - name: Host
@@ -63,8 +62,8 @@ spec:
         readinessProbe:
           httpGet:
             path: /healthz/
-            port: {{ .Values.streams.service.targetPort }}
-            scheme: {{ .Values.streams.service.scheme | default "HTTP" }}
+            port: {{ .Values.gateway.service.targetPort }}
+            scheme: {{ .Values.gateway.service.scheme | default "HTTP" }}
             {{- if .Values.allowedHosts }}
             httpHeaders:
               - name: Host
@@ -77,11 +76,10 @@ spec:
           timeoutSeconds: 2
         resources:
           requests:
-{{ toYaml .Values.streams.resources.requests | indent 12 }}
+{{ toYaml .Values.gateway.resources.requests | indent 12 }}
           {{- if .Values.limitResources }}
           limits:
-{{ toYaml .Values.streams.resources.limits | indent 12 }}
+{{ toYaml .Values.gateway.resources.limits | indent 12 }}
           {{- end }}
       volumes:
 {{ include "config.artifactsStore.volume" . | indent 6}}
-{{- end }}

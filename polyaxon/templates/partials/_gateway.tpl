@@ -46,3 +46,11 @@ imagePullSecrets:
 {{- end }}
 {{- end }}
 {{- end -}}
+
+{{- define "config.gateway.platformHost" -}}
+{{- if eq .Values.gateway.service.type "NodePort" -}}
+http://{{ template "polyaxon.fullname" . }}-gateway:{{ .Values.gateway.service.nodePort }}
+{{- else -}}
+http://{{ template "polyaxon.fullname" . }}-gateway:{{ .Values.gateway.service.port }}
+{{- end -}}
+{{- end -}}

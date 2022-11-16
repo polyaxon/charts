@@ -8,17 +8,15 @@ metadata:
 {{ include "config.labels.roles.coreConfig" . | indent 4 }}
 data:
   # Cluster
-  POLYAXON_HOST: "{{ template "gateway.scheme" . }}://{{ template "gateway.host" . }}:{{ template "gateway.port" . }}"
-  {{- if .Values.gateway.enabled }}
-  POLYAXON_PROXY_GATEWAY_PORT: "{{ template "gateway.port" . }}"
-  POLYAXON_PROXY_GATEWAY_TARGET_PORT: "{{ template "gateway.targetPort" . }}"
-  POLYAXON_PROXY_GATEWAY_HOST: {{ template "gateway.host" . }}
-  {{- end }}
-  {{- if .Values.streams.enabled }}
+  POLYAXON_HOST: {{ template "proxies.host" . }}
+  POLYAXON_PROXY_GATEWAY_PORT: "{{ template "proxies.gateway.port" . }}"
+  POLYAXON_PROXY_GATEWAY_TARGET_PORT: "{{ template "proxies.gateway.targetPort" . }}"
+  POLYAXON_PROXY_GATEWAY_HOST: {{ template "proxies.gateway.host" . }}
+  POLYAXON_PROXY_GATEWAY_USE_RESOLVER: "{{ template "proxies.gateway.useResolver" . }}"
   POLYAXON_PROXY_STREAMS_PORT: "{{ template "proxies.streams.port" . }}"
   POLYAXON_PROXY_STREAMS_TARGET_PORT: "{{ template "proxies.streams.targetPort" . }}"
   POLYAXON_PROXY_STREAMS_HOST: {{ template "proxies.streams.host" . }}
-  {{- end }}
+  POLYAXON_PROXY_STREAMS_USE_RESOLVER: "{{ template "proxies.streams.useResolver" . }}"
   POLYAXON_PROXY_API_PORT: "{{ template "proxies.api.port" . }}"
   POLYAXON_PROXY_API_TARGET_PORT: "{{ template "proxies.api.targetPort" . }}"
   POLYAXON_PROXY_API_HOST: {{ template "proxies.api.host" . }}

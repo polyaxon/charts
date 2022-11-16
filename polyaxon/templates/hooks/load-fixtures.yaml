@@ -21,8 +21,8 @@ spec:
         app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-load-fixtures
     spec:
 {{ include "securityContext.pod" . | indent 6 }}
-{{ include "config.api.scheduling" . | indent 6 }}
-{{ include "config.api.imagePullSecrets" . | indent 6}}
+{{ include "config.gateway.scheduling" . | indent 6 }}
+{{ include "config.gateway.imagePullSecrets" . | indent 6}}
       restartPolicy: Never
       activeDeadlineSeconds: 360
       containers:

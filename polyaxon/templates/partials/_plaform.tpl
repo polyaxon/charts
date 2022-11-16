@@ -32,14 +32,14 @@ secrets config
 */}}
 {{- define "config.envs" -}}
 {{- if not .Values.platformSecret }}
-{{- if (index .Values "rabbitmq-ha").enabled }}
+{{- if .Values.rabbitmq.enabled }}
 - name: POLYAXON_RABBITMQ_PASSWORD
   valueFrom:
     secretKeyRef:
       name: {{ template "rabbitmq.fullname" . }}
       key: rabbitmq-password
 {{- end }}
-{{- if and (not (index .Values "rabbitmq-ha").enabled) .Values.scheduler.enabled (eq .Values.broker "rabbitmq") }}
+{{- if and (not .Values.rabbitmq.enabled) .Values.scheduler.enabled (eq .Values.broker "rabbitmq") }}
 - name: POLYAXON_RABBITMQ_PASSWORD
   valueFrom:
     secretKeyRef:
@@ -68,7 +68,7 @@ secrets config
 {{- else }}
       name: {{ template "polyaxon.fullname" . }}-postgresql-secret
 {{- end }}
-      key: postgresql-password
+      key: postgres-password
 {{- end }}
 {{- end -}}
 

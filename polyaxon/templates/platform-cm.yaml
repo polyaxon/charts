@@ -58,6 +58,7 @@ data:
   POLYAXON_DB_NAME: {{ template "pgsql.database" . }}
   POLYAXON_DB_PORT: "{{ template "pgsql.port" . }}"
   POLYAXON_DB_CONN_MAX_AGE: "{{ template "pgsql.connMaxAge" . }}"
+  POLYAXON_DB_ENGINE: "pgsql"
   POLYAXON_DB_HOST: "{{ template "pgsql.host" . }}"
   {{- if .Values.externalServices.postgresql.options }}
   POLYAXON_DB_OPTIONS: {{ toJson .Values.externalServices.postgresql.options | quote }}
