@@ -25,7 +25,6 @@ jobs:
       - uses: helm/kind-action@v1.2.0
       - name: generate
         run: |
-          helm repo add stable https://charts.helm.sh/stable
           helm repo add bitnami https://charts.bitnami.com/bitnami
           helm dependency build polyaxon
           helm dependency build agent

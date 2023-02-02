@@ -27,7 +27,7 @@ postgresql:
 
 broker: rabbitmq
 
-rabbitmq-ha:
+rabbitmq:
   enabled: true
   resources:
     requests:
