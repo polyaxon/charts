@@ -18,11 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        config: [test-config1, test-config2, test-config3]
+        config: [default, test-config1, test-config2, test-config3]
     steps:
       - uses: actions/checkout@v3
       - uses: azure/setup-helm@v2.1
-      - uses: helm/kind-action@v1.2.0
+      - uses: helm/kind-action@v1.4.0
       - name: generate
         run: |
           helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -36,6 +36,6 @@ jobs:
           KUBEBUILDER_CONTROLPLANE_START_TIMEOUT: 600s
         run: |
           export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
-          pip3 install -U polyaxon
+          pip3 install -r ci/master-requirements.txt
           polyaxon admin deploy -f ci/${{ matrix.config }}.yml --manager-path=./polyaxon
           polyaxon admin teardown
