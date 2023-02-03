@@ -43,7 +43,9 @@ data:
   POLYAXON_REDIS_HEARTBEAT_URL: {{ template "redis.host" . }}:{{ template "redis.port" . }}/3
   POLYAXON_REDIS_HOST: "{{ template "redis.host" . }}"
   POLYAXON_REDIS_PORT: "{{ template "redis.port" . }}"
-  {{- else }}
+  {{- end }}
+  {{- if eq .Values.broker "rabbitmq" }}
+  POLYAXON_BROKER_BACKEND: {{ .Values.broker }}
   POLYAXON_AMQP_URL: "{{ template "rabbitmq.host" . }}:{{ template "rabbitmq.port" . }}"
   POLYAXON_RABBITMQ_USER: "{{ template "rabbitmq.user" . }}"
   {{- end }}

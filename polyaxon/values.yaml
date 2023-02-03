@@ -453,9 +453,13 @@ rabbitmq:
   #  * set enabled to False, to disable the in-cluster deployment
   #  * configure external rabbitmq required attributes in services.rabbitmq
   enabled: false
+  auth:
+    username: polyaxon
+    password: polyaxon
+    securePassword: true
+  service:
+    port: 5672
   replicaCount: 1
-  rabbitmqUsername: polyaxon
-  rabbitmqPassword: polyaxon
   resources:
     requests:
       memory: 256Mi

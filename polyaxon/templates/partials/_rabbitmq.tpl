@@ -13,7 +13,7 @@
 
 {{- define "rabbitmq.port" -}}
 {{- if .Values.rabbitmq.enabled }}
-{{- default 5672 .Values.rabbitmq.port -}}
+{{- default 5672 .Values.rabbitmq.service.port -}}
 {{- else }}
 {{- default 5672 .Values.externalServices.rabbitmq.port }}
 {{- end }}
@@ -21,7 +21,7 @@
 
 {{- define "rabbitmq.user" -}}
 {{- if .Values.rabbitmq.enabled }}
-{{- default "" .Values.rabbitmq.rabbitmqUsername -}}
+{{- default "" .Values.rabbitmq.auth.username -}}
 {{- else }}
 {{- default "" .Values.externalServices.rabbitmq.user }}
 {{- end }}
