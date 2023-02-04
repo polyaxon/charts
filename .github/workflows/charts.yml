@@ -10,7 +10,7 @@ jobs:
       - name: Fetch history
         run: git fetch --prune --unshallow
       - name: Run chart-testing (lint)
-        uses: helm/chart-testing-action@v2.2.1
+        uses: helm/chart-testing-action@v2.3.1
         with:
           command: lint
           config: ci/ct.yaml
@@ -21,7 +21,7 @@ jobs:
         config: [default, test-config1, test-config2] # TODO: re-enable amqp config test: test-config3
     steps:
       - uses: actions/checkout@v3
-      - uses: azure/setup-helm@v2.1
+      - uses: azure/setup-helm@v3.5
       - uses: helm/kind-action@v1.5.0
       - name: generate
         run: |
