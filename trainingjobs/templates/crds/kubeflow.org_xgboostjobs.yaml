@@ -4,7 +4,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.6.0
+    controller-gen.kubebuilder.io/version: v0.10.0
   creationTimestamp: null
   name: xgboostjobs.kubeflow.org
 spec:
@@ -62,6 +62,9 @@ spec:
                         type: string
                       queue:
                         type: string
+                      scheduleTimeoutSeconds:
+                        format: int32
+                        type: integer
                     type: object
                   ttlSecondsAfterFinished:
                     format: int32
@@ -143,6 +146,7 @@ spec:
                                                   type: object
                                                 type: array
                                             type: object
+                                            x-kubernetes-map-type: atomic
                                           weight:
                                             format: int32
                                             type: integer
@@ -189,10 +193,12 @@ spec:
                                                   type: object
                                                 type: array
                                             type: object
+                                            x-kubernetes-map-type: atomic
                                           type: array
                                       required:
                                       - nodeSelectorTerms
                                       type: object
+                                      x-kubernetes-map-type: atomic
                                   type: object
                                 podAffinity:
                                   properties:
@@ -224,6 +230,31 @@ spec:
                                                       type: string
                                                     type: object
                                                 type: object
+                                                x-kubernetes-map-type: atomic
+                                              namespaceSelector:
+                                                properties:
+                                                  matchExpressions:
+                                                    items:
+                                                      properties:
+                                                        key:
+                                                          type: string
+                                                        operator:
+                                                          type: string
+                                                        values:
+                                                          items:
+                                                            type: string
+                                                          type: array
+                                                      required:
+                                                      - key
+                                                      - operator
+                                                      type: object
+                                                    type: array
+                                                  matchLabels:
+                                                    additionalProperties:
+                                                      type: string
+                                                    type: object
+                                                type: object
+                                                x-kubernetes-map-type: atomic
                                               namespaces:
                                                 items:
                                                   type: string
@@ -267,6 +298,31 @@ spec:
                                                   type: string
                                                 type: object
                                             type: object
+                                            x-kubernetes-map-type: atomic
+                                          namespaceSelector:
+                                            properties:
+                                              matchExpressions:
+                                                items:
+                                                  properties:
+                                                    key:
+                                                      type: string
+                                                    operator:
+                                                      type: string
+                                                    values:
+                                                      items:
+                                                        type: string
+                                                      type: array
+                                                  required:
+                                                  - key
+                                                  - operator
+                                                  type: object
+                                                type: array
+                                              matchLabels:
+                                                additionalProperties:
+                                                  type: string
+                                                type: object
+                                            type: object
+                                            x-kubernetes-map-type: atomic
                                           namespaces:
                                             items:
                                               type: string
@@ -308,6 +364,31 @@ spec:
                                                       type: string
                                                     type: object
                                                 type: object
+                                                x-kubernetes-map-type: atomic
+                                              namespaceSelector:
+                                                properties:
+                                                  matchExpressions:
+                                                    items:
+                                                      properties:
+                                                        key:
+                                                          type: string
+                                                        operator:
+                                                          type: string
+                                                        values:
+                                                          items:
+                                                            type: string
+                                                          type: array
+                                                      required:
+                                                      - key
+                                                      - operator
+                                                      type: object
+                                                    type: array
+                                                  matchLabels:
+                                                    additionalProperties:
+                                                      type: string
+                                                    type: object
+                                                type: object
+                                                x-kubernetes-map-type: atomic
                                               namespaces:
                                                 items:
                                                   type: string
@@ -351,6 +432,31 @@ spec:
                                                   type: string
                                                 type: object
                                             type: object
+                                            x-kubernetes-map-type: atomic
+                                          namespaceSelector:
+                                            properties:
+                                              matchExpressions:
+                                                items:
+                                                  properties:
+                                                    key:
+                                                      type: string
+                                                    operator:
+                                                      type: string
+                                                    values:
+                                                      items:
+                                                        type: string
+                                                      type: array
+                                                  required:
+                                                  - key
+                                                  - operator
+                                                  type: object
+                                                type: array
+                                              matchLabels:
+                                                additionalProperties:
+                                                  type: string
+                                                type: object
+                                            type: object
+                                            x-kubernetes-map-type: atomic
                                           namespaces:
                                             items:
                                               type: string
@@ -396,6 +502,7 @@ spec:
                                               required:
                                               - key
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                             fieldRef:
                                               properties:
                                                 apiVersion:
@@ -405,6 +512,7 @@ spec:
                                               required:
                                               - fieldPath
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                             resourceFieldRef:
                                               properties:
                                                 containerName:
@@ -420,6 +528,7 @@ spec:
                                               required:
                                               - resource
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                             secretKeyRef:
                                               properties:
                                                 key:
@@ -431,6 +540,7 @@ spec:
                                               required:
                                               - key
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                           type: object
                                       required:
                                       - name
@@ -446,6 +556,7 @@ spec:
                                             optional:
                                               type: boolean
                                           type: object
+                                          x-kubernetes-map-type: atomic
                                         prefix:
                                           type: string
                                         secretRef:
@@ -455,6 +566,7 @@ spec:
                                             optional:
                                               type: boolean
                                           type: object
+                                          x-kubernetes-map-type: atomic
                                       type: object
                                     type: array
                                   image:
@@ -576,6 +688,16 @@ spec:
                                       failureThreshold:
                                         format: int32
                                         type: integer
+                                      grpc:
+                                        properties:
+                                          port:
+                                            format: int32
+                                            type: integer
+                                          service:
+                                            type: string
+                                        required:
+                                        - port
+                                        type: object
                                       httpGet:
                                         properties:
                                           host:
@@ -625,6 +747,9 @@ spec:
                                         required:
                                         - port
                                         type: object
+                                      terminationGracePeriodSeconds:
+                                        format: int64
+                                        type: integer
                                       timeoutSeconds:
                                         format: int32
                                         type: integer
@@ -667,6 +792,16 @@ spec:
                                       failureThreshold:
                                         format: int32
                                         type: integer
+                                      grpc:
+                                        properties:
+                                          port:
+                                            format: int32
+                                            type: integer
+                                          service:
+                                            type: string
+                                        required:
+                                        - port
+                                        type: object
                                       httpGet:
                                         properties:
                                           host:
@@ -716,6 +851,9 @@ spec:
                                         required:
                                         - port
                                         type: object
+                                      terminationGracePeriodSeconds:
+                                        format: int64
+                                        type: integer
                                       timeoutSeconds:
                                         format: int32
                                         type: integer
@@ -794,6 +932,8 @@ spec:
                                             type: string
                                           gmsaCredentialSpecName:
                                             type: string
+                                          hostProcess:
+                                            type: boolean
                                           runAsUserName:
                                             type: string
                                         type: object
@@ -810,6 +950,16 @@ spec:
                                       failureThreshold:
                                         format: int32
                                         type: integer
+                                      grpc:
+                                        properties:
+                                          port:
+                                            format: int32
+                                            type: integer
+                                          service:
+                                            type: string
+                                        required:
+                                        - port
+                                        type: object
                                       httpGet:
                                         properties:
                                           host:
@@ -859,6 +1009,9 @@ spec:
                                         required:
                                         - port
                                         type: object
+                                      terminationGracePeriodSeconds:
+                                        format: int64
+                                        type: integer
                                       timeoutSeconds:
                                         format: int32
                                         type: integer
@@ -966,6 +1119,7 @@ spec:
                                               required:
                                               - key
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                             fieldRef:
                                               properties:
                                                 apiVersion:
@@ -975,6 +1129,7 @@ spec:
                                               required:
                                               - fieldPath
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                             resourceFieldRef:
                                               properties:
                                                 containerName:
@@ -990,6 +1145,7 @@ spec:
                                               required:
                                               - resource
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                             secretKeyRef:
                                               properties:
                                                 key:
@@ -1001,6 +1157,7 @@ spec:
                                               required:
                                               - key
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                           type: object
                                       required:
                                       - name
@@ -1016,6 +1173,7 @@ spec:
                                             optional:
                                               type: boolean
                                           type: object
+                                          x-kubernetes-map-type: atomic
                                         prefix:
                                           type: string
                                         secretRef:
@@ -1025,6 +1183,7 @@ spec:
                                             optional:
                                               type: boolean
                                           type: object
+                                          x-kubernetes-map-type: atomic
                                       type: object
                                     type: array
                                   image:
@@ -1146,6 +1305,16 @@ spec:
                                       failureThreshold:
                                         format: int32
                                         type: integer
+                                      grpc:
+                                        properties:
+                                          port:
+                                            format: int32
+                                            type: integer
+                                          service:
+                                            type: string
+                                        required:
+                                        - port
+                                        type: object
                                       httpGet:
                                         properties:
                                           host:
@@ -1195,6 +1364,9 @@ spec:
                                         required:
                                         - port
                                         type: object
+                                      terminationGracePeriodSeconds:
+                                        format: int64
+                                        type: integer
                                       timeoutSeconds:
                                         format: int32
                                         type: integer
@@ -1221,6 +1393,10 @@ spec:
                                       - containerPort
                                       type: object
                                     type: array
+                                    x-kubernetes-list-map-keys:
+                                    - containerPort
+                                    - protocol
+                                    x-kubernetes-list-type: map
                                   readinessProbe:
                                     properties:
                                       exec:
@@ -1233,6 +1409,16 @@ spec:
                                       failureThreshold:
                                         format: int32
                                         type: integer
+                                      grpc:
+                                        properties:
+                                          port:
+                                            format: int32
+                                            type: integer
+                                          service:
+                                            type: string
+                                        required:
+                                        - port
+                                        type: object
                                       httpGet:
                                         properties:
                                           host:
@@ -1282,6 +1468,9 @@ spec:
                                         required:
                                         - port
                                         type: object
+                                      terminationGracePeriodSeconds:
+                                        format: int64
+                                        type: integer
                                       timeoutSeconds:
                                         format: int32
                                         type: integer
@@ -1360,6 +1549,8 @@ spec:
                                             type: string
                                           gmsaCredentialSpecName:
                                             type: string
+                                          hostProcess:
+                                            type: boolean
                                           runAsUserName:
                                             type: string
                                         type: object
@@ -1376,6 +1567,16 @@ spec:
                                       failureThreshold:
                                         format: int32
                                         type: integer
+                                      grpc:
+                                        properties:
+                                          port:
+                                            format: int32
+                                            type: integer
+                                          service:
+                                            type: string
+                                        required:
+                                        - port
+                                        type: object
                                       httpGet:
                                         properties:
                                           host:
@@ -1425,6 +1626,9 @@ spec:
                                         required:
                                         - port
                                         type: object
+                                      terminationGracePeriodSeconds:
+                                        format: int64
+                                        type: integer
                                       timeoutSeconds:
                                         format: int32
                                         type: integer
@@ -1496,6 +1700,8 @@ spec:
                               type: boolean
                             hostPID:
                               type: boolean
+                            hostUsers:
+                              type: boolean
                             hostname:
                               type: string
                             imagePullSecrets:
@@ -1504,6 +1710,7 @@ spec:
                                   name:
                                     type: string
                                 type: object
+                                x-kubernetes-map-type: atomic
                               type: array
                             initContainers:
                               items:
@@ -1536,6 +1743,7 @@ spec:
                                               required:
                                               - key
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                             fieldRef:
                                               properties:
                                                 apiVersion:
@@ -1545,6 +1753,7 @@ spec:
                                               required:
                                               - fieldPath
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                             resourceFieldRef:
                                               properties:
                                                 containerName:
@@ -1560,6 +1769,7 @@ spec:
                                               required:
                                               - resource
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                             secretKeyRef:
                                               properties:
                                                 key:
@@ -1571,6 +1781,7 @@ spec:
                                               required:
                                               - key
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                           type: object
                                       required:
                                       - name
@@ -1586,6 +1797,7 @@ spec:
                                             optional:
                                               type: boolean
                                           type: object
+                                          x-kubernetes-map-type: atomic
                                         prefix:
                                           type: string
                                         secretRef:
@@ -1595,6 +1807,7 @@ spec:
                                             optional:
                                               type: boolean
                                           type: object
+                                          x-kubernetes-map-type: atomic
                                       type: object
                                     type: array
                                   image:
@@ -1716,6 +1929,16 @@ spec:
                                       failureThreshold:
                                         format: int32
                                         type: integer
+                                      grpc:
+                                        properties:
+                                          port:
+                                            format: int32
+                                            type: integer
+                                          service:
+                                            type: string
+                                        required:
+                                        - port
+                                        type: object
                                       httpGet:
                                         properties:
                                           host:
@@ -1765,6 +1988,9 @@ spec:
                                         required:
                                         - port
                                         type: object
+                                      terminationGracePeriodSeconds:
+                                        format: int64
+                                        type: integer
                                       timeoutSeconds:
                                         format: int32
                                         type: integer
@@ -1807,6 +2033,16 @@ spec:
                                       failureThreshold:
                                         format: int32
                                         type: integer
+                                      grpc:
+                                        properties:
+                                          port:
+                                            format: int32
+                                            type: integer
+                                          service:
+                                            type: string
+                                        required:
+                                        - port
+                                        type: object
                                       httpGet:
                                         properties:
                                           host:
@@ -1856,6 +2092,9 @@ spec:
                                         required:
                                         - port
                                         type: object
+                                      terminationGracePeriodSeconds:
+                                        format: int64
+                                        type: integer
                                       timeoutSeconds:
                                         format: int32
                                         type: integer
@@ -1934,6 +2173,8 @@ spec:
                                             type: string
                                           gmsaCredentialSpecName:
                                             type: string
+                                          hostProcess:
+                                            type: boolean
                                           runAsUserName:
                                             type: string
                                         type: object
@@ -1950,6 +2191,16 @@ spec:
                                       failureThreshold:
                                         format: int32
                                         type: integer
+                                      grpc:
+                                        properties:
+                                          port:
+                                            format: int32
+                                            type: integer
+                                          service:
+                                            type: string
+                                        required:
+                                        - port
+                                        type: object
                                       httpGet:
                                         properties:
                                           host:
@@ -1999,6 +2250,9 @@ spec:
                                         required:
                                         - port
                                         type: object
+                                      terminationGracePeriodSeconds:
+                                        format: int64
+                                        type: integer
                                       timeoutSeconds:
                                         format: int32
                                         type: integer
@@ -2056,6 +2310,14 @@ spec:
                             nodeSelector:
                               additionalProperties:
                                 type: string
+                              type: object
+                              x-kubernetes-map-type: atomic
+                            os:
+                              properties:
+                                name:
+                                  type: string
+                              required:
+                              - name
                               type: object
                             overhead:
                               additionalProperties:
@@ -2145,6 +2407,8 @@ spec:
                                       type: string
                                     gmsaCredentialSpecName:
                                       type: string
+                                    hostProcess:
+                                      type: boolean
                                     runAsUserName:
                                       type: string
                                   type: object
@@ -2204,9 +2468,22 @@ spec:
                                           type: string
                                         type: object
                                     type: object
+                                    x-kubernetes-map-type: atomic
+                                  matchLabelKeys:
+                                    items:
+                                      type: string
+                                    type: array
+                                    x-kubernetes-list-type: atomic
                                   maxSkew:
                                     format: int32
                                     type: integer
+                                  minDomains:
+                                    format: int32
+                                    type: integer
+                                  nodeAffinityPolicy:
+                                    type: string
+                                  nodeTaintsPolicy:
+                                    type: string
                                   topologyKey:
                                     type: string
                                   whenUnsatisfiable:
@@ -2285,6 +2562,7 @@ spec:
                                           name:
                                             type: string
                                         type: object
+                                        x-kubernetes-map-type: atomic
                                       user:
                                         type: string
                                     required:
@@ -2301,6 +2579,7 @@ spec:
                                           name:
                                             type: string
                                         type: object
+                                        x-kubernetes-map-type: atomic
                                       volumeID:
                                         type: string
                                     required:
@@ -2331,6 +2610,7 @@ spec:
                                       optional:
                                         type: boolean
                                     type: object
+                                    x-kubernetes-map-type: atomic
                                   csi:
                                     properties:
                                       driver:
@@ -2342,6 +2622,7 @@ spec:
                                           name:
                                             type: string
                                         type: object
+                                        x-kubernetes-map-type: atomic
                                       readOnly:
                                         type: boolean
                                       volumeAttributes:
@@ -2368,6 +2649,7 @@ spec:
                                               required:
                                               - fieldPath
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                             mode:
                                               format: int32
                                               type: integer
@@ -2388,6 +2670,7 @@ spec:
                                               required:
                                               - resource
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                           required:
                                           - path
                                           type: object
@@ -2406,8 +2689,6 @@ spec:
                                     type: object
                                   ephemeral:
                                     properties:
-                                      readOnly:
-                                        type: boolean
                                       volumeClaimTemplate:
                                         properties:
                                           metadata:
@@ -2447,6 +2728,20 @@ spec:
                                                 - kind
                                                 - name
                                                 type: object
+                                                x-kubernetes-map-type: atomic
+                                              dataSourceRef:
+                                                properties:
+                                                  apiGroup:
+                                                    type: string
+                                                  kind:
+                                                    type: string
+                                                  name:
+                                                    type: string
+                                                required:
+                                                - kind
+                                                - name
+                                                type: object
+                                                x-kubernetes-map-type: atomic
                                               resources:
                                                 properties:
                                                   limits:
@@ -2489,6 +2784,7 @@ spec:
                                                       type: string
                                                     type: object
                                                 type: object
+                                                x-kubernetes-map-type: atomic
                                               storageClassName:
                                                 type: string
                                               volumeMode:
@@ -2535,6 +2831,7 @@ spec:
                                           name:
                                             type: string
                                         type: object
+                                        x-kubernetes-map-type: atomic
                                     required:
                                     - driver
                                     type: object
@@ -2619,6 +2916,7 @@ spec:
                                           name:
                                             type: string
                                         type: object
+                                        x-kubernetes-map-type: atomic
                                       targetPortal:
                                         type: string
                                     required:
@@ -2699,6 +2997,7 @@ spec:
                                                 optional:
                                                   type: boolean
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                             downwardAPI:
                                               properties:
                                                 items:
@@ -2713,6 +3012,7 @@ spec:
                                                         required:
                                                         - fieldPath
                                                         type: object
+                                                        x-kubernetes-map-type: atomic
                                                       mode:
                                                         format: int32
                                                         type: integer
@@ -2733,6 +3033,7 @@ spec:
                                                         required:
                                                         - resource
                                                         type: object
+                                                        x-kubernetes-map-type: atomic
                                                     required:
                                                     - path
                                                     type: object
@@ -2760,6 +3061,7 @@ spec:
                                                 optional:
                                                   type: boolean
                                               type: object
+                                              x-kubernetes-map-type: atomic
                                             serviceAccountToken:
                                               properties:
                                                 audience:
@@ -2774,8 +3076,6 @@ spec:
                                               type: object
                                           type: object
                                         type: array
-                                    required:
-                                    - sources
                                     type: object
                                   quobyte:
                                     properties:
@@ -2816,6 +3116,7 @@ spec:
                                           name:
                                             type: string
                                         type: object
+                                        x-kubernetes-map-type: atomic
                                       user:
                                         type: string
                                     required:
@@ -2837,6 +3138,7 @@ spec:
                                           name:
                                             type: string
                                         type: object
+                                        x-kubernetes-map-type: atomic
                                       sslEnabled:
                                         type: boolean
                                       storageMode:
@@ -2888,6 +3190,7 @@ spec:
                                           name:
                                             type: string
                                         type: object
+                                        x-kubernetes-map-type: atomic
                                       volumeName:
                                         type: string
                                       volumeNamespace:
@@ -2981,6 +3284,9 @@ spec:
                             type: string
                           type: object
                       type: object
+                      x-kubernetes-map-type: atomic
+                    selector:
+                      type: string
                     succeeded:
                       format: int32
                       type: integer
@@ -2998,12 +3304,4 @@ spec:
     storage: true
     subresources:
       status: {}
-{{- if (not .Values.skipStatus) }}
-status:
-  acceptedNames:
-    kind: ''
-    plural: ''
-  conditions: []
-  storedVersions: []
-{{- end }}
 {{- end }}

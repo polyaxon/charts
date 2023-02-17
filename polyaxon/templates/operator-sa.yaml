@@ -165,6 +165,28 @@ rules:
   - patch
   - update
 {{- end }}
+{{- if .Values.operators.paddlejob }}
+- apiGroups:
+  - kubeflow.org
+  resources:
+  - paddlejobs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - kubeflow.org
+  resources:
+  - paddlejobs/status
+  verbs:
+  - get
+  - patch
+  - update
+{{- end }}
 {{- if .Values.operators.tfjob }}
 - apiGroups:
   - kubeflow.org
