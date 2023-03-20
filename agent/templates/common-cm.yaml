@@ -17,6 +17,9 @@ data:
   POLYAXON_TIME_ZONE: {{ .Values.timezone | quote }}
   # Versions
   POLYAXON_CHART_VERSION: {{ .Chart.Version | quote }}
+  {{- if .Values.dist }}
+  POLYAXON_PLATFORM_DIST: {{ .Values.dist | quote }}
+  {{- end }}
   {{- if .Values.includeChartRevision }}
   POLYAXON_CHART_REVISION: {{ .Release.Revision | quote }}
   {{- end }}
