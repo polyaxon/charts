@@ -252,6 +252,8 @@ rules:
   - get
   - patch
   - update
+{{- end }}
+{{- if .Values.istio.enabled }}
 - apiGroups:
   - networking.istio.io
   resources:
@@ -264,8 +266,6 @@ rules:
   - patch
   - update
   - watch
-{{- end }}
-{{- if .Values.istio.enabled }}
 - apiGroups:
   - networking.istio.io
   resources:
