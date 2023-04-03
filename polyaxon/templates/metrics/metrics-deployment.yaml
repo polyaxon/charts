@@ -13,11 +13,15 @@ spec:
       app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-metrics
   template:
     metadata:
+      annotations:
+{{ include "config.annotations.custom" . | indent 8 }}
       labels:
         app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-metrics
 {{ include "config.labels.common" . | indent 8 }}
 {{ include "config.labels.roles.coreHelpers" . | indent 8 }}
+{{ include "config.labels.custom" . | indent 8 }}
     spec:
+{{ include "config.priorityClassName" . | indent 6 }}
       {{- if .Values.metrics.affinity }}
       affinity:
 {{ toYaml .Values.metrics.affinity | indent 8 }}
