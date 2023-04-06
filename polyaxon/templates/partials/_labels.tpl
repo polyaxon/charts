@@ -10,15 +10,6 @@ app.kubernetes.io/managed-by: "helm"
 {{- end -}}
 
 {{- /*
-Config labels custom pod
-*/}}
-{{- define "config.labels.custom" -}}
-{{- with .Values.labels }}
-{{- toYaml . }}
-{{- end }}
-{{- end -}}
-
-{{- /*
 Config labels roles core api
 */}}
 {{- define "config.labels.roles.coreApi" -}}

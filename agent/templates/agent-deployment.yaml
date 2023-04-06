@@ -6,10 +6,12 @@ metadata:
   annotations:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 {{ include "config.checksum.agent" . | indent 4 }}
+{{ include "config.agent.annotations" . | indent 4 }}
   labels:
     app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-agent
 {{ include "config.labels.common" . | indent 4 }}
 {{ include "config.labels.roles.coreWorker" . | indent 4 }}
+{{ include "config.agent.labels" . | indent 4 }}
 spec:
   replicas: 1
   selector:
@@ -20,18 +22,18 @@ spec:
       annotations:
         chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 {{ include "config.checksum.agent" . | indent 8 }}
-{{ include "config.annotations.custom" . | indent 8 }}
+{{ include "config.agent.annotations" . | indent 8 }}
       labels:
         app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-agent
 {{ include "config.labels.common" . | indent 8 }}
 {{ include "config.labels.roles.coreWorker" . | indent 8 }}
-{{ include "config.labels.custom" . | indent 8 }}
+{{ include "config.agent.labels" . | indent 8 }}
     spec:
-{{ include "config.priorityClassName" . | indent 6 }}
 {{ include "securityContext.pod" . | indent 6 }}
 {{ include "config.agent.scheduling" . | indent 6 }}
 {{ include "config.agent.sa" . | indent 6 }}
 {{ include "config.agent.imagePullSecrets" . | indent 6}}
+{{ include "config.agent.priorityClassName" . | indent 6}}
       containers:
       - name: {{ .Chart.Name }}-agent
         image: "{{ .Values.agent.image }}:{{ .Values.agent.imageTag }}"

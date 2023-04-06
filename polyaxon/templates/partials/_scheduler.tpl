@@ -80,3 +80,33 @@ imagePullSecrets:
 {{- end }}
 {{- end }}
 {{- end -}}
+
+{{- define "config.scheduler.priorityClassName" -}}
+{{- if .Values.scheduler.priorityClassName }}
+priorityClassName: {{ .Values.scheduler.priorityClassName }}
+{{- else }}
+{{- if .Values.priorityClassName }}
+priorityClassName: {{ .Values.priorityClassName }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.scheduler.annotations" -}}
+{{- if .Values.scheduler.annotations }}
+{{ toYaml .Values.scheduler.annotations }}
+{{- else }}
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.scheduler.labels" -}}
+{{- if .Values.scheduler.labels }}
+{{ toYaml .Values.scheduler.labels }}
+{{- else }}
+{{- if .Values.labels }}
+{{ toYaml .Values.labels }}
+{{- end }}
+{{- end }}
+{{- end -}}

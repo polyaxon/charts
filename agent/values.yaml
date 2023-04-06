@@ -139,6 +139,7 @@ agent:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 operator:
   enabled: true
@@ -159,6 +160,7 @@ operator:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 notifier:
   image: polyaxon/polyaxon-events-handlers
@@ -174,6 +176,7 @@ notifier:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 cleaner:
   image: polyaxon/polyaxon-init
@@ -189,6 +192,7 @@ cleaner:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 cleanHooks:
   image: polyaxon/polyaxon-cli
@@ -197,6 +201,7 @@ cleanHooks:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 init:
   image: polyaxon/polyaxon-init
@@ -233,9 +238,17 @@ securityContext:
   runAsNonRoot: true
   fsGroupChangePolicy:
 
-# Default node scheduling
+# Global additional labels for all pods created by this helm chart unless per service customization is set
+labels: {}
+# Global additional annotations for all pods created by this helm chart unless per service customization is set
+annotations: {}
+# Global priority for all pods created by this helm chart unless per service customization is set
+priorityClassName: ""
+# Global nodeSelector for all pods created by this helm chart unless per service customization is set
 nodeSelector: {}
+# Global tolerations for all pods created by this helm chart unless per service customization is set
 tolerations: []
+# Global affinity for all pods created by this helm chart unless per service customization is set
 affinity:
   podAffinity:
     preferredDuringSchedulingIgnoredDuringExecution:
@@ -268,10 +281,3 @@ istio: {}
 operators: {}
 api: {}
 ui: {}
-
-# additional labels for all pods created by this helm chart
-labels: {}
-# additional annotations for all pods created by this helm chart
-annotations: {}
-# priority for all pods created by this helm chart
-priorityClassName: ""

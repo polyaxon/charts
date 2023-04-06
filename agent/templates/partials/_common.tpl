@@ -16,12 +16,3 @@ Common envFrom
 - configMapRef:
     name: {{ template "polyaxon.fullname" . }}-config
 {{- end -}}
-
-{{- /*
-Common priorityClassName
-*/}}
-{{- define "config.priorityClassName" -}}
-{{- with .Values.priorityClassName }}
-priorityClassName: {{ . }}
-{{- end }}
-{{- end -}}

@@ -50,3 +50,33 @@ imagePullSecrets:
 {{- end }}
 {{- end }}
 {{- end -}}
+
+{{- define "config.pgbouncer.priorityClassName" -}}
+{{- if .Values.pgbouncer.priorityClassName }}
+priorityClassName: {{ .Values.pgbouncer.priorityClassName }}
+{{- else }}
+{{- if .Values.priorityClassName }}
+priorityClassName: {{ .Values.priorityClassName }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.pgbouncer.annotations" -}}
+{{- if .Values.pgbouncer.annotations }}
+{{ toYaml .Values.pgbouncer.annotations }}
+{{- else }}
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.pgbouncer.labels" -}}
+{{- if .Values.pgbouncer.labels }}
+{{ toYaml .Values.pgbouncer.labels }}
+{{- else }}
+{{- if .Values.labels }}
+{{ toYaml .Values.labels }}
+{{- end }}
+{{- end }}
+{{- end -}}

@@ -80,3 +80,33 @@ imagePullSecrets:
 {{- end }}
 {{- end }}
 {{- end -}}
+
+{{- define "config.worker.priorityClassName" -}}
+{{- if .Values.worker.priorityClassName }}
+priorityClassName: {{ .Values.worker.priorityClassName }}
+{{- else }}
+{{- if .Values.priorityClassName }}
+priorityClassName: {{ .Values.priorityClassName }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.worker.annotations" -}}
+{{- if .Values.worker.annotations }}
+{{ toYaml .Values.worker.annotations }}
+{{- else }}
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.worker.labels" -}}
+{{- if .Values.worker.labels }}
+{{ toYaml .Values.worker.labels }}
+{{- else }}
+{{- if .Values.labels }}
+{{ toYaml .Values.labels }}
+{{- end }}
+{{- end }}
+{{- end -}}

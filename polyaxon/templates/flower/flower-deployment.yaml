@@ -6,10 +6,12 @@ metadata:
   annotations:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 {{ include "config.checksum.platform" . | indent 4 }}
+{{ include "config.flower.annotations" . | indent 4 }}
   labels:
 {{ include "config.labels.common" . | indent 4 }}
 {{ include "config.labels.roles.coreHelpers" . | indent 4 }}
 {{ include "config.labels.apps.flower" . | indent 4 }}
+{{ include "config.flower.labels" . | indent 4 }}
 spec:
   replicas: {{ .Values.flower.replicas }}
   selector:
@@ -20,17 +22,17 @@ spec:
       annotations:
         chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 {{ include "config.checksum.platform" . | indent 8 }}
-{{ include "config.annotations.custom" . | indent 8 }}
+{{ include "config.flower.annotations" . | indent 8 }}
       labels:
-{{ include "config.labels.common" . | indent 4 }}
-{{ include "config.labels.roles.coreHelpers" . | indent 4 }}
-{{ include "config.labels.apps.flower" . | indent 4 }}
-{{ include "config.labels.custom" . | indent 8 }}
+{{ include "config.labels.common" . | indent 8 }}
+{{ include "config.labels.roles.coreHelpers" . | indent 8 }}
+{{ include "config.labels.apps.flower" . | indent 8 }}
+{{ include "config.flower.labels" . | indent 8 }}
     spec:
-{{ include "config.priorityClassName" . | indent 6 }}
 {{ include "securityContext.pod" . | indent 6 }}
 {{ include "config.flower.scheduling" . | indent 6 }}
 {{ include "config.flower.imagePullSecrets" . | indent 6}}
+{{ include "config.flower.priorityClassName" . | indent 6}}
       containers:
       - name: {{ .Chart.Name }}-flower
         image: "{{ .Values.flower.image }}:{{ .Values.flower.imageTag }}"

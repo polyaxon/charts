@@ -46,3 +46,33 @@ imagePullSecrets:
 {{- end }}
 {{- end }}
 {{- end -}}
+
+{{- define "config.beat.priorityClassName" -}}
+{{- if .Values.beat.priorityClassName }}
+priorityClassName: {{ .Values.beat.priorityClassName }}
+{{- else }}
+{{- if .Values.priorityClassName }}
+priorityClassName: {{ .Values.priorityClassName }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.beat.annotations" -}}
+{{- if .Values.beat.annotations }}
+{{ toYaml .Values.beat.annotations }}
+{{- else }}
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.beat.labels" -}}
+{{- if .Values.beat.labels }}
+{{ toYaml .Values.beat.labels }}
+{{- else }}
+{{- if .Values.labels }}
+{{ toYaml .Values.labels }}
+{{- end }}
+{{- end }}
+{{- end -}}

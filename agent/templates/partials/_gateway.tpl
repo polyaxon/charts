@@ -47,6 +47,36 @@ imagePullSecrets:
 {{- end }}
 {{- end -}}
 
+{{- define "config.gateway.priorityClassName" -}}
+{{- if .Values.gateway.priorityClassName }}
+priorityClassName: {{ .Values.gateway.priorityClassName }}
+{{- else }}
+{{- if .Values.priorityClassName }}
+priorityClassName: {{ .Values.priorityClassName }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.gateway.annotations" -}}
+{{- if .Values.gateway.annotations }}
+{{ toYaml .Values.gateway.annotations }}
+{{- else }}
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.gateway.labels" -}}
+{{- if .Values.gateway.labels }}
+{{ toYaml .Values.gateway.labels }}
+{{- else }}
+{{- if .Values.labels }}
+{{ toYaml .Values.labels }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
 {{- define "config.gateway.platformHost" -}}
 {{- if eq .Values.gateway.service.type "NodePort" -}}
 http://{{ template "polyaxon.fullname" . }}-gateway:{{ .Values.gateway.service.nodePort }}

@@ -82,3 +82,33 @@ imagePullSecrets:
 {{- end }}
 {{- end }}
 {{- end -}}
+
+{{- define "config.agent.priorityClassName" -}}
+{{- if .Values.agent.priorityClassName }}
+priorityClassName: {{ .Values.agent.priorityClassName }}
+{{- else }}
+{{- if .Values.priorityClassName }}
+priorityClassName: {{ .Values.priorityClassName }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.agent.annotations" -}}
+{{- if .Values.agent.annotations }}
+{{ toYaml .Values.agent.annotations }}
+{{- else }}
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.agent.labels" -}}
+{{- if .Values.agent.labels }}
+{{ toYaml .Values.agent.labels }}
+{{- else }}
+{{- if .Values.labels }}
+{{ toYaml .Values.labels }}
+{{- end }}
+{{- end }}
+{{- end -}}

@@ -55,3 +55,33 @@ imagePullSecrets:
 {{- end }}
 {{- end }}
 {{- end -}}
+
+{{- define "config.operator.priorityClassName" -}}
+{{- if .Values.operator.priorityClassName }}
+priorityClassName: {{ .Values.operator.priorityClassName }}
+{{- else }}
+{{- if .Values.priorityClassName }}
+priorityClassName: {{ .Values.priorityClassName }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.operator.annotations" -}}
+{{- if .Values.operator.annotations }}
+{{ toYaml .Values.operator.annotations }}
+{{- else }}
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.operator.labels" -}}
+{{- if .Values.operator.labels }}
+{{ toYaml .Values.operator.labels }}
+{{- else }}
+{{- if .Values.labels }}
+{{ toYaml .Values.labels }}
+{{- end }}
+{{- end }}
+{{- end -}}

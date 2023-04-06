@@ -80,3 +80,33 @@ imagePullSecrets:
 {{- end }}
 {{- end }}
 {{- end -}}
+
+{{- define "config.compiler.priorityClassName" -}}
+{{- if .Values.compiler.priorityClassName }}
+priorityClassName: {{ .Values.compiler.priorityClassName }}
+{{- else }}
+{{- if .Values.priorityClassName }}
+priorityClassName: {{ .Values.priorityClassName }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.compiler.annotations" -}}
+{{- if .Values.compiler.annotations }}
+{{ toYaml .Values.compiler.annotations }}
+{{- else }}
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.compiler.labels" -}}
+{{- if .Values.compiler.labels }}
+{{ toYaml .Values.compiler.labels }}
+{{- else }}
+{{- if .Values.labels }}
+{{ toYaml .Values.labels }}
+{{- end }}
+{{- end }}
+{{- end -}}

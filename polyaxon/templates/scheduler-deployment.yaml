@@ -6,10 +6,12 @@ metadata:
   annotations:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 {{ include "config.checksum.platform" . | indent 4 }}
+{{ include "config.scheduler.annotations" . | indent 4 }}
   labels:
     app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-scheduler
 {{ include "config.labels.common" . | indent 4 }}
 {{ include "config.labels.roles.coreWorker" . | indent 4 }}
+{{ include "config.scheduler.labels" . | indent 4 }}
 spec:
   replicas: {{ .Values.scheduler.replicas }}
   selector:
@@ -20,18 +22,18 @@ spec:
       annotations:
         chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 {{ include "config.checksum.platform" . | indent 8 }}
-{{ include "config.annotations.custom" . | indent 8 }}
+{{ include "config.scheduler.annotations" . | indent 8 }}
       labels:
         app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-scheduler
 {{ include "config.labels.common" . | indent 8 }}
 {{ include "config.labels.roles.coreWorker" . | indent 8 }}
-{{ include "config.labels.custom" . | indent 8 }}
+{{ include "config.scheduler.labels" . | indent 8 }}
     spec:
-{{ include "config.priorityClassName" . | indent 6 }}
 {{ include "securityContext.pod" . | indent 6 }}
 {{ include "config.agent.sa" . | indent 6 }}
 {{ include "config.scheduler.scheduling" . | indent 6 }}
 {{ include "config.scheduler.imagePullSecrets" . | indent 6}}
+{{ include "config.scheduler.priorityClassName" . | indent 6}}
       containers:
       - name: {{ .Chart.Name }}-scheduler
         image: "{{ .Values.scheduler.image }}:{{ .Values.scheduler.imageTag }}"

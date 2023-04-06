@@ -98,6 +98,7 @@ gateway:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
   # This service is only routing the gateway and reverse proxying external services
   routes:
@@ -124,6 +125,7 @@ agent:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 operator:
   enabled: true
@@ -144,6 +146,7 @@ operator:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 scheduler:
   enabled: false
@@ -168,6 +171,7 @@ scheduler:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 compiler:
   enabled: false
@@ -192,6 +196,7 @@ compiler:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 worker:
   enabled: false
@@ -216,6 +221,7 @@ worker:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 beat:
   enabled: false
@@ -233,6 +239,7 @@ beat:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 flower:
   enabled: false
@@ -270,6 +277,7 @@ notifier:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 cleaner:
   image: polyaxon/polyaxon-init
@@ -285,6 +293,7 @@ cleaner:
 
   # Uses the default node scheduling
   # To customize node scheduling, you can set nodeSelector, tolerations, affinity
+  # You can also add custom labels, annotations, and priorityClassName
 
 apiHooks: {}
 
@@ -589,8 +598,17 @@ ldap:
   requireGroup:
   denyGroup:
 
+# Global additional labels for all pods created by this helm chart unless per service customization is set
+labels: {}
+# Global additional annotations for all pods created by this helm chart unless per service customization is set
+annotations: {}
+# Global priority for all pods created by this helm chart unless per service customization is set
+priorityClassName: ""
+# Global nodeSelector for all pods created by this helm chart unless per service customization is set
 nodeSelector: {}
+# Global tolerations for all pods created by this helm chart unless per service customization is set
 tolerations: []
+# Global affinity for all pods created by this helm chart unless per service customization is set
 affinity:
   podAffinity:
     preferredDuringSchedulingIgnoredDuringExecution:
@@ -634,10 +652,3 @@ auth: {}
 istio: {}
 operators: {}
 ui: {}
-
-# additional labels for all pods created by this helm chart
-labels: {}
-# additional annotations for all pods created by this helm chart
-annotations: {}
-# priority for all pods created by this helm chart
-priorityClassName: ""

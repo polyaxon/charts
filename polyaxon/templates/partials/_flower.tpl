@@ -46,3 +46,33 @@ imagePullSecrets:
 {{- end }}
 {{- end }}
 {{- end -}}
+
+{{- define "config.flower.priorityClassName" -}}
+{{- if .Values.flower.priorityClassName }}
+priorityClassName: {{ .Values.flower.priorityClassName }}
+{{- else }}
+{{- if .Values.priorityClassName }}
+priorityClassName: {{ .Values.priorityClassName }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.flower.annotations" -}}
+{{- if .Values.flower.annotations }}
+{{ toYaml .Values.flower.annotations }}
+{{- else }}
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{- define "config.flower.labels" -}}
+{{- if .Values.flower.labels }}
+{{ toYaml .Values.flower.labels }}
+{{- else }}
+{{- if .Values.labels }}
+{{ toYaml .Values.labels }}
+{{- end }}
+{{- end }}
+{{- end -}}
