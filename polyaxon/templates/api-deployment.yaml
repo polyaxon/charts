@@ -19,11 +19,14 @@ spec:
       annotations:
         chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 {{ include "config.checksum.platform" . | indent 8 }}
+{{ include "config.annotations.custom" . | indent 8 }}
       labels:
 {{ include "config.labels.apps.gateway" . | indent 8 }}
 {{ include "config.labels.common" . | indent 8 }}
 {{ include "config.labels.roles.coreApi" . | indent 8 }}
+{{ include "config.labels.custom" . | indent 8 }}
     spec:
+{{ include "config.priorityClassName" . | indent 6 }}
 {{ include "securityContext.pod" . | indent 6 }}
 {{ include "config.agent.sa" . | indent 6 }}
 {{ include "config.gateway.scheduling" . | indent 6 }}

@@ -634,3 +634,10 @@ auth: {}
 istio: {}
 operators: {}
 ui: {}
+
+# additional labels for all pods created by this helm chart
+labels: {}
+# additional annotations for all pods created by this helm chart
+annotations: {}
+# priority for all pods created by this helm chart
+priorityClassName: ""

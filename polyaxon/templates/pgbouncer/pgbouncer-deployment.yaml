@@ -20,11 +20,14 @@ spec:
     metadata:
       annotations:
         chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+{{ include "config.annotations.custom" . | indent 8 }}
       labels:
 {{ include "config.labels.common" . | indent 8 }}
 {{ include "config.labels.roles.coreHelpers" . | indent 8 }}
 {{ include "config.labels.apps.pgbouncer" . | indent 8 }}
+{{ include "config.labels.custom" . | indent 8 }}
     spec:
+{{ include "config.priorityClassName" . | indent 6 }}
 {{ include "config.pgbouncer.scheduling" . | indent 6 }}
 {{ include "config.pgbouncer.imagePullSecrets" . | indent 6}}
       containers:

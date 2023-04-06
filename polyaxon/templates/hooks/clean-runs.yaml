@@ -16,9 +16,13 @@ spec:
   template:
     metadata:
       name: "{{ .Release.Name }}-clean-runs"
+      annotations:
+{{ include "config.annotations.custom" . | indent 8 }}
       labels:
         app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-clean-runs
+{{ include "config.labels.custom" . | indent 8 }}
     spec:
+{{ include "config.priorityClassName" . | indent 6 }}
 {{ include "securityContext.pod" . | indent 6 }}
 {{ include "config.agent.scheduling" . | indent 6 }}
 {{ include "config.agent.sa" . | indent 6 }}
