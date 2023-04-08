@@ -41,9 +41,7 @@ spec:
 {{ include "config.envFrom.common" . | indent 8 }}
 {{ include "config.envFrom.secret" . | indent 8 }}
 {{ include "config.envFrom.platform" . | indent 8 }}
-        env:
-        - name: POLYAXON_DB_NO_CHECK
-          value: "true"
 {{ include "config.envs" . | indent 8 }}
-{{ include "config.manageEnvs" . | indent 8 }}
+{{ include "config.envs.manage" . | indent 8 }}
+{{ include "config.envs.dbNoCheck" . | indent 8 }}
 {{- end }}

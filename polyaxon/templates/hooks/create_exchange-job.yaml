@@ -38,5 +38,5 @@ spec:
 {{ include "config.envFrom.platform" . | indent 8 }}
         env:
 {{ include "config.envs" . | indent 8 }}
-{{ include "config.manageEnvs" . | indent 8 }}
+{{ include "config.envs.manage" . | indent 8 }}
 {{- end }}
