@@ -87,8 +87,8 @@ spec:
               cpu: 150m
               memory: 200Mi
             limits:
-              cpu: 1000m
-              memory: 800Mi
+              cpu: 2000m
+              memory: 2000Mi
         - name: cloudsql-proxy
           image: "{{ .Values.externalServices.postgresql.pgbouncer.proxyImage }}:{{ .Values.externalServices.postgresql.pgbouncer.proxyImageTag }}"
           imagePullPolicy: {{ .Values.externalServices.postgresql.pgbouncer.proxyImagePullPolicy | default "IfNotPresent" }}
