@@ -71,7 +71,7 @@ gateway:
   enabled: true
   useResolver: true
   image: polyaxon/polyaxon-api
-  imageTag: 2.0.0-rc8
+  imageTag: 2.0.0-rc9
   imagePullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -113,7 +113,7 @@ agent:
   enabled: false
   watchCluster: false
   image: polyaxon/polyaxon-agent
-  imageTag: 2.0.0-rc8
+  imageTag: 2.0.0-rc9
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -133,7 +133,7 @@ operator:
   skipStatus: false
   leaderElection: false
   image: polyaxon/polyaxon-operator
-  imageTag: 2.0.0-rc8
+  imageTag: 2.0.0-rc9
   imagePullPolicy: IfNotPresent
   maxConcurrentReconciles: 8
   resources:
@@ -151,7 +151,7 @@ operator:
 scheduler:
   enabled: false
   image: polyaxon/polyaxon-scheduler
-  imageTag: 2.0.0-rc8
+  imageTag: 2.0.0-rc9
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
@@ -176,7 +176,7 @@ scheduler:
 compiler:
   enabled: false
   image:
-  imageTag: 2.0.0-rc8
+  imageTag: 2.0.0-rc9
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
@@ -201,7 +201,7 @@ compiler:
 worker:
   enabled: false
   image:
-  imageTag: 2.0.0-rc8
+  imageTag: 2.0.0-rc9
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
@@ -226,7 +226,7 @@ worker:
 beat:
   enabled: false
   image:
-  imageTag: 2.0.0-rc8
+  imageTag: 2.0.0-rc9
   imagePullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -265,7 +265,7 @@ flower:
 
 notifier:
   image: polyaxon/polyaxon-events-handlers
-  imageTag: 2.0.0-rc8
+  imageTag: 2.0.0-rc9
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -281,7 +281,7 @@ notifier:
 
 cleaner:
   image: polyaxon/polyaxon-init
-  imageTag: 2.0.0-rc8
+  imageTag: 2.0.0-rc9
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -299,12 +299,12 @@ apiHooks: {}
 
 cleanHooks:
   image: polyaxon/polyaxon-cli
-  imageTag: 2.0.0-rc8
+  imageTag: 2.0.0-rc9
   imagePullPolicy: IfNotPresent
 
 init:
   image: polyaxon/polyaxon-init
-  imageTag: 2.0.0-rc8
+  imageTag: 2.0.0-rc9
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -316,7 +316,7 @@ init:
 
 sidecar:
   image: polyaxon/polyaxon-sidecar
-  imageTag: 2.0.0-rc8
+  imageTag: 2.0.0-rc9
   imagePullPolicy: IfNotPresent
   sleepInterval: 10
   syncInterval: 10
