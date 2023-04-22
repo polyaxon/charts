@@ -52,31 +52,37 @@ imagePullSecrets:
 {{- end -}}
 
 {{- define "config.pgbouncer.priorityClassName" -}}
-{{- if .Values.pgbouncer.priorityClassName }}
-priorityClassName: {{ .Values.pgbouncer.priorityClassName }}
+{{- if .Values.externalServices.postgresql.pgbouncer }}
+{{- if .Values.externalServices.postgresql.pgbouncer.priorityClassName }}
+priorityClassName: {{ .Values.externalServices.postgresql.pgbouncer.priorityClassName }}
 {{- else }}
 {{- if .Values.priorityClassName }}
 priorityClassName: {{ .Values.priorityClassName }}
 {{- end }}
 {{- end }}
+{{- end }}
 {{- end -}}
 
 {{- define "config.pgbouncer.annotations" -}}
-{{- if .Values.pgbouncer.annotations }}
-{{ toYaml .Values.pgbouncer.annotations }}
+{{- if .Values.externalServices.postgresql.pgbouncer }}
+{{- if .Values.externalServices.postgresql.pgbouncer.annotations }}
+{{ toYaml .Values.externalServices.postgresql.pgbouncer.annotations }}
 {{- else }}
 {{- if .Values.annotations }}
 {{ toYaml .Values.annotations }}
 {{- end }}
 {{- end }}
+{{- end }}
 {{- end -}}
 
 {{- define "config.pgbouncer.labels" -}}
-{{- if .Values.pgbouncer.labels }}
-{{ toYaml .Values.pgbouncer.labels }}
+{{- if .Values.externalServices.postgresql.pgbouncer }}
+{{- if .Values.externalServices.postgresql.pgbouncer.labels }}
+{{ toYaml .Values.externalServices.postgresql.pgbouncer.labels }}
 {{- else }}
 {{- if .Values.labels }}
 {{ toYaml .Values.labels }}
+{{- end }}
 {{- end }}
 {{- end }}
 {{- end -}}
