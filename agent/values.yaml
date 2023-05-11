@@ -128,7 +128,7 @@ agent:
   imagePullPolicy: IfNotPresent
   # A flag to simplify configuring a replica agent on a different cluster
   isReplica: false
-  spawnerRefreshInterval: 300
+  executorRefreshInterval: 300
   resources:
     limits:
       cpu: 500m

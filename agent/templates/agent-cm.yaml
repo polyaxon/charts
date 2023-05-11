@@ -46,8 +46,8 @@ data:
   {{- if .Values.agent.isReplica }}
   POLYAXON_AGENT_IS_REPLICA: {{ .Values.agent.isReplica | quote }}
   {{- end }}
-  {{- if .Values.agent.spawnerRefreshInterval }}
-  POLYAXON_AGENT_SPAWNER_REFRESH_INTERVAL: {{ .Values.agent.spawnerRefreshInterval | quote }}
+  {{- if .Values.agent.executorRefreshInterval }}
+  POLYAXON_AGENT_EXECUTOR_REFRESH_INTERVAL: {{ .Values.agent.executorRefreshInterval | quote }}
   {{- end }}
   POLYAXON_AGENT_COMPRESSED_LOGS: {{ .Values.agent.compressedLogs | quote }}
   {{- if .Values.operator.maxConcurrentReconciles }}
