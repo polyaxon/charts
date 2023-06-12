@@ -50,6 +50,7 @@ spec:
 {{ include "config.envs" . | indent 8 }}
 {{ include "config.debugMode" . | indent 8 }}
 {{ include "config.hostIps" . | indent 8 }}
+{{ include "config.artifactsStore.env" . | indent 8 }}
         volumeMounts:
 {{ include "config.artifactsStore.mount" . | indent 8 }}
         livenessProbe:

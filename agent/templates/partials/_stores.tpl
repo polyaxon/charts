@@ -20,6 +20,16 @@ Config artifacts store volumes/mounts/secrets/configmap
 {{- end }}
 {{- end -}} {{- /* end def artifactsStore envFrom */ -}}
 
+{{- define "config.artifactsStore.env" -}}
+{{- if .Values.agent.enabled -}}
+{{- if .Values.artifactsStore }}
+{{- if .Values.artifactsStore.env }}
+{{ toYaml .Values.artifactsStore.env }}
+{{- end }} {{- /* endif */ -}}
+{{- end }} {{- /* endif artifactsStore */ -}}
+{{- end }}
+{{- end -}} {{- /* end def artifactsStore envFrom */ -}}
+
 {{- define "config.artifactsStore.mount" -}}
 {{- if .Values.agent.enabled -}}
 {{- if and .Values.artifactsStore }}

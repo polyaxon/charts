@@ -47,6 +47,7 @@ spec:
 {{ include "config.artifactsStore.envFrom" . | indent 8 }}
         env:
 {{ include "config.debugMode" . | indent 8 }}
+{{ include "config.artifactsStore.env" . | indent 8 }}
         volumeMounts:
 {{ include "config.artifactsStore.mount" . | indent 8}}
         livenessProbe:
