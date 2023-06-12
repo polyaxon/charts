@@ -45,11 +45,14 @@ spec:
 {{ include "config.envFrom.agent" . | indent 8 }}
 {{ include "config.envFrom.proxies" . | indent 8 }}
 {{ include "config.artifactsStore.envFrom" . | indent 8 }}
+{{ include "config.connections.envFrom" . | indent 8 }}
         env:
 {{ include "config.debugMode" . | indent 8 }}
 {{ include "config.artifactsStore.env" . | indent 8 }}
+{{ include "config.connections.env" . | indent 8 }}
         volumeMounts:
 {{ include "config.artifactsStore.mount" . | indent 8}}
+{{ include "config.connections.mounts" . | indent 8}}
         livenessProbe:
           httpGet:
             path: /healthz/
@@ -89,3 +92,4 @@ spec:
           {{- end }}
       volumes:
 {{ include "config.artifactsStore.volume" . | indent 6}}
+{{ include "config.connections.volumes" . | indent 6}}

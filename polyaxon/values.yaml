@@ -555,6 +555,7 @@ defaultArtifactsStore:
 
 artifactsStore:
 connections: []
+mountConnections: []
 
 imagePullSecrets: []
 

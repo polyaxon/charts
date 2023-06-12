@@ -274,6 +274,7 @@ defaultArtifactsStore:
 
 artifactsStore:
 connections: []
+mountConnections: []
 
 # Include helm chart release revision
 includeChartRevision: true
