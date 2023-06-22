@@ -40,7 +40,7 @@
 
 {{- define "pgsql.connMaxAge" -}}
 {{- if .Values.postgresql.enabled -}}
-{{- default .Values.postgresql.connMaxAge -}}
+{{- .Values.postgresql.connMaxAge -}}
 {{- else }}
 {{- .Values.externalServices.postgresql.connMaxAge }}
 {{- end }}
