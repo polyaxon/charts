@@ -49,7 +49,6 @@ data:
   {{- if .Values.agent.executorRefreshInterval }}
   POLYAXON_AGENT_EXECUTOR_REFRESH_INTERVAL: {{ .Values.agent.executorRefreshInterval | quote }}
   {{- end }}
-  POLYAXON_AGENT_COMPRESSED_LOGS: {{ .Values.agent.compressedLogs | quote }}
   {{- if .Values.operator.maxConcurrentReconciles }}
   POLYAXON_MAX_CONCURRENT_RECONCILES: {{ .Values.operator.maxConcurrentReconciles | quote }}
   {{- end }}

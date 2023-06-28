@@ -120,7 +120,6 @@ gateway:
 agent:
   token:
   instance:
-  compressedLogs: false
   enabled: true
   watchCluster: false
   image: polyaxon/polyaxon-agent
