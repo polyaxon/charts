@@ -76,6 +76,12 @@ data:
   {{- if .Values.operators.sparkjob }}
   POLYAXON_SPARK_JOB_ENABLED: "true"
   {{- end }}
+  {{- if .Values.operators.daskjob }}
+  POLYAXON_DASK_JOB_ENABLED: "true"
+  {{- end }}
+  {{- if .Values.operators.rayjob }}
+  POLYAXON_RAY_JOB_ENABLED: "true"
+  {{- end }}
   {{- if .Values.proxy.enabled }}
   POLYAXON_AGENT_USE_PROXY_ENV_VARS_IN_OPS: {{ .Values.proxy.useInOps | quote }}
   {{- end }}
