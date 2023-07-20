@@ -22494,11 +22494,6 @@ spec:
                         - containers
                         type: object
                     type: object
-                required:
-                - groupName
-                - maxReplicas
-                - minReplicas
-                - rayStartParams
                 type: object
               metadata:
                 additionalProperties:
@@ -25713,15 +25708,9 @@ spec:
                           - containers
                           type: object
                       type: object
-                  required:
-                  - groupName
-                  - maxReplicas
-                  - minReplicas
-                  - rayStartParams
                   type: object
                 type: array
             required:
-            - entrypoint
             - head
             - workers
             type: object
