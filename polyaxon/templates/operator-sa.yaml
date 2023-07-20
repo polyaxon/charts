@@ -259,6 +259,72 @@ rules:
   - patch
   - update
 {{- end }}
+{{- if .Values.operators.rayjob }}
+- apiGroups:
+  - ray.io
+  resources:
+  - rayjobs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ray.io
+  resources:
+  - rayjobs/status
+  verbs:
+  - get
+  - patch
+  - update
+{{- end}}
+{{- if .Values.operators.daskjob }}
+- apiGroups:
+  - kubernetes.dask.org
+  resources:
+  - daskjobs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - kubernetes.dask.org
+  resources:
+  - daskjobs/status
+  verbs:
+  - get
+  - patch
+  - update
+{{- end}}
+{{- if .Values.operators.sparkjob }}
+- apiGroups:
+  - sparkoperator.k8s.io
+  resources:
+  - sparkapplications
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - sparkoperator.k8s.io
+  resources:
+  - sparkapplications/status
+  verbs:
+  - get
+  - patch
+  - update
+{{- end}}
 {{- if .Values.istio.enabled }}
 - apiGroups:
   - networking.istio.io
