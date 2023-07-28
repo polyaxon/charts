@@ -303,28 +303,6 @@ rules:
   - patch
   - update
 {{- end}}
-{{- if .Values.operators.sparkjob }}
-- apiGroups:
-  - sparkoperator.k8s.io
-  resources:
-  - sparkapplications
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - sparkoperator.k8s.io
-  resources:
-  - sparkapplications/status
-  verbs:
-  - get
-  - patch
-  - update
-{{- end}}
 {{- if .Values.istio.enabled }}
 - apiGroups:
   - networking.istio.io
