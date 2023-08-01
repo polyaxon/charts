@@ -47,10 +47,6 @@ data:
   {{- if and .Values.ssl.enabled .Values.ssl.secretName .Values.ssl.path }}
   POLYAXON_SSL_PATH:  {{ .Values.ssl.path | quote }}
   {{- end }}
-  # Services
-  {{- if (not (empty .Values.services)) }}
-  POLYAXON_PROXY_SERVICES_PORT: {{ .Values.services.port | quote }}
-  {{- end }}
   # UI
   {{- if (not (eq (.Values.ui.enabled | toString) "<nil>")) }}
   POLYAXON_UI_ENABLED: {{ .Values.ui.enabled | quote }}
