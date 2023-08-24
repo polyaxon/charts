@@ -46,6 +46,7 @@ spec:
 {{ include "config.envFrom.proxies" . | indent 8 }}
         env:
 {{ include "config.debugMode" . | indent 8 }}
+{{- if .Values.agent.enableHealthChecks }}
         livenessProbe:
           exec:
             command: ["/bin/bash", "./entrypoint.sh", "healthz"]
@@ -62,6 +63,7 @@ spec:
           successThreshold: 1
           failureThreshold: 10
           timeoutSeconds: 10
+{{- end }}
         resources:
           requests:
 {{ toYaml .Values.agent.resources.requests | indent 12 }}

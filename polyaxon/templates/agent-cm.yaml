@@ -46,6 +46,9 @@ data:
   {{- if .Values.agent.isReplica }}
   POLYAXON_AGENT_IS_REPLICA: {{ .Values.agent.isReplica | quote }}
   {{- end }}
+  {{- if .Values.agent.enableHealthChecks }}
+  POLYAXON_AGENT_ENABLE_HEALTH_CHECKS: {{ .Values.agent.enableHealthChecks | quote }}
+  {{- end }}
   {{- if .Values.agent.executorRefreshInterval }}
   POLYAXON_AGENT_EXECUTOR_REFRESH_INTERVAL: {{ .Values.agent.executorRefreshInterval | quote }}
   {{- end }}
