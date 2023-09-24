@@ -20,6 +20,7 @@ Agent checksum
 checksum/common-config: {{ include (print $.Template.BasePath "/common-cm.yaml") . | sha256sum }}
 checksum/agent-config: {{ include (print $.Template.BasePath "/agent-cm.yaml") . | sha256sum }}
 checksum/proxies-config: {{ include (print $.Template.BasePath "/proxies-cm.yaml") . | sha256sum }}
+checksum/common-secrets: {{ include (print $.Template.BasePath "/common-secrets.yaml") . | sha256sum }}
 {{- if (not .Values.secret) }}
 checksum/agent-secrets: {{ include (print $.Template.BasePath "/agent-secrets.yaml") . | sha256sum }}
 {{- end }}

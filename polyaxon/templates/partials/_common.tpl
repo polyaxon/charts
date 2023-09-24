@@ -13,6 +13,8 @@ Secret platformSecret
 Common envFrom
 */}}
 {{- define "config.envFrom.common" -}}
+- secretRef:
+    name: {{ template "polyaxon.fullname" . }}-secret
 - configMapRef:
     name: {{ template "polyaxon.fullname" . }}-config
 {{- end -}}
