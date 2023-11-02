@@ -109,7 +109,7 @@ gateway:
 agent:
   token:
   instance:
-  enabled: false
+  enabled: true
   watchCluster: false
   image: polyaxon/polyaxon-agent
   imageTag: 2.0.0
