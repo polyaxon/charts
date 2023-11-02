@@ -76,11 +76,11 @@ gateway:
   replicas: 1
   resources:
     limits:
+      cpu: 6000m
+      memory: 8000Mi
+    requests:
       cpu: 1000m
       memory: 2000Mi
-    requests:
-      cpu: 128m
-      memory: 300Mi
 
   service:
     name: gateway
