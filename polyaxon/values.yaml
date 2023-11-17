@@ -386,7 +386,13 @@ externalServices:
     google:
       enabled: false
       options:
-    saml:
+    okta:
+      enabled: false
+      options:
+    onelogin:
+      enabled: false
+      options:
+    azuread:
       enabled: false
       options:
 
@@ -493,14 +499,14 @@ metrics:
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes)
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 30
+    initialDelaySeconds: 20
     periodSeconds: 5
     timeoutSeconds: 2
     failureThreshold: 3
     successThreshold: 1
   readinessProbe:
     enabled: true
-    initialDelaySeconds: 30
+    initialDelaySeconds: 20
     periodSeconds: 5
     timeoutSeconds: 2
     failureThreshold: 3
