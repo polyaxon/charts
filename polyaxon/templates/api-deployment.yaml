@@ -67,7 +67,7 @@ spec:
                 value: {{ template "polyaxon.fullname" . }}-api
             {{- end }}
           initialDelaySeconds: 20
-          periodSeconds: 15
+          periodSeconds: 20
           successThreshold: 1
           failureThreshold: 10
           timeoutSeconds: 4
@@ -82,7 +82,7 @@ spec:
                 value: {{ template "polyaxon.fullname" . }}-api
             {{- end }}
           initialDelaySeconds: 20
-          periodSeconds: 15
+          periodSeconds: 20
           successThreshold: 1
           failureThreshold: 10
           timeoutSeconds: 4

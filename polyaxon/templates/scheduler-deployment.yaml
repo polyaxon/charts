@@ -52,18 +52,18 @@ spec:
           exec:
             command: ["/bin/bash", "./entrypoint.sh", "healthz"]
           initialDelaySeconds: 20
-          periodSeconds: 15
+          timeoutSeconds: 30
           successThreshold: 1
           failureThreshold: 10
-          timeoutSeconds: 10
+          periodSeconds: 30
         readinessProbe:
           exec:
             command: ["/bin/bash", "./entrypoint.sh", "healthz"]
           initialDelaySeconds: 20
-          periodSeconds: 15
+          timeoutSeconds: 30
           successThreshold: 1
           failureThreshold: 10
-          timeoutSeconds: 10
+          periodSeconds: 30
         resources:
           requests:
 {{ toYaml .Values.scheduler.resources.requests | indent 12 }}

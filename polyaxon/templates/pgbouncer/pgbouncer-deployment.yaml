@@ -67,12 +67,12 @@ spec:
             tcpSocket:
               port: {{ template "pgsql.port" . }}
             initialDelaySeconds: 5
-            periodSeconds: 15
+            periodSeconds: 20
           livenessProbe:
             tcpSocket:
               port: {{ template "pgsql.port" . }}
             initialDelaySeconds: 5
-            periodSeconds: 15
+            periodSeconds: 20
           lifecycle:
             preStop:
               exec:
