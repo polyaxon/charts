@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: v2
 description: Kubeflow training operators integration with Polyaxon
 name: trainingjobs
 version: 1.16.0
