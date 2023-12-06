@@ -629,6 +629,7 @@ affinity:
           topologyKey: "kubernetes.io/hostname"
 
 passwordLength: 8
+passwordAuth: true
 
 email:
   enabled: false

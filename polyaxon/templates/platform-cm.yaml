@@ -14,7 +14,8 @@ data:
   # Admin
   POLYAXON_ADMIN_NAME: {{ .Values.user.username | quote }}
   POLYAXON_ADMIN_MAIL: {{ .Values.user.email | quote }}
-  POLYAXON_PASSWORD_LENGTH: {{ default "6" .Values.passwordLength | quote }}
+  POLYAXON_AUTH_PASSWORD_LENGTH: {{ default "6" .Values.passwordLength | quote }}
+  POLYAXON_AUTH_PASSWORD_ENABLED: {{ .Values.passwordAuth | quote }}
   # Email
   {{- if .Values.email.enabled }}
   {{- if .Values.email.from }}
