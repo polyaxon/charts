@@ -28,7 +28,7 @@ jobs:
           helm repo add bitnami https://charts.bitnami.com/bitnami
           helm dependency build polyaxon
           helm dependency build agent
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.9
       - name: test
