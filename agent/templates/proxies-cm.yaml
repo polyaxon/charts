@@ -13,6 +13,12 @@ data:
   POLYAXON_PROXY_GATEWAY_TARGET_PORT: "{{ template "proxies.gateway.targetPort" . }}"
   POLYAXON_PROXY_GATEWAY_HOST: {{ template "proxies.gateway.host" . }}
   POLYAXON_PROXY_GATEWAY_USE_RESOLVER: "{{ template "proxies.gateway.useResolver" . }}"
+  {{- if .Values.gateway.concurrency }}
+  POLYAXON_PROXY_GATEWAY_CONCURRENCY: {{ .Values.gateway.concurrency | quote }}
+  {{- end }}
+  {{- if .Values.gateway.perCore }}
+  POLYAXON_PROXY_GATEWAY_PER_CORE: "true"
+  {{- end }}
   POLYAXON_PROXY_STREAMS_PORT: "{{ template "proxies.streams.port" . }}"
   POLYAXON_PROXY_STREAMS_TARGET_PORT: "{{ template "proxies.streams.targetPort" . }}"
   POLYAXON_PROXY_STREAMS_HOST: {{ template "proxies.streams.host" . }}
