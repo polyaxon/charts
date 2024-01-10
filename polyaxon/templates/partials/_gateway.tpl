@@ -79,8 +79,8 @@ priorityClassName: {{ .Values.priorityClassName }}
 
 {{- define "config.gateway.platformHost" -}}
 {{- if eq .Values.gateway.service.type "NodePort" -}}
-http://{{ template "polyaxon.fullname" . }}-gateway:{{ .Values.gateway.service.nodePort }}
+http://{{ template "polyaxon.fullname" . }}-gateway.{{ .Release.Namespace }}.svc.{{ .Values.dns.customCluster }}:{{ .Values.gateway.service.nodePort }}
 {{- else -}}
-http://{{ template "polyaxon.fullname" . }}-gateway:{{ .Values.gateway.service.port }}
+http://{{ template "polyaxon.fullname" . }}-gateway.{{ .Release.Namespace }}.svc.{{ .Values.dns.customCluster }}:{{ .Values.gateway.service.port }}
 {{- end -}}
 {{- end -}}

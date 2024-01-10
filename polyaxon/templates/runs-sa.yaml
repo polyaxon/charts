@@ -1,4 +1,6 @@
-{{- if .Values.rbac.enabled }}
+{{- $singleNamespace := include "config.singleNamespace" . | trim | lower | eq "true" -}}
+{{- if and .Values.rbac.enabled $singleNamespace }}
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:

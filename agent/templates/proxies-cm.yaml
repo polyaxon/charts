@@ -38,15 +38,9 @@ data:
   {{- end }}
   # DNS
   POLYAXON_DNS_USE_RESOLVER: "true"
-  {{- if .Values.dns.backend }}
   POLYAXON_DNS_BACKEND: {{ .Values.dns.backend | quote }}
-  {{- end }}
-  {{- if .Values.dns.customCluster }}
   POLYAXON_DNS_CUSTOM_CLUSTER: {{ .Values.dns.customCluster | quote }}
-  {{- end }}
-  {{- if .Values.dns.prefix }}
   POLYAXON_DNS_PREFIX: {{ .Values.dns.prefix | quote }}
-  {{- end }}
   # SSL
   POLYAXON_SSL_ENABLED: "{{ template "ssl.enabled" . }}"
   POLYAXON_SSL_REDIRECT_ENABLED: "{{ template "ssl.redirect.enabled" . }}"

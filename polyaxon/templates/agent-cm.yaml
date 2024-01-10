@@ -9,6 +9,8 @@ metadata:
 {{ include "config.labels.roles.coreConfig" . | indent 4 }}
 data:
   POLYAXON_K8S_IN_CLUSTER: "true"
+  POLYAXON_WATCH_CLUSTER: {{ .Values.agent.watchCluster | quote }}
+  POLYAXON_SINGLE_NAMESPACE: "{{ include "config.singleNamespace" . }}"
   POLYAXON_SET_AGENT: "true"
   {{- if .Values.agent.instance }}
   POLYAXON_AGENT_INSTANCE: {{ .Values.agent.instance | quote }}
@@ -58,33 +60,15 @@ data:
   {{- if .Values.operator.leaderElection }}
   POLYAXON_LEADER_ELECTION: {{ .Values.operator.leaderElection | quote }}
   {{- end }}
-  {{- if .Values.operators.tfjob }}
-  POLYAXON_TFJOB_ENABLED: "true"
-  {{- end }}
-  {{- if .Values.operators.pytorchjob }}
-  POLYAXON_PYTORCH_JOB_ENABLED: "true"
-  {{- end }}
-  {{- if .Values.operators.paddlejob }}
-  POLYAXON_PADDLE_JOB_ENABLED: "true"
-  {{- end }}
-  {{- if .Values.operators.xgbjob }}
-  POLYAXON_XGBOOST_JOB_ENABLED: "true"
-  {{- end }}
-  {{- if .Values.operators.mxjob }}
-  POLYAXON_MXJOB_ENABLED: "true"
-  {{- end }}
-  {{- if .Values.operators.mpijob }}
-  POLYAXON_MPIJOB_ENABLED: "true"
-  {{- end }}
-  {{- if .Values.operators.sparkjob }}
-  POLYAXON_SPARK_JOB_ENABLED: "true"
-  {{- end }}
-  {{- if .Values.operators.daskjob }}
-  POLYAXON_DASK_JOB_ENABLED: "true"
-  {{- end }}
-  {{- if .Values.operators.rayjob }}
-  POLYAXON_RAY_JOB_ENABLED: "true"
-  {{- end }}
+  POLYAXON_TFJOB_ENABLED: {{ .Values.operators.tfjob | quote }}
+  POLYAXON_PYTORCH_JOB_ENABLED: {{ .Values.operators.pytorchjob | quote }}
+  POLYAXON_PADDLE_JOB_ENABLED: {{ .Values.operators.paddlejob | quote }}
+  POLYAXON_XGBOOST_JOB_ENABLED: {{ .Values.operators.xgbjob | quote }}
+  POLYAXON_MXJOB_ENABLED: {{ .Values.operators.mxjob | quote }}
+  POLYAXON_MPIJOB_ENABLED: {{ .Values.operators.mpijob | quote }}
+  POLYAXON_SPARK_JOB_ENABLED: {{ .Values.operators.sparkjob | quote }}
+  POLYAXON_DASK_JOB_ENABLED: {{ .Values.operators.daskjob | quote }}
+  POLYAXON_RAY_JOB_ENABLED: {{ .Values.operators.rayjob | quote }}
   {{- if .Values.proxy.enabled }}
   POLYAXON_AGENT_USE_PROXY_ENV_VARS_IN_OPS: {{ .Values.proxy.useInOps | quote }}
   {{- end }}

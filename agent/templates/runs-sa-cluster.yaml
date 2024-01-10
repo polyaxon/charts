@@ -1,5 +1,5 @@
 {{- $singleNamespace := include "config.singleNamespace" . | trim | lower | eq "true" -}}
-{{- if and .Values.rbac.enabled $singleNamespace }}
+{{- if and .Values.rbac.enabled (not $singleNamespace) }}
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -11,13 +11,25 @@ metadata:
 {{ include "config.labels.common" . | indent 4 }}
 {{ include "config.labels.roles.coreConfig" . | indent 4 }}
 ---
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+{{- range $namespace := .Values.agent.additionalNamespaces }}
+apiVersion: v1
+kind: ServiceAccount
 metadata:
-  name: {{ template "polyaxon.fullname" . }}-runs-role
-  namespace: {{ .Release.Namespace }}
+  name: {{ template "polyaxon.fullname" $ }}-runs-sa
+  namespace: {{ $namespace }}
   labels:
-    app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-runs-role
+    app.kubernetes.io/name: {{ template "polyaxon.fullname" $ }}-runs-sa
+{{ include "config.labels.common" $ | indent 4 }}
+{{ include "config.labels.roles.coreConfig" $ | indent 4 }}
+---
+{{- end }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ template "polyaxon.fullname" . }}-runs-clusterrole
+  labels:
+    app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-runs-clusterrole
 {{ include "config.labels.common" . | indent 4 }}
 {{ include "config.labels.roles.coreConfig" . | indent 4 }}
 rules:
@@ -35,20 +47,24 @@ rules:
     verbs: ["get", "watch", "list"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
-  name: {{ template "polyaxon.fullname" . }}-runs-role-binding
-  namespace: {{ .Release.Namespace }}
+  name: {{ template "polyaxon.fullname" . }}-runs-clusterrole-binding
   labels:
-    app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-runs-role-binding
+    app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-runs-clusterrole-binding
 {{ include "config.labels.common" . | indent 4 }}
 {{ include "config.labels.roles.coreConfig" . | indent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: {{ template "polyaxon.fullname" . }}-runs-role
+  kind: ClusterRole
+  name: {{ template "polyaxon.fullname" . }}-runs-clusterrole
 subjects:
   - kind: ServiceAccount
     name: {{ template "polyaxon.fullname" . }}-runs-sa
     namespace: {{ .Release.Namespace }}
+{{- range $namespace := .Values.agent.additionalNamespaces }}
+  - kind: ServiceAccount
+    name: {{ template "polyaxon.fullname" $ }}-runs-sa
+    namespace: {{ $namespace }}
+{{- end }}
 {{- end }}

@@ -13,7 +13,7 @@ Proxies hosts
 {{- if .Values.externalServices.gateway.host }}
 {{- .Values.externalServices.gateway.host }}
 {{- else }}
-{{- template "polyaxon.fullname" . }}-gateway
+{{- template "polyaxon.fullname" . }}-gateway.{{ .Release.Namespace }}.svc.{{ .Values.dns.customCluster }}
 {{- end }}
 {{- end -}}
 
@@ -61,7 +61,7 @@ Proxies hosts
 {{- if .Values.externalServices.api.host }}
 {{- .Values.externalServices.api.host }}
 {{- else }}
-{{- template "polyaxon.fullname" . }}-gateway
+{{- template "polyaxon.fullname" . }}-gateway.{{ .Release.Namespace }}.svc.{{ .Values.dns.customCluster }}
 {{- end }}
 {{- end -}}
 
@@ -109,7 +109,7 @@ Proxies hosts
 {{- if .Values.externalServices.streams.host }}
 {{- .Values.externalServices.streams.host }}
 {{- else }}
-{{- template "polyaxon.fullname" . }}-gateway
+{{- template "polyaxon.fullname" . }}-gateway.{{ .Release.Namespace }}.svc.{{ .Values.dns.customCluster }}
 {{- end }}
 {{- .Values.externalServices.streams.host }}
 {{- end -}}
