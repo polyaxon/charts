@@ -1,8 +1,8 @@
 apiVersion: v2
 description: Kubeflow training operators integration with Polyaxon
 name: trainingjobs
-version: 1.16.0
-appVersion: 1.16.0
+version: 2.1.0
+appVersion: 2.1.0
 keywords:
   - deep learning
   - a.i.

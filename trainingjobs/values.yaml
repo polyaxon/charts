@@ -1,5 +1,5 @@
 image: polyaxon/training-operator
-imageTag: 1.16.0
+imageTag: 2.1.0
 skipCRD: false
 skipStatus: false
 resources:
