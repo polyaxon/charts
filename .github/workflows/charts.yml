@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: azure/setup-helm@v3.5
-      - uses: helm/kind-action@v1.8.0
+      - uses: helm/kind-action@v1.9.0
       - name: generate
         run: |
           helm repo add bitnami https://charts.bitnami.com/bitnami
