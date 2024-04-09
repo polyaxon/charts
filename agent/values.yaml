@@ -71,7 +71,7 @@ ssl: {}
 dns:
   customCluster: "cluster.local"
   backend: "kube-dns"
-  prefix:
+  prefix: ""
 
 # Time zone
 timezone: "UTC"

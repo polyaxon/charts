@@ -55,7 +55,7 @@ ssl: {}
 dns:
   customCluster: "cluster.local"
   backend: "kube-dns"
-  prefix:
+  prefix: ""
 
 # To provide a secret name with all passwords and api keys instead of using the config.yaml deployment file
 # provide only services used in your deployment.
