@@ -5,7 +5,7 @@ Config connections volumes/mounts/secrets/configmap
 {{- if and .Values.mountConnections .Values.connections -}}
 {{- $context := . -}}
 {{- range $c := .Values.connections }}
-{{- if has $c.name $context.Values.mountConnections }}
+{{- if and (not $c.isAlias) (has $c.name $context.Values.mountConnections) }}
 {{- if $c.secret }}
 {{- if (empty $c.secret.mountPath) }}
 - secretRef:
@@ -27,7 +27,7 @@ Config connections volumes/mounts/secrets/configmap
 {{- if and .Values.mountConnections .Values.connections -}}
 {{- $context := . -}}
 {{- range $c := .Values.connections }}
-{{- if has $c.name $context.Values.mountConnections }}
+{{- if and (not $c.isAlias) (has $c.name $context.Values.mountConnections) }}
 {{- if $c.env }}
 {{ toYaml $c.env }}
 {{- end }} {{- /* endif */ -}}
@@ -40,7 +40,7 @@ Config connections volumes/mounts/secrets/configmap
 {{- if and .Values.mountConnections .Values.connections -}}
 {{- $context := . -}}
 {{- range $c := .Values.connections }}
-{{- if has $c.name $context.Values.mountConnections }}
+{{- if and (not $c.isAlias) (has $c.name $context.Values.mountConnections) }}
 {{- if or (eq $c.kind "host_path") (eq $c.kind "volume_claim") }}
 - mountPath: {{ $c.schema.mountPath | quote }}
   name: {{ $c.name }}
@@ -71,8 +71,7 @@ Config connections volumes/mounts/secrets/configmap
 {{- if and .Values.mountConnections .Values.connections -}}
 {{- $context := . -}}
 {{- range $c := .Values.connections }}
-{{- if has $c.name $context.Values.mountConnections }}
-
+{{- if and (not $c.isAlias) (has $c.name $context.Values.mountConnections) }}
 {{- if or (eq $c.kind "host_path") (eq $c.kind "volume_claim") }}
 - name: {{ $c.name }}
 {{- if eq $c.kind "volume_claim" }}
