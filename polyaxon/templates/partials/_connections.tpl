@@ -18,10 +18,9 @@ Config connections volumes/mounts/secrets/configmap
     name: {{ $c.configMap.name | quote }}
 {{- end }} {{- /* endif */ -}}
 {{- end }} {{- /* endif */ -}}
-
 {{- end }}
-{{- end }}
-{{ end }}
+{{- end }} {{- /* endrange connections */ -}}
+{{- end }} {{- /* endif mountConnections */ -}}
 {{- end -}} {{- /* end def connections envFrom */ -}}
 
 {{- define "config.connections.env" -}}
@@ -33,8 +32,8 @@ Config connections volumes/mounts/secrets/configmap
 {{ toYaml $c.env }}
 {{- end }} {{- /* endif */ -}}
 {{- end }}
-{{- end }}
-{{- end }}
+{{- end }} {{- /* endrange connections */ -}}
+{{- end }} {{- /* endif mountConnections */ -}}
 {{- end -}} {{- /* end def connections envFrom */ -}}
 
 {{- define "config.connections.mounts" -}}
@@ -64,8 +63,8 @@ Config connections volumes/mounts/secrets/configmap
 {{- end }}
 {{- end }}
 {{- end }}
-{{- end }}
-{{- end }}
+{{- end }} {{- /* endrange connections */ -}}
+{{- end }} {{- /* endif mountConnections */ -}}
 {{- end -}} {{- /* end def connections volume mounts */ -}}
 
 {{- define "config.connections.volumes" -}}
@@ -99,6 +98,6 @@ Config connections volumes/mounts/secrets/configmap
 {{- end }}
 {{- end }}
 {{- end }}
-{{- end }}
-{{- end }}
+{{- end }} {{- /* endrange connections */ -}}
+{{- end }} {{- /* endif mountConnections */ -}}
 {{- end -}}  {{- /* end def connections volume mounts */ -}}
