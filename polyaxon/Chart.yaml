@@ -1,8 +1,8 @@
 apiVersion: v2
 description: An enterprise-grade open-source platform for building, training, and monitoring large scale deep learning applications.
 name: polyaxon
-version: 2.1.6
-appVersion: 2.1.6
+version: 2.1.7
+appVersion: 2.1.7
 keywords:
   - deep learning
   - a.i.
