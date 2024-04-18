@@ -119,6 +119,5 @@ priorityClassName: {{ .Values.priorityClassName }}
 {{- if .Values.agent.serviceAccountAnnotations }}
 annotations:
   {{ toYaml .Values.agent.serviceAccountAnnotations | indent 2 }}
-{{ toYaml .Values.agent.serviceAccountAnnotations }}
 {{- end }}
 {{- end -}}
