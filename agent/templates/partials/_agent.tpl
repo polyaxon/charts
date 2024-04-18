@@ -113,3 +113,12 @@ priorityClassName: {{ .Values.priorityClassName }}
 {{- end }}
 {{- end }}
 {{- end -}}
+
+
+{{- define "config.agent.serviceAccountAnnotations" -}}
+{{- if .Values.agent.serviceAccountAnnotations }}
+annotations:
+  {{ toYaml .Values.agent.serviceAccountAnnotations | indent 2 }}
+{{ toYaml .Values.agent.serviceAccountAnnotations }}
+{{- end }}
+{{- end -}}

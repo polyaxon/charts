@@ -120,6 +120,7 @@ agent:
   image: polyaxon/polyaxon-agent
   imageTag: 2.1.7
   imagePullPolicy: IfNotPresent
+  serviceAccountAnnotations: {}
   resources:
     limits:
       cpu: 500m

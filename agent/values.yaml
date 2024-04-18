@@ -134,6 +134,7 @@ agent:
   # A flag to simplify configuring a replica agent on a different cluster
   isReplica: false
   executorRefreshInterval: 300
+  serviceAccountAnnotations: {}
   resources:
     limits:
       cpu: 500m

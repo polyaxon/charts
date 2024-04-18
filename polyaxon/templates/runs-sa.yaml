@@ -6,6 +6,7 @@ kind: ServiceAccount
 metadata:
   name: {{ template "polyaxon.fullname" . }}-runs-sa
   namespace: {{ .Release.Namespace }}
+{{ include "config.agent.serviceAccountAnnotations" . | indent 2 }}
   labels:
     app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-runs-sa
 {{ include "config.labels.common" . | indent 4 }}
