@@ -16,6 +16,7 @@ proxy:
   # httpsProxy:
   # httpProxy:
   # noProxy:
+  # protocol:
   # host:
   # port:
   # kind: transparent or connect

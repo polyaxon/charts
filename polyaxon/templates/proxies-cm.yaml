@@ -89,6 +89,9 @@ data:
   {{- if .Values.proxy.host }}
   POLYAXON_PROXY_FORWARD_PROXY_HOST: {{ .Values.proxy.host | quote }}
   {{- end -}}
+  {{- if .Values.proxy.protocol }}
+  POLYAXON_PROXY_FORWARD_PROXY_PROTOCOL: {{ .Values.proxy.protocol | quote }}
+  {{- end -}}
   {{- if .Values.proxy.kind }}
   POLYAXON_PROXY_FORWARD_PROXY_KIND: {{ .Values.proxy.kind | quote }}
   {{- end -}}
