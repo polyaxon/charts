@@ -9,3 +9,6 @@ resources:
   requests:
     cpu: 100m
     memory: 50Mi
+# To pass custom container args, example setting custom pytorch init container:
+# containerArgs: ["-pytorch-init-container-image=alpine:3.10"]
+containerArgs: []
