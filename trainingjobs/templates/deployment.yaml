@@ -40,7 +40,8 @@ spec:
         imagePullPolicy: IfNotPresent
         command:
         - /manager
-        args: {{ .Values.containerArgs }}
+        args:
+{{ toYaml .Values.containerArgs | indent 10 }}
         ports:
           - containerPort: 8080
         securityContext:
