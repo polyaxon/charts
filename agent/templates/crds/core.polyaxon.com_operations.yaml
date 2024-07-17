@@ -9706,6 +9706,8 @@ spec:
                           - containers
                           type: object
                       type: object
+                  required:
+                  - template
                   type: object
                 type: object
               schedulingPolicy:
@@ -12934,6 +12936,8 @@ spec:
                           - containers
                           type: object
                       type: object
+                  required:
+                  - template
                   type: object
                 type: object
               schedulingPolicy:
@@ -16445,6 +16449,8 @@ spec:
                           - containers
                           type: object
                       type: object
+                  required:
+                  - template
                   type: object
                 type: object
               schedulingPolicy:
@@ -19967,6 +19973,8 @@ spec:
                           - containers
                           type: object
                       type: object
+                  required:
+                  - template
                   type: object
                 type: object
               schedulingPolicy:
@@ -32868,6 +32876,8 @@ spec:
                           - containers
                           type: object
                       type: object
+                  required:
+                  - template
                   type: object
                 type: object
               schedulingPolicy:
@@ -36093,6 +36103,8 @@ spec:
                           - containers
                           type: object
                       type: object
+                  required:
+                  - template
                   type: object
                 type: object
               schedulingPolicy:
