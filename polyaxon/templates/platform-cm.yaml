@@ -50,12 +50,22 @@ data:
   POLYAXON_AMQP_URL: "{{ template "rabbitmq.host" . }}:{{ template "rabbitmq.port" . }}"
   POLYAXON_RABBITMQ_USER: "{{ template "rabbitmq.user" . }}"
   {{- end }}
-  # Queues
-  POLYAXON_INTERVALS_RUNS_SCHEDULER: {{ .Values.intervals.runsScheduler | quote }}
-  POLYAXON_INTERVALS_OPERATIONS_DEFAULT_RETRY_DELAY: {{ .Values.intervals.operationsDefaultRetryDelay | quote }}
-  POLYAXON_INTERVALS_OPERATIONS_MAX_RETRY_DELAY: {{ .Values.intervals.operationsMaxRetryDelay | quote }}
   {{- end }}
+  {{- if .Values.intervals.compatibilityCheck }}
   POLYAXON_INTERVALS_COMPATIBILITY_CHECK: {{ .Values.intervals.compatibilityCheck | quote }}
+  {{- end }}
+  {{- if .Values.cleaningIntervals.activityLogs }}
+  POLYAXON_CLEANING_INTERVALS_ACTIVITY_LOGS: {{ .Values.cleaningIntervals.activityLogs | quote }}
+  {{- end }}
+  {{- if .Values.cleaningIntervals.notifications }}
+  POLYAXON_CLEANING_INTERVALS_NOTIFICATIONS: {{ .Values.cleaningIntervals.notifications | quote }}
+  {{- end }}
+  {{- if .Values.cleaningIntervals.archives }}
+  POLYAXON_CLEANING_INTERVALS_ARCHIVES: {{ .Values.cleaningIntervals.archives | quote }}
+  {{- end }}
+  {{- if .Values.cleaningIntervals.deletion }}
+  POLYAXON_CLEANING_INTERVALS_DELETION: {{ .Values.cleaningIntervals.deletion | quote }}
+  {{- end }}
   # DB
   POLYAXON_DB_USER: {{ template "pgsql.user" . }}
   POLYAXON_DB_NAME: {{ template "pgsql.database" . }}
