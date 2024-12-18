@@ -66,6 +66,12 @@ data:
   {{- if .Values.ui.staticUrl }}
   POLYAXON_STATIC_URL: {{ .Values.ui.staticUrl | quote }}
   {{- end }}
+  {{- if .Values.ui.singleUrl }}
+  POLYAXON_UI_SINGLE_URL: {{ .Values.ui.singleUrl | quote }}
+  {{- end }}
+  {{- if .Values.ui.defaultStreamsUrl }}
+  POLYAXON_UI_DEFAULT_STREAMS_URL: {{ .Values.ui.defaultStreamsUrl | quote }}
+  {{- end }}
   {{- if .Values.istio.enabled }}
   POLYAXON_ISTIO_ENABLED: "true"
   {{- end }}
