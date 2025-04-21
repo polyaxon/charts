@@ -129,6 +129,7 @@ agent:
   enabled: true
   additionalNamespaces: []
   watchCluster: false
+  enableFinalizers: false
   image: polyaxon/polyaxon-agent
   imageTag: 2.7.0
   imagePullPolicy: IfNotPresent
