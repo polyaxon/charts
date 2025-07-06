@@ -49,9 +49,8 @@ data:
   {{- if .Values.agent.isReplica }}
   POLYAXON_AGENT_IS_REPLICA: {{ .Values.agent.isReplica | quote }}
   {{- end }}
-  {{- if .Values.agent.enableFinalizers }}
-  POLYAXON_ENABLE_FINALIZERS: {{ .Values.agent.enableFinalizers | quote }}
-  {{- end }}
+  POLYAXON_ENABLE_STATUS_FINALIZERS: {{ .Values.agent.enableStatusFinalizers | quote }}
+  POLYAXON_ENABLE_LOGS_FINALIZERS: {{ .Values.agent.enableLogsFinalizers | quote }}
   {{- if .Values.agent.enableHealthChecks }}
   POLYAXON_AGENT_ENABLE_HEALTH_CHECKS: {{ .Values.agent.enableHealthChecks | quote }}
   {{- end }}
