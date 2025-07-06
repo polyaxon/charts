@@ -88,7 +88,7 @@ agentSecret:
 gateway:
   enabled: true
   image: polyaxon/polyaxon-streams
-  imageTag: 2.8.1-rc0
+  imageTag: 2.8.1-rc2
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
@@ -129,9 +129,10 @@ agent:
   enabled: true
   additionalNamespaces: []
   watchCluster: false
-  enableFinalizers: false
+  enableStatusFinalizers: true
+  enableLogsFinalizers: false
   image: polyaxon/polyaxon-agent
-  imageTag: 2.8.1-rc0
+  imageTag: 2.8.1-rc2
   imagePullPolicy: IfNotPresent
   # A flag to simplify configuring a replica agent on a different cluster
   isReplica: false
@@ -155,7 +156,7 @@ operator:
   skipStatus: false
   leaderElection: false
   image: polyaxon/polyaxon-operator
-  imageTag: 2.8.1-rc0
+  imageTag: 2.8.1-rc2
   imagePullPolicy: IfNotPresent
   maxConcurrentReconciles: 8
   resources:
@@ -172,7 +173,7 @@ operator:
 
 notifier:
   image: polyaxon/polyaxon-events-handlers
-  imageTag: 2.8.1-rc0
+  imageTag: 2.8.1-rc2
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -188,7 +189,7 @@ notifier:
 
 cleaner:
   image: polyaxon/polyaxon-init
-  imageTag: 2.8.1-rc0
+  imageTag: 2.8.1-rc2
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -204,7 +205,7 @@ cleaner:
 
 cleanHooks:
   image: polyaxon/polyaxon-cli
-  imageTag: 2.8.1-rc0
+  imageTag: 2.8.1-rc2
   imagePullPolicy: IfNotPresent
 
   # Uses the default node scheduling
@@ -213,7 +214,7 @@ cleanHooks:
 
 init:
   image: polyaxon/polyaxon-init
-  imageTag: 2.8.1-rc0
+  imageTag: 2.8.1-rc2
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -225,7 +226,7 @@ init:
 
 sidecar:
   image: polyaxon/polyaxon-sidecar
-  imageTag: 2.8.1-rc0
+  imageTag: 2.8.1-rc2
   imagePullPolicy: IfNotPresent
   sleepInterval: 10
   syncInterval: 10
