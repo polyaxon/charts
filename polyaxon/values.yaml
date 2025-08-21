@@ -123,6 +123,7 @@ agent:
   imageTag: 2.9.4
   imagePullPolicy: IfNotPresent
   serviceAccountAnnotations: {}
+  serviceAccountImagePullSecrets: []
   resources:
     limits:
       cpu: 500m

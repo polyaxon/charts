@@ -138,6 +138,7 @@ agent:
   isReplica: false
   executorRefreshInterval: 300
   serviceAccountAnnotations: {}
+  serviceAccountImagePullSecrets: []
   resources:
     limits:
       cpu: 500m
