@@ -121,3 +121,12 @@ annotations:
   {{ toYaml .Values.agent.serviceAccountAnnotations | indent 2 }}
 {{- end }}
 {{- end -}}
+
+{{- define "config.agent.serviceAccountImagePullSecrets" -}}
+{{- if .Values.agent.serviceAccountImagePullSecrets }}
+imagePullSecrets:
+{{- range .Values.agent.serviceAccountImagePullSecrets }}
+  - name: {{ . }}
+{{- end }}
+{{- end }}
+{{- end -}}

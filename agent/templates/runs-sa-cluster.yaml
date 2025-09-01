@@ -11,6 +11,7 @@ metadata:
     app.kubernetes.io/name: {{ template "polyaxon.fullname" . }}-runs-sa
 {{ include "config.labels.common" . | indent 4 }}
 {{ include "config.labels.roles.coreConfig" . | indent 4 }}
+{{ include "config.agent.serviceAccountImagePullSecrets" . }}
 ---
 {{- range $namespace := .Values.agent.additionalNamespaces }}
 apiVersion: v1
@@ -23,6 +24,7 @@ metadata:
     app.kubernetes.io/name: {{ template "polyaxon.fullname" $ }}-runs-sa
 {{ include "config.labels.common" $ | indent 4 }}
 {{ include "config.labels.roles.coreConfig" $ | indent 4 }}
+{{ include "config.agent.serviceAccountImagePullSecrets" . }}
 ---
 {{- end }}
 ---
