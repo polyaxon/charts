@@ -294,11 +294,7 @@ ui: {}
 operators:
   tfjob: false
   pytorchjob: false
-  paddlejob: false
-  xgbjob: false
-  mxjob: false
   mpijob: false
-  sparkjob: false
-  daskjob: false
-  rayjob: false
+  daskcluster: false
+  raycluster: false
 

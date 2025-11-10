@@ -21,16 +21,10 @@ rules:
   resources:
   - mpijobs
   - tfjobs
-  - mxjobs
   - pytorchjobs
-  - xgboostjobs
-  - paddlejobs
   - mpijobs/status
   - tfjobs/status
   - pytorchjobs/status
-  - mxjobs/status
-  - xgboostjobs/status
-  - paddlejobs/status
   verbs:
   - create
   - delete

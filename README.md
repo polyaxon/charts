@@ -9,11 +9,11 @@
 
 Polyaxon charts is a set of Helm charts for creating reproducible and maintainable deployments of Polyaxon and it's components with Kubernetes.
 
-This repo includes: 
+This repo includes:
 
  * Helm chart for self-hosted Polyaxon version
  * Helm chart for Polyaxon agent to be deployed with Polyaxon cloud or Polyaxon EE
- * Helm charts for distributed training operators. 
+ * Helm charts for distributed training operators.
 
 
 ## Install
@@ -32,7 +32,7 @@ namespace "polyaxon" created
 
 ### Polyaxon charts repo
 
-You can add the Polyaxon charts repo repository to your helm, so you can install Polyaxon and other charts provided by Polyaxon from it. 
+You can add the Polyaxon charts repo repository to your helm, so you can install Polyaxon and other charts provided by Polyaxon from it.
 This makes it easy to refer to the chart without having to use a long URL each time.
 
 ```bash
@@ -40,7 +40,7 @@ $ helm repo add polyaxon https://charts.polyaxon.com
 $ helm repo update
 ```
 
-### TFJob/PytorchJob/MXJob/XGBoostJob/MPIJob
+### TFJob/PytorchJob/MPIJob
 
 To install the distributed training jobs:
 
@@ -68,7 +68,7 @@ a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) p
 It also packages a postgres dependency for Polyaxon (we recommend that you bring your own postgres instance instead of using the built-in subchart):
 
  * [PostgreSQL](https://github.com/kubernetes/charts/tree/master/stable/postgresql)
- 
+
 If you deploy the scheduler or deploy our enterprise version you will need Redis (we recommend that you bring your own postgres instance instead of using the built-in subchart):
 
  * [Redis](https://github.com/kubernetes/charts/tree/master/stable/redis)

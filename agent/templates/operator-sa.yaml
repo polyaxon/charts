@@ -22,6 +22,36 @@ metadata:
 {{ include "config.labels.roles.coreConfig" . | indent 4 }}
 rules:
 - apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - services
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - pods/status
+  - services/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
   - apps
   resources:
   - deployments
@@ -62,28 +92,11 @@ rules:
   - patch
   - update
 - apiGroups:
-  - ""
+  - polyaxon.com
   resources:
-  - pods
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - ""
-  resources:
-  - pods/status
-  verbs:
-  - get
-  - patch
-  - update
-- apiGroups:
-  - ""
-  resources:
+  - clusters
+  - jobs
+  - kfjobs
   - services
   verbs:
   - create
@@ -94,36 +107,21 @@ rules:
   - update
   - watch
 - apiGroups:
-  - ""
+  - polyaxon.com
   resources:
+  - clusters/finalizers
+  - jobs/finalizers
+  - kfjobs/finalizers
+  - services/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - polyaxon.com
+  resources:
+  - clusters/status
+  - jobs/status
+  - kfjobs/status
   - services/status
-  verbs:
-  - get
-  - patch
-  - update
-- apiGroups:
-  - core.polyaxon.com
-  resources:
-  - operations
-  - operations/finalizers
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - core.polyaxon.com
-  resources:
-  - operations/finalizers
-  verbs:
-  - update
-- apiGroups:
-  - core.polyaxon.com
-  resources:
-  - operations/status
   verbs:
   - get
   - patch
@@ -172,28 +170,6 @@ rules:
   - patch
   - update
 {{- end }}
-{{- if .Values.operators.paddlejob }}
-- apiGroups:
-  - kubeflow.org
-  resources:
-  - paddlejobs
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - kubeflow.org
-  resources:
-  - paddlejobs/status
-  verbs:
-  - get
-  - patch
-  - update
-{{- end }}
 {{- if .Values.operators.tfjob }}
 - apiGroups:
   - kubeflow.org
@@ -216,55 +192,11 @@ rules:
   - patch
   - update
 {{- end }}
-{{- if .Values.operators.mxjob }}
-- apiGroups:
-  - kubeflow.org
-  resources:
-  - mxjobs
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - kubeflow.org
-  resources:
-  - mxjobs/status
-  verbs:
-  - get
-  - patch
-  - update
-{{- end }}
-{{- if .Values.operators.xgbjob }}
-- apiGroups:
-  - kubeflow.org
-  resources:
-  - xgboostjobs
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - kubeflow.org
-  resources:
-  - xgboostjobs/status
-  verbs:
-  - get
-  - patch
-  - update
-{{- end }}
-{{- if .Values.operators.rayjob }}
+{{- if .Values.operators.raycluster }}
 - apiGroups:
   - ray.io
   resources:
-  - rayjobs
+  - rayclusters
   verbs:
   - create
   - delete
@@ -276,17 +208,17 @@ rules:
 - apiGroups:
   - ray.io
   resources:
-  - rayjobs/status
+  - rayclusters/status
   verbs:
   - get
   - patch
   - update
 {{- end}}
-{{- if .Values.operators.daskjob }}
+{{- if .Values.operators.daskcluster }}
 - apiGroups:
   - kubernetes.dask.org
   resources:
-  - daskjobs
+  - daskclusters
   verbs:
   - create
   - delete
@@ -298,7 +230,7 @@ rules:
 - apiGroups:
   - kubernetes.dask.org
   resources:
-  - daskjobs/status
+  - daskclusters/status
   verbs:
   - get
   - patch
@@ -309,25 +241,6 @@ rules:
   - networking.istio.io
   resources:
   - destinationrules
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - networking.istio.io
-  resources:
-  - destinationrules/status
-  verbs:
-  - get
-  - patch
-  - update
-- apiGroups:
-  - networking.istio.io
-  resources:
   - virtualservices
   verbs:
   - create
@@ -340,6 +253,7 @@ rules:
 - apiGroups:
   - networking.istio.io
   resources:
+  - destinationrules/status
   - virtualservices/status
   verbs:
   - get
