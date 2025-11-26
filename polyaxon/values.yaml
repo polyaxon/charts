@@ -661,7 +661,6 @@ email:
 #  - 127.0.0.1
 #  - 159.203.150.212
 
-
 # Values are defined in seconds
 intervals:
   compatibilityCheck: 1800

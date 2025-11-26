@@ -297,4 +297,3 @@ operators:
   mpijob: false
   daskcluster: false
   raycluster: false
-
