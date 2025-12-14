@@ -29,8 +29,8 @@ rules:
   - apiGroups: ["metrics.k8s.io"]
     resources: ["pods", "nodes"]
     verbs: ["get", "list", "watch"]
-  - apiGroups: ["core.polyaxon.com"]
-    resources: ["operations"]
+  - apiGroups: ["polyaxon.com"]
+    resources: ["clusters" , "jobs", "kfjobs", "services"]
     verbs: ["get", "watch", "list"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1

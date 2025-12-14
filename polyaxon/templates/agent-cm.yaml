@@ -65,13 +65,9 @@ data:
   {{- end }}
   POLYAXON_TFJOB_ENABLED: {{ .Values.operators.tfjob | quote }}
   POLYAXON_PYTORCH_JOB_ENABLED: {{ .Values.operators.pytorchjob | quote }}
-  POLYAXON_PADDLE_JOB_ENABLED: {{ .Values.operators.paddlejob | quote }}
-  POLYAXON_XGBOOST_JOB_ENABLED: {{ .Values.operators.xgbjob | quote }}
-  POLYAXON_MXJOB_ENABLED: {{ .Values.operators.mxjob | quote }}
   POLYAXON_MPIJOB_ENABLED: {{ .Values.operators.mpijob | quote }}
-  POLYAXON_SPARK_JOB_ENABLED: {{ .Values.operators.sparkjob | quote }}
-  POLYAXON_DASK_JOB_ENABLED: {{ .Values.operators.daskjob | quote }}
-  POLYAXON_RAY_JOB_ENABLED: {{ .Values.operators.rayjob | quote }}
+  POLYAXON_DASK_CLUSTER_ENABLED: {{ .Values.operators.daskcluster | quote }}
+  POLYAXON_RAY_CLUSTER_ENABLED: {{ .Values.operators.raycluster | quote }}
   {{- if .Values.proxy.enabled }}
   POLYAXON_AGENT_USE_PROXY_ENV_VARS_IN_OPS: {{ .Values.proxy.useInOps | quote }}
   {{- end }}
