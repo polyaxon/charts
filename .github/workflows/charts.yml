@@ -21,14 +21,14 @@ jobs:
         config: [default, test-config1, test-config2] # TODO: re-enable amqp config test: test-config3
     steps:
       - uses: actions/checkout@v4
-      - uses: azure/setup-helm@v3.5
+      - uses: azure/setup-helm@v4
       - uses: helm/kind-action@v1
       - name: generate
         run: |
           helm repo add bitnami https://charts.bitnami.com/bitnami
           helm dependency build polyaxon
           helm dependency build agent
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: 3.9
       - name: test
