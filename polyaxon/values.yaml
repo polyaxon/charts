@@ -1,7 +1,7 @@
 deploymentChart: platform
 deploymentType: kubernetes
 namespace: polyaxon
-limitResources: false
+limitResources: true
 
 rbac:
   enabled: true
@@ -166,8 +166,8 @@ scheduler:
   concurrency: 2
   resources:
     limits:
-      cpu: 350m
-      memory: 350Mi
+      cpu: 1000m
+      memory: 1Gi
     requests:
       cpu: 150m
       memory: 200Mi
@@ -191,8 +191,8 @@ compiler:
   concurrency: 2
   resources:
     limits:
-      cpu: 200m
-      memory: 300Mi
+      cpu: 1000m
+      memory: 1Gi
     requests:
       cpu: 130m
       memory: 200Mi
@@ -216,8 +216,8 @@ worker:
   concurrency: 2
   resources:
     limits:
-      cpu: 200m
-      memory: 300Mi
+      cpu: 1000m
+      memory: 1Gi
     requests:
       cpu: 130m
       memory: 200Mi
@@ -240,10 +240,10 @@ beat:
   replicas: 1
   resources:
     limits:
-      cpu: 50m
-      memory: 128Mi
+      cpu: 500m
+      memory: 512Mi
     requests:
-      cpu: 50m
+      cpu: 150m
       memory: 128Mi
 
   # Uses the default node scheduling
