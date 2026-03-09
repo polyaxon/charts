@@ -1,7 +1,7 @@
 deploymentChart: platform
 deploymentType: kubernetes
 namespace: polyaxon
-limitResources: false
+limitResources: true
 
 rbac:
   enabled: true
@@ -74,7 +74,7 @@ gateway:
   enabled: true
   useResolver: true
   image: polyaxon/polyaxon-api
-  imageTag: 2.13.2
+  imageTag: 2.13.3
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
@@ -120,7 +120,7 @@ agent:
   enableStatusFinalizers: true
   enableLogsFinalizers: false
   image: polyaxon/polyaxon-agent
-  imageTag: 2.13.2
+  imageTag: 2.13.3
   imagePullPolicy: IfNotPresent
   serviceAccountAnnotations: {}
   serviceAccountImagePullSecrets: []
@@ -142,7 +142,7 @@ operator:
   skipStatus: false
   leaderElection: false
   image: polyaxon/polyaxon-operator
-  imageTag: 2.13.2
+  imageTag: 2.13.3
   imagePullPolicy: IfNotPresent
   maxConcurrentReconciles: 8
   resources:
@@ -160,14 +160,14 @@ operator:
 scheduler:
   enabled: false
   image: polyaxon/polyaxon-scheduler
-  imageTag: 2.13.2
+  imageTag: 2.13.3
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
   resources:
     limits:
-      cpu: 350m
-      memory: 350Mi
+      cpu: 1000m
+      memory: 1Gi
     requests:
       cpu: 150m
       memory: 200Mi
@@ -185,14 +185,14 @@ scheduler:
 compiler:
   enabled: false
   image:
-  imageTag: 2.13.2
+  imageTag: 2.13.3
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
   resources:
     limits:
-      cpu: 200m
-      memory: 300Mi
+      cpu: 1000m
+      memory: 1Gi
     requests:
       cpu: 130m
       memory: 200Mi
@@ -210,14 +210,14 @@ compiler:
 worker:
   enabled: false
   image:
-  imageTag: 2.13.2
+  imageTag: 2.13.3
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
   resources:
     limits:
-      cpu: 200m
-      memory: 300Mi
+      cpu: 1000m
+      memory: 1Gi
     requests:
       cpu: 130m
       memory: 200Mi
@@ -235,15 +235,15 @@ worker:
 beat:
   enabled: false
   image:
-  imageTag: 2.13.2
+  imageTag: 2.13.3
   imagePullPolicy: IfNotPresent
   replicas: 1
   resources:
     limits:
-      cpu: 50m
-      memory: 128Mi
+      cpu: 500m
+      memory: 512Mi
     requests:
-      cpu: 50m
+      cpu: 150m
       memory: 128Mi
 
   # Uses the default node scheduling
@@ -274,7 +274,7 @@ flower:
 
 notifier:
   image: polyaxon/polyaxon-events-handlers
-  imageTag: 2.13.2
+  imageTag: 2.13.3
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -290,7 +290,7 @@ notifier:
 
 cleaner:
   image: polyaxon/polyaxon-init
-  imageTag: 2.13.2
+  imageTag: 2.13.3
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -308,12 +308,12 @@ apiHooks: {}
 
 cleanHooks:
   image: polyaxon/polyaxon-cli
-  imageTag: 2.13.2
+  imageTag: 2.13.3
   imagePullPolicy: IfNotPresent
 
 init:
   image: polyaxon/polyaxon-init
-  imageTag: 2.13.2
+  imageTag: 2.13.3
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -325,7 +325,7 @@ init:
 
 sidecar:
   image: polyaxon/polyaxon-sidecar
-  imageTag: 2.13.2
+  imageTag: 2.13.3
   imagePullPolicy: IfNotPresent
   sleepInterval: 10
   syncInterval: 10
