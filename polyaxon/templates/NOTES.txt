@@ -55,6 +55,10 @@ Polyaxon is currently running:
 
   echo $POLYAXON_HOST
 
+{{- else if contains "ClusterIP" .Values.gateway.service.type }}
+
+  Your gateway is using ClusterIP. To access Polyaxon, you need to set up port-forwarding (see step 2).
+
 {{- end }}
 {{- end }}
 
@@ -69,7 +73,9 @@ Polyaxon is currently running:
    Or:
 
    polyaxon config set --host=http://localhost:8000
-   kubectl port-forward -n {{ .Release.Namespace }} svc/polyaxon-polyaxon-gateway 8000:80
+   kubectl port-forward -n {{ .Release.Namespace }} svc/{{ template "polyaxon.fullname" . }}-gateway 8000:80
+
+   Note: The port-forward command must remain running for the UI and CLI to be accessible.
 
   {{- else if (not (empty .Values.ingress.tls)) }}
 
