@@ -26,6 +26,7 @@ data:
   {{- end }}
   POLYAXON_AGENT_SIDECAR: {{ toJson .Values.sidecar | quote }}
   POLYAXON_AGENT_INIT: {{ toJson .Values.init | quote }}
+  POLYAXON_AGENT_TMUX: {{ toJson .Values.tmux | quote }}
   POLYAXON_AGENT_CLEANER: {{ toJson .Values.cleaner | quote }}
   POLYAXON_AGENT_NOTIFIER: {{ toJson .Values.notifier | quote }}
   POLYAXON_AGENT_DEFAULT_SCHEDULING: {{ include "config.agent.scheduling" . | fromYaml | toJson | quote }}

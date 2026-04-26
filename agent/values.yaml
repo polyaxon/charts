@@ -239,6 +239,18 @@ sidecar:
       cpu: 100m
       memory: 100Mi
 
+tmux:
+  image: polyaxon/polyaxon-tmux
+  imageTag: 2.15.1
+  imagePullPolicy: IfNotPresent
+  resources:
+    limits:
+      cpu: 100m
+      memory: 64Mi
+    requests:
+      cpu: 50m
+      memory: 32Mi
+
 securityContext:
   enabled: false
   runAsUser: 2222
