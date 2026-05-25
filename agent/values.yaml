@@ -134,8 +134,6 @@ agent:
   image: polyaxon/polyaxon-agent
   imageTag: 2.15.1
   imagePullPolicy: IfNotPresent
-  # A flag to simplify configuring a replica agent on a different cluster
-  isReplica: false
   executorRefreshInterval: 300
   serviceAccountAnnotations: {}
   serviceAccountImagePullSecrets: []
@@ -297,4 +295,3 @@ operators:
   mpijob: false
   daskcluster: false
   raycluster: false
-

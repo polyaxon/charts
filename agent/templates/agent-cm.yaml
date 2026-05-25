@@ -46,9 +46,6 @@ data:
   POLYAXON_AGENT_SECRET_NAME: {{ template "polyaxon.fullname" . }}-agent-secret
   {{- end }}
   {{- end }}
-  {{- if .Values.agent.isReplica }}
-  POLYAXON_AGENT_IS_REPLICA: {{ .Values.agent.isReplica | quote }}
-  {{- end }}
   POLYAXON_ENABLE_STATUS_FINALIZERS: {{ .Values.agent.enableStatusFinalizers | quote }}
   POLYAXON_ENABLE_LOGS_FINALIZERS: {{ .Values.agent.enableLogsFinalizers | quote }}
   {{- if .Values.agent.enableHealthChecks }}
