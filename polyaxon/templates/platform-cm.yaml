@@ -66,6 +66,9 @@ data:
   {{- if .Values.cleaningIntervals.deletion }}
   POLYAXON_CLEANING_INTERVALS_DELETION: {{ .Values.cleaningIntervals.deletion | quote }}
   {{- end }}
+  {{- if .Values.cleaningIntervals.warningRuns }}
+  POLYAXON_CLEANING_INTERVALS_WARNING_RUNS: {{ .Values.cleaningIntervals.warningRuns | quote }}
+  {{- end }}
   # DB
   POLYAXON_DB_USER: {{ template "pgsql.user" . }}
   POLYAXON_DB_NAME: {{ template "pgsql.database" . }}
