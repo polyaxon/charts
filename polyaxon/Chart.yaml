@@ -21,10 +21,6 @@ dependencies:
     version: 15.5.35
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
-  - name: rabbitmq
-    version: 11.7.0
-    repository: https://charts.bitnami.com/bitnami
-    condition: rabbitmq.enabled
   - name: redis
     version: 20.1.5
     repository: https://charts.bitnami.com/bitnami

@@ -62,9 +62,7 @@ dns:
 platformSecret:
 agentSecret:
 
-# If scheduler is enabled a broker must be set options: redis | rabbitmq, default: redis
-# If broker == rabbitmq: rabbitmq or external rabbitmq must be enabled
-# If broker == redis: redis or external redis must be enabled
+# If scheduler is enabled, Redis or external Redis must be enabled.
 broker: redis
 
 # If you enable ingress, please set the gateway service type value to:
@@ -352,12 +350,6 @@ externalServices:
     host:
     port:
 
-  rabbitmq:
-    user:
-    password:
-    host:
-    port:
-
   gateway: {}
   api: {}
   streams: {}
@@ -462,36 +454,6 @@ redis:
   master:
     persistence:
       enabled: true
-  affinity:
-    podAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          podAffinityTerm:
-            labelSelector:
-              matchExpressions:
-                - key: type
-                  operator: In
-                  values:
-                    - "polyaxon-core"
-            topologyKey: "kubernetes.io/hostname"
-
-rabbitmq:
-  # Whether to deploy a rabbitmq server in-cluster.
-  # To use an external rabbitmq instance:
-  #  * set enabled to False, to disable the in-cluster deployment
-  #  * configure external rabbitmq required attributes in services.rabbitmq
-  enabled: false
-  auth:
-    username: polyaxon
-    password: polyaxon
-    securePassword: true
-  service:
-    port: 5672
-  replicaCount: 1
-  resources:
-    requests:
-      memory: 256Mi
-      cpu: 300m
   affinity:
     podAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:

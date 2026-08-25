@@ -32,20 +32,6 @@ secrets config
 */}}
 {{- define "config.envs" -}}
 {{- if not .Values.platformSecret }}
-{{- if .Values.rabbitmq.enabled }}
-- name: POLYAXON_RABBITMQ_PASSWORD
-  valueFrom:
-    secretKeyRef:
-      name: {{ template "rabbitmq.fullname" . }}
-      key: rabbitmq-password
-{{- end }}
-{{- if and (not .Values.rabbitmq.enabled) .Values.scheduler.enabled (eq .Values.broker "rabbitmq") }}
-- name: POLYAXON_RABBITMQ_PASSWORD
-  valueFrom:
-    secretKeyRef:
-      name: {{ template "polyaxon.fullname" . }}-rabbitmq-secret
-      key: rabbitmq-password
-{{- end }}
 {{- if and .Values.redis.enabled .Values.redis.usePassword }}
 - name: POLYAXON_REDIS_PASSWORD
   valueFrom:
