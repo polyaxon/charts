@@ -1,8 +1,8 @@
 apiVersion: v2
 description: An enterprise-grade open-source platform for building, training, and monitoring large scale deep learning applications.
 name: polyaxon
-version: 2.16.3
-appVersion: 2.16.3
+version: 2.17.0
+appVersion: 2.17.0
 keywords:
   - deep learning
   - a.i.
@@ -21,10 +21,6 @@ dependencies:
     version: 15.5.35
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
-  - name: rabbitmq
-    version: 11.7.0
-    repository: https://charts.bitnami.com/bitnami
-    condition: rabbitmq.enabled
   - name: redis
     version: 20.1.5
     repository: https://charts.bitnami.com/bitnami

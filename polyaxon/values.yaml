@@ -62,9 +62,7 @@ dns:
 platformSecret:
 agentSecret:
 
-# If scheduler is enabled a broker must be set options: redis | rabbitmq, default: redis
-# If broker == rabbitmq: rabbitmq or external rabbitmq must be enabled
-# If broker == redis: redis or external redis must be enabled
+# If scheduler is enabled, Redis or external Redis must be enabled.
 broker: redis
 
 # If you enable ingress, please set the gateway service type value to:
@@ -74,7 +72,7 @@ gateway:
   enabled: true
   useResolver: true
   image: polyaxon/polyaxon-api
-  imageTag: 2.16.3
+  imageTag: 2.17.0
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
@@ -120,7 +118,7 @@ agent:
   enableStatusFinalizers: true
   enableLogsFinalizers: false
   image: polyaxon/polyaxon-agent
-  imageTag: 2.16.3
+  imageTag: 2.17.0
   imagePullPolicy: IfNotPresent
   serviceAccountAnnotations: {}
   serviceAccountImagePullSecrets: []
@@ -142,7 +140,7 @@ operator:
   skipStatus: false
   leaderElection: false
   image: polyaxon/polyaxon-operator
-  imageTag: 2.16.3
+  imageTag: 2.17.0
   imagePullPolicy: IfNotPresent
   maxConcurrentReconciles: 8
   resources:
@@ -160,7 +158,7 @@ operator:
 scheduler:
   enabled: false
   image: polyaxon/polyaxon-scheduler
-  imageTag: 2.16.3
+  imageTag: 2.17.0
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
@@ -185,7 +183,7 @@ scheduler:
 compiler:
   enabled: false
   image:
-  imageTag: 2.16.3
+  imageTag: 2.17.0
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
@@ -210,7 +208,7 @@ compiler:
 worker:
   enabled: false
   image:
-  imageTag: 2.16.3
+  imageTag: 2.17.0
   imagePullPolicy: IfNotPresent
   replicas: 1
   concurrency: 2
@@ -235,7 +233,7 @@ worker:
 beat:
   enabled: false
   image:
-  imageTag: 2.16.3
+  imageTag: 2.17.0
   imagePullPolicy: IfNotPresent
   replicas: 1
   resources:
@@ -274,7 +272,7 @@ flower:
 
 notifier:
   image: polyaxon/polyaxon-events-handlers
-  imageTag: 2.16.3
+  imageTag: 2.17.0
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -290,7 +288,7 @@ notifier:
 
 cleaner:
   image: polyaxon/polyaxon-init
-  imageTag: 2.16.3
+  imageTag: 2.17.0
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -308,12 +306,12 @@ apiHooks: {}
 
 cleanHooks:
   image: polyaxon/polyaxon-cli
-  imageTag: 2.16.3
+  imageTag: 2.17.0
   imagePullPolicy: IfNotPresent
 
 init:
   image: polyaxon/polyaxon-init
-  imageTag: 2.16.3
+  imageTag: 2.17.0
   imagePullPolicy: IfNotPresent
   resources:
     limits:
@@ -325,7 +323,7 @@ init:
 
 sidecar:
   image: polyaxon/polyaxon-sidecar
-  imageTag: 2.16.3
+  imageTag: 2.17.0
   imagePullPolicy: IfNotPresent
   sleepInterval: 10
   syncInterval: 10
@@ -348,12 +346,6 @@ externalServices:
 
   redis:
     usePassword:
-    password:
-    host:
-    port:
-
-  rabbitmq:
-    user:
     password:
     host:
     port:
@@ -462,36 +454,6 @@ redis:
   master:
     persistence:
       enabled: true
-  affinity:
-    podAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          podAffinityTerm:
-            labelSelector:
-              matchExpressions:
-                - key: type
-                  operator: In
-                  values:
-                    - "polyaxon-core"
-            topologyKey: "kubernetes.io/hostname"
-
-rabbitmq:
-  # Whether to deploy a rabbitmq server in-cluster.
-  # To use an external rabbitmq instance:
-  #  * set enabled to False, to disable the in-cluster deployment
-  #  * configure external rabbitmq required attributes in services.rabbitmq
-  enabled: false
-  auth:
-    username: polyaxon
-    password: polyaxon
-    securePassword: true
-  service:
-    port: 5672
-  replicaCount: 1
-  resources:
-    requests:
-      memory: 256Mi
-      cpu: 300m
   affinity:
     podAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:

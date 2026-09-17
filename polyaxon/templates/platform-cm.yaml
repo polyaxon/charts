@@ -36,20 +36,13 @@ data:
   {{- end }}
   {{- if .Values.scheduler.enabled }}
   POLYAXON_SCHEDULER_ENABLED: {{ .Values.scheduler.enabled | quote }}
-  {{- if eq .Values.broker "redis" }}
-  POLYAXON_BROKER_BACKEND: {{ .Values.broker }}
+  POLYAXON_BROKER_BACKEND: redis
   POLYAXON_REDIS_CELERY_BROKER_URL: {{ template "redis.host" . }}:{{ template "redis.port" . }}/0
   POLYAXON_REDIS_CELERY_RESULT_BACKEND_URL: {{ template "redis.host" . }}:{{ template "redis.port" . }}/1
   POLYAXON_REDIS_SESSIONS_URL: {{ template "redis.host" . }}:{{ template "redis.port" . }}/2
   POLYAXON_REDIS_HEARTBEAT_URL: {{ template "redis.host" . }}:{{ template "redis.port" . }}/3
   POLYAXON_REDIS_HOST: "{{ template "redis.host" . }}"
   POLYAXON_REDIS_PORT: "{{ template "redis.port" . }}"
-  {{- end }}
-  {{- if eq .Values.broker "rabbitmq" }}
-  POLYAXON_BROKER_BACKEND: {{ .Values.broker }}
-  POLYAXON_AMQP_URL: "{{ template "rabbitmq.host" . }}:{{ template "rabbitmq.port" . }}"
-  POLYAXON_RABBITMQ_USER: "{{ template "rabbitmq.user" . }}"
-  {{- end }}
   {{- end }}
   {{- if .Values.intervals.compatibilityCheck }}
   POLYAXON_INTERVALS_COMPATIBILITY_CHECK: {{ .Values.intervals.compatibilityCheck | quote }}
