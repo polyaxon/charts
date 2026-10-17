@@ -9,6 +9,7 @@ resources:
   requests:
     cpu: 100m
     memory: 50Mi
+# The manager only enables tfjob, pytorchjob and mpijob, the schemes with CRDs and RBAC in this chart.
 # To pass custom container args, example setting custom pytorch init container:
 #containerArgs:
 #  - "-pytorch-init-container-image=alpine:3.10"

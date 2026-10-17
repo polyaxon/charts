@@ -41,7 +41,12 @@ spec:
         command:
         - /manager
         args:
-{{ toYaml .Values.containerArgs | indent 10 }}
+        - --enable-scheme=tfjob
+        - --enable-scheme=pytorchjob
+        - --enable-scheme=mpijob
+        {{- with .Values.containerArgs }}
+{{ toYaml . | indent 8 }}
+        {{- end }}
         ports:
           - containerPort: 8080
         securityContext:
