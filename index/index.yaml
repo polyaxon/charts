@@ -2,8 +2,31 @@ apiVersion: v1
 entries:
   agent:
   - apiVersion: v2
+    appVersion: 2.18.0
+    created: "2026-10-21T08:49:32.793836+02:00"
+    description: An enterprise-grade open-source platform for building, training,
+      and monitoring large scale deep learning applications.
+    digest: 10617bcebf642d76bcf8ddb78e54c8772a90a4a57641127c116f126a5f933a5b
+    home: https://polyaxon.com
+    icon: https://raw.githubusercontent.com/polyaxon/polyaxon/master/artifacts/logo/logo-small.png
+    keywords:
+    - deep learning
+    - a.i.
+    - machine learning
+    - infrastructure
+    maintainers:
+    - email: contact@polyaxon.com
+      name: Polyaxon
+      url: polyaxon.com
+    name: agent
+    sources:
+    - https://github.com/polyaxon
+    urls:
+    - agent-2.18.0.tgz
+    version: 2.18.0
+  - apiVersion: v2
     appVersion: 2.17.0
-    created: "2026-09-17T20:11:04.288194+02:00"
+    created: "2026-10-21T08:49:32.790093+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 5b8a857cb5aa28565c3ac6548fb3062eb031e1b73db04866ba924310d3f6b855
@@ -26,7 +49,7 @@ entries:
     version: 2.17.0
   - apiVersion: v2
     appVersion: 2.16.3
-    created: "2026-09-17T20:11:04.284652+02:00"
+    created: "2026-10-21T08:49:32.786491+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 61ef51f079d8e0b912584f97fd3bf3faa55de410375f365908783727a653001d
@@ -49,7 +72,7 @@ entries:
     version: 2.16.3
   - apiVersion: v2
     appVersion: 2.16.2
-    created: "2026-09-17T20:11:04.281004+02:00"
+    created: "2026-10-21T08:49:32.782873+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 86e343c80d92c29b76c3a4413bcab6e88b17e7162053712bce307b9f499bc01c
@@ -72,7 +95,7 @@ entries:
     version: 2.16.2
   - apiVersion: v2
     appVersion: 2.16.0
-    created: "2026-09-17T20:11:04.277535+02:00"
+    created: "2026-10-21T08:49:32.77923+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 03a9089eb413286fd3bc60fe30c1d81bb6ad7ab72f323d18cd106a26024f50c3
@@ -95,7 +118,7 @@ entries:
     version: 2.16.0
   - apiVersion: v2
     appVersion: 2.15.1
-    created: "2026-09-17T20:11:04.273837+02:00"
+    created: "2026-10-21T08:49:32.775344+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 8239ece3e7d6636b215cb7dce254c914244c55d851d9390c0007d8ffa4082090
@@ -118,7 +141,7 @@ entries:
     version: 2.15.1
   - apiVersion: v2
     appVersion: 2.15.0
-    created: "2026-09-17T20:11:04.270293+02:00"
+    created: "2026-10-21T08:49:32.772049+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 03c79bc683142821d0860b5bdd1a4a815993a2117961d47238c5f4ff22287294
@@ -141,7 +164,7 @@ entries:
     version: 2.15.0
   - apiVersion: v2
     appVersion: 2.14.1
-    created: "2026-09-17T20:11:04.26674+02:00"
+    created: "2026-10-21T08:49:32.768423+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 23faa3ffb14cf05db84e8db689dec93e30e1fdd56848d5b266fd5f2bc63697d4
@@ -164,7 +187,7 @@ entries:
     version: 2.14.1
   - apiVersion: v2
     appVersion: 2.14.0
-    created: "2026-09-17T20:11:04.263224+02:00"
+    created: "2026-10-21T08:49:32.76479+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: faf751204b5f7e8479467c1143c7e2d96a91b6075e9318e1655343ae90feac1e
@@ -187,7 +210,7 @@ entries:
     version: 2.14.0
   - apiVersion: v2
     appVersion: 2.13.3
-    created: "2026-09-17T20:11:04.259667+02:00"
+    created: "2026-10-21T08:49:32.760998+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 4984f7250b43db018c32ad0ac2e77686124e4a1c2c9bb47e17bcebfc1ded0f24
@@ -210,7 +233,7 @@ entries:
     version: 2.13.3
   - apiVersion: v2
     appVersion: 2.13.2
-    created: "2026-09-17T20:11:04.256115+02:00"
+    created: "2026-10-21T08:49:32.757262+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 53793be6102ee04deb0b422288670cd875e4b3c0f906c15c0ea1055237dd5e5d
@@ -233,7 +256,7 @@ entries:
     version: 2.13.2
   - apiVersion: v2
     appVersion: 2.13.1
-    created: "2026-09-17T20:11:04.252626+02:00"
+    created: "2026-10-21T08:49:32.753356+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: adef01348b6c36731d952a9ed9875836a13de3550fe164769a76b0099790cd44
@@ -256,7 +279,7 @@ entries:
     version: 2.13.1
   - apiVersion: v2
     appVersion: 2.13.0
-    created: "2026-09-17T20:11:04.249047+02:00"
+    created: "2026-10-21T08:49:32.749605+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 04c7f9e5ebe9a73d8e793247ba5dda7ccddc9dadde4096f28cfcf8c032f4f9dc
@@ -279,7 +302,7 @@ entries:
     version: 2.13.0
   - apiVersion: v2
     appVersion: 2.12.0
-    created: "2026-09-17T20:11:04.245328+02:00"
+    created: "2026-10-21T08:49:32.746015+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: f6b22da07ff4f5a2144b3583bdba35d09f3f9d6fe7df6a19ccb2219b160bd69d
@@ -302,7 +325,7 @@ entries:
     version: 2.12.0
   - apiVersion: v2
     appVersion: 2.11.1
-    created: "2026-09-17T20:11:04.241716+02:00"
+    created: "2026-10-21T08:49:32.742359+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 5de723b25ca96f949bce043809bf97e2eb63ce55bf775ff0fbd7deb9c6b1a584
@@ -325,7 +348,7 @@ entries:
     version: 2.11.1
   - apiVersion: v2
     appVersion: 2.11.0
-    created: "2026-09-17T20:11:04.238338+02:00"
+    created: "2026-10-21T08:49:32.73887+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 61e2a863a822dc0b92dd92ca0d41db7711b7e18802e5b47ce94d455430e1ff84
@@ -348,7 +371,7 @@ entries:
     version: 2.11.0
   - apiVersion: v2
     appVersion: 2.10.0
-    created: "2026-09-17T20:11:04.234871+02:00"
+    created: "2026-10-21T08:49:32.735366+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 567b475fd9fbcf7381c6dcfa86cdb73122d58b12132f5b557f248b1a3e3a109a
@@ -371,7 +394,7 @@ entries:
     version: 2.10.0
   - apiVersion: v2
     appVersion: 2.9.4
-    created: "2026-09-17T20:11:04.35906+02:00"
+    created: "2026-10-21T08:49:32.864719+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: eed51fde4ffc4a519e6a63e6c4a0310fc3d9262d2b6aedcb9750b998c52f6aaa
@@ -394,7 +417,7 @@ entries:
     version: 2.9.4
   - apiVersion: v2
     appVersion: 2.9.3
-    created: "2026-09-17T20:11:04.355553+02:00"
+    created: "2026-10-21T08:49:32.861231+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 0e29a2a96b3ec260f8e50353dd489bac8352c93b501fd18af201ad424a04c0bc
@@ -417,7 +440,7 @@ entries:
     version: 2.9.3
   - apiVersion: v2
     appVersion: 2.9.2
-    created: "2026-09-17T20:11:04.352038+02:00"
+    created: "2026-10-21T08:49:32.857738+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 93d2e45c074bdaf830db863e1da13243ded7442042757e0dbc99296f59a96285
@@ -440,7 +463,7 @@ entries:
     version: 2.9.2
   - apiVersion: v2
     appVersion: 2.9.1
-    created: "2026-09-17T20:11:04.348516+02:00"
+    created: "2026-10-21T08:49:32.854309+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 67b2f0797934de82a2494bdcf9eb4f67523700710bbe252f312906e6809e5ea4
@@ -463,7 +486,7 @@ entries:
     version: 2.9.1
   - apiVersion: v2
     appVersion: 2.9.0
-    created: "2026-09-17T20:11:04.345002+02:00"
+    created: "2026-10-21T08:49:32.850827+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: c31a9612386638ffa848cfadb89136e02947ce30fa7c55ac80abec6bcae4d017
@@ -486,7 +509,7 @@ entries:
     version: 2.9.0
   - apiVersion: v2
     appVersion: 2.8.1
-    created: "2026-09-17T20:11:04.341593+02:00"
+    created: "2026-10-21T08:49:32.847266+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 9d2edfeb706b77a66ef58f00fa1e59e041ee5cfed9a5fefd735751d7740f7923
@@ -509,7 +532,7 @@ entries:
     version: 2.8.1
   - apiVersion: v2
     appVersion: 2.8.0
-    created: "2026-09-17T20:11:04.338144+02:00"
+    created: "2026-10-21T08:49:32.843772+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: eed21214318ade541ff07e341f9163db0dc499c64d5535f13c38a32c6304abb5
@@ -532,7 +555,7 @@ entries:
     version: 2.8.0
   - apiVersion: v2
     appVersion: 2.7.0
-    created: "2026-09-17T20:11:04.334712+02:00"
+    created: "2026-10-21T08:49:32.840366+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 1dd4e03b5f7fce2b22fde4f62d638b92d19df6851d8eb72a34e4ef3e75677d73
@@ -555,7 +578,7 @@ entries:
     version: 2.7.0
   - apiVersion: v2
     appVersion: 2.6.1
-    created: "2026-09-17T20:11:04.331192+02:00"
+    created: "2026-10-21T08:49:32.836882+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 653add952798c2957ded8eb310f26e7ab6b9211766b8e752edf0e982e7ceee0d
@@ -578,7 +601,7 @@ entries:
     version: 2.6.1
   - apiVersion: v2
     appVersion: 2.6.0
-    created: "2026-09-17T20:11:04.327572+02:00"
+    created: "2026-10-21T08:49:32.833288+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: e47893fdac1d4fce6b27dac167da9a53164d838bc6954e7ec076e2d75acb0e3f
@@ -601,7 +624,7 @@ entries:
     version: 2.6.0
   - apiVersion: v2
     appVersion: 2.5.3
-    created: "2026-09-17T20:11:04.323933+02:00"
+    created: "2026-10-21T08:49:32.829858+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 50fd56ef6ff7fb17d709adf6941b0f565124426fbabb286fb9b22bc002b6bb0f
@@ -624,7 +647,7 @@ entries:
     version: 2.5.3
   - apiVersion: v2
     appVersion: 2.5.2
-    created: "2026-09-17T20:11:04.320764+02:00"
+    created: "2026-10-21T08:49:32.826379+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: a03d2c6f2ab0fe32913e5c8f9d178b92134bbccab5a010116405a66c5498569f
@@ -647,7 +670,7 @@ entries:
     version: 2.5.2
   - apiVersion: v2
     appVersion: 2.5.1
-    created: "2026-09-17T20:11:04.317268+02:00"
+    created: "2026-10-21T08:49:32.822869+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 199f241f82ff531d56024b609eac6caf8c2ca327f3e45dcffc77cb252757b8fa
@@ -670,7 +693,7 @@ entries:
     version: 2.5.1
   - apiVersion: v2
     appVersion: 2.5.0
-    created: "2026-09-17T20:11:04.313832+02:00"
+    created: "2026-10-21T08:49:32.81946+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 48af3b46cdea549e08b3a8c6f0841bb0d28e9d002ee5fd7d1cf47db108c1f275
@@ -693,7 +716,7 @@ entries:
     version: 2.5.0
   - apiVersion: v2
     appVersion: 2.4.0
-    created: "2026-09-17T20:11:04.310282+02:00"
+    created: "2026-10-21T08:49:32.816253+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 0768623ab771c44767b458d195d12e29260b06de3c1184cee758da9993bff993
@@ -716,7 +739,7 @@ entries:
     version: 2.4.0
   - apiVersion: v2
     appVersion: 2.3.3
-    created: "2026-09-17T20:11:04.307134+02:00"
+    created: "2026-10-21T08:49:32.812705+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: c5f2fcfa452a4af15f952811f6c685f3751b60d62aaeaa30f8c8222257c3e73a
@@ -739,7 +762,7 @@ entries:
     version: 2.3.3
   - apiVersion: v2
     appVersion: 2.3.2
-    created: "2026-09-17T20:11:04.303633+02:00"
+    created: "2026-10-21T08:49:32.809195+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 6ad6b4fae8ccd0aa86efbde2af394d666890838f2edd49b3062a7f0cef0494a9
@@ -762,7 +785,7 @@ entries:
     version: 2.3.2
   - apiVersion: v2
     appVersion: 2.3.1
-    created: "2026-09-17T20:11:04.300464+02:00"
+    created: "2026-10-21T08:49:32.80548+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 565106259698ca382843fbb8338ecdd393ed1c819c518f166a953fc0b2cb6508
@@ -785,7 +808,7 @@ entries:
     version: 2.3.1
   - apiVersion: v2
     appVersion: 2.3.0
-    created: "2026-09-17T20:11:04.29597+02:00"
+    created: "2026-10-21T08:49:32.80151+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: e4c9877f436711be0844e53aef61a0baac5f05939e54c18e13a66f22a5a3a341
@@ -808,7 +831,7 @@ entries:
     version: 2.3.0
   - apiVersion: v2
     appVersion: 2.2.0
-    created: "2026-09-17T20:11:04.291771+02:00"
+    created: "2026-10-21T08:49:32.796987+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 493934ce6ead945d99dcd2e41c0ef7f7b2bcbb3eec20aab393224a69abc227dd
@@ -831,7 +854,7 @@ entries:
     version: 2.2.0
   - apiVersion: v2
     appVersion: 2.1.8
-    created: "2026-09-17T20:11:04.231499+02:00"
+    created: "2026-10-21T08:49:32.731852+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: ff720bce13f13ac3bcb0e49b737adb1320f87c25536c0040c2eea0b3c167a82a
@@ -854,7 +877,7 @@ entries:
     version: 2.1.8
   - apiVersion: v2
     appVersion: 2.1.7
-    created: "2026-09-17T20:11:04.228037+02:00"
+    created: "2026-10-21T08:49:32.728271+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: ac82166fe49397701883ed4b5f5720dc664fb76e74e1e4e3c9ad17be4cc89852
@@ -877,7 +900,7 @@ entries:
     version: 2.1.7
   - apiVersion: v2
     appVersion: 2.1.6
-    created: "2026-09-17T20:11:04.224671+02:00"
+    created: "2026-10-21T08:49:32.724734+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: f9db95bf5d5a94ea3f9bdcd81f55c55bead459fe0bde0469562963ebd11bf4b6
@@ -900,7 +923,7 @@ entries:
     version: 2.1.6
   - apiVersion: v2
     appVersion: 2.1.4
-    created: "2026-09-17T20:11:04.221264+02:00"
+    created: "2026-10-21T08:49:32.721238+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 876cbf2a40d2a618e5d0b8b3041882be113d4786092fa6d0e1891074696ae15b
@@ -923,7 +946,7 @@ entries:
     version: 2.1.4
   - apiVersion: v2
     appVersion: 2.1.3
-    created: "2026-09-17T20:11:04.217878+02:00"
+    created: "2026-10-21T08:49:32.717463+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: f1dc2d26827f5847483ff51164f85dc41b484328a1ab0d4f0891ed2777df34a4
@@ -946,7 +969,7 @@ entries:
     version: 2.1.3
   - apiVersion: v2
     appVersion: 2.1.2
-    created: "2026-09-17T20:11:04.214493+02:00"
+    created: "2026-10-21T08:49:32.713957+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: e8e3329456464ba9b3839f4413db452248a73e27c6c4167f12dd14257109d02c
@@ -969,7 +992,7 @@ entries:
     version: 2.1.2
   - apiVersion: v2
     appVersion: 2.1.1
-    created: "2026-09-17T20:11:04.211152+02:00"
+    created: "2026-10-21T08:49:32.710447+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 309cb845790e89673e6d95211d5cc8ee0413708acd7170498a662bab90c2a222
@@ -992,7 +1015,7 @@ entries:
     version: 2.1.1
   - apiVersion: v2
     appVersion: 2.1.0
-    created: "2026-09-17T20:11:04.207721+02:00"
+    created: "2026-10-21T08:49:32.706999+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: f30276bdb8f73bf855912c53fca1ee01026c9dc0c252fc39a7ceae9404ca146a
@@ -1015,7 +1038,7 @@ entries:
     version: 2.1.0
   - apiVersion: v2
     appVersion: 2.0.6
-    created: "2026-09-17T20:11:04.203568+02:00"
+    created: "2026-10-21T08:49:32.70351+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: a5f5205521630294d50122ed08705a0334e0e90ce155c81c9ea22e0e9f7e95d8
@@ -1038,7 +1061,7 @@ entries:
     version: 2.0.6
   - apiVersion: v2
     appVersion: 2.0.5
-    created: "2026-09-17T20:11:04.200277+02:00"
+    created: "2026-10-21T08:49:32.700073+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: b7ed9dff948775f7458df7f06952a81b27427092b997850535bfdec771d9ee3f
@@ -1061,7 +1084,7 @@ entries:
     version: 2.0.5
   - apiVersion: v2
     appVersion: 2.0.4
-    created: "2026-09-17T20:11:04.196838+02:00"
+    created: "2026-10-21T08:49:32.696717+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 764525b179d02d88b3950b01833949463e4e8e95534c7a15e15b90f073801bb3
@@ -1084,7 +1107,7 @@ entries:
     version: 2.0.4
   - apiVersion: v1
     appVersion: 2.0.3
-    created: "2026-09-17T20:11:04.193504+02:00"
+    created: "2026-10-21T08:49:32.69328+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 7daf3d27ebc0fa5780dbcdd0dfe63866d4b3c4342a55b802aa9051a1aaf684cd
@@ -1107,7 +1130,7 @@ entries:
     version: 2.0.3
   - apiVersion: v1
     appVersion: 2.0.2
-    created: "2026-09-17T20:11:04.190092+02:00"
+    created: "2026-10-21T08:49:32.689779+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: fd730f4342091a7556549317d20a09ec5d106a9cdc8f34c5f97681b906570c58
@@ -1130,7 +1153,7 @@ entries:
     version: 2.0.2
   - apiVersion: v1
     appVersion: 2.0.1
-    created: "2026-09-17T20:11:04.187057+02:00"
+    created: "2026-10-21T08:49:32.686365+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 9445efe216aa503b751b9abb057e1f3a531360b1d7597d0bdf813411d3e20cab
@@ -1153,7 +1176,7 @@ entries:
     version: 2.0.1
   - apiVersion: v1
     appVersion: 2.0.0
-    created: "2026-09-17T20:11:04.183634+02:00"
+    created: "2026-10-21T08:49:32.682878+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 929a6b7edf360191f46172a4e28abfcddebdde19a4a56c9a5ff89147982efed4
@@ -1176,7 +1199,7 @@ entries:
     version: 2.0.0
   - apiVersion: v1
     appVersion: 1.20.0
-    created: "2026-09-17T20:11:04.102393+02:00"
+    created: "2026-10-21T08:49:32.603994+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: e180f21798fa994a30fef2b49f5a9ce34fee33779efa6f89834056a5c4b916f7
@@ -1199,7 +1222,7 @@ entries:
     version: 1.20.0
   - apiVersion: v1
     appVersion: 1.19.0
-    created: "2026-09-17T20:11:04.09645+02:00"
+    created: "2026-10-21T08:49:32.597717+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 407087cda9181eb5406ee3910aa28737997e73d43470c5e7663c76401dc4f8d1
@@ -1222,7 +1245,7 @@ entries:
     version: 1.19.0
   - apiVersion: v1
     appVersion: 1.18.2
-    created: "2026-09-17T20:11:04.093882+02:00"
+    created: "2026-10-21T08:49:32.595122+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: c82b7612ede05a1e8d053fcee71c6cf8f2b580ec99ebfdb0488b114943fbe120
@@ -1245,7 +1268,7 @@ entries:
     version: 1.18.2
   - apiVersion: v1
     appVersion: 1.18.1
-    created: "2026-09-17T20:11:04.091796+02:00"
+    created: "2026-10-21T08:49:32.592535+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 7e6269cca58460cc78812fc17674fa49a8fbc8581ab5e17b3db0234809917c3a
@@ -1268,7 +1291,7 @@ entries:
     version: 1.18.1
   - apiVersion: v1
     appVersion: 1.18.0
-    created: "2026-09-17T20:11:04.089019+02:00"
+    created: "2026-10-21T08:49:32.589866+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 4d703ff3857ef2b2bff770a79b43c475e3397de5480d8a577f087e5ca65d9b34
@@ -1291,7 +1314,7 @@ entries:
     version: 1.18.0
   - apiVersion: v1
     appVersion: 1.18.0-rc0
-    created: "2026-09-17T20:11:04.086456+02:00"
+    created: "2026-10-21T08:49:32.587221+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: c97f0f3fb8ecfbe2f61858660bc7e7eb40e07d348959f941941d5608569c9172
@@ -1314,7 +1337,7 @@ entries:
     version: 1.18.0-rc0
   - apiVersion: v1
     appVersion: 1.17.1
-    created: "2026-09-17T20:11:04.084298+02:00"
+    created: "2026-10-21T08:49:32.584492+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: ac47f6cc563d9699c6c1059e46a61cea3da3a92202ebd967814d0e440375f482
@@ -1337,7 +1360,7 @@ entries:
     version: 1.17.1
   - apiVersion: v1
     appVersion: 1.17.0
-    created: "2026-09-17T20:11:04.081687+02:00"
+    created: "2026-10-21T08:49:32.581924+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: e8306a14027ce4f685da4a259d7037e773175d3a72a2cf47d5449c8fa1dfd8c2
@@ -1360,7 +1383,7 @@ entries:
     version: 1.17.0
   - apiVersion: v1
     appVersion: 1.16.1
-    created: "2026-09-17T20:11:04.078969+02:00"
+    created: "2026-10-21T08:49:32.579178+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 8971d8b6a5c6cccd5e5d7b17862e4467d3c4c61b9331a4bbc1efeec102084ffc
@@ -1383,7 +1406,7 @@ entries:
     version: 1.16.1
   - apiVersion: v1
     appVersion: 1.16.0
-    created: "2026-09-17T20:11:04.07675+02:00"
+    created: "2026-10-21T08:49:32.576625+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: c260491e50768978b12d071778b38c47ff3b3d7d7cec872745e86a93b898d1aa
@@ -1406,7 +1429,7 @@ entries:
     version: 1.16.0
   - apiVersion: v1
     appVersion: 1.15.0
-    created: "2026-09-17T20:11:04.074216+02:00"
+    created: "2026-10-21T08:49:32.573995+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: e47d84319728093e9d874ac0845d76936099264328c18ed5ec7b0b9e4d0bca3c
@@ -1429,7 +1452,7 @@ entries:
     version: 1.15.0
   - apiVersion: v1
     appVersion: 1.14.3
-    created: "2026-09-17T20:11:04.071632+02:00"
+    created: "2026-10-21T08:49:32.571502+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: e0147fc89ff117741c8631fe301ec3b9c3153763197b117c67b47d2b6a13ad43
@@ -1452,7 +1475,7 @@ entries:
     version: 1.14.3
   - apiVersion: v1
     appVersion: 1.14.3-rc4
-    created: "2026-09-17T20:11:04.069531+02:00"
+    created: "2026-10-21T08:49:32.568904+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 0e12837b01eacccc869d48664fc7a5f06870b1577ae6e2f2d6a7f468bcdabc9b
@@ -1475,7 +1498,7 @@ entries:
     version: 1.14.3-rc4
   - apiVersion: v1
     appVersion: 1.14.2
-    created: "2026-09-17T20:11:04.067103+02:00"
+    created: "2026-10-21T08:49:32.566338+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: a557cc16a6f9923c14a5f7baec0b09c0f70e05a25f4241eec80419e2db058583
@@ -1498,7 +1521,7 @@ entries:
     version: 1.14.2
   - apiVersion: v1
     appVersion: 1.14.1
-    created: "2026-09-17T20:11:04.064446+02:00"
+    created: "2026-10-21T08:49:32.563545+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 1970c85823d09ccea08860c89e53748357ff731f1f5fb26cc881adaca4faa041
@@ -1521,7 +1544,7 @@ entries:
     version: 1.14.1
   - apiVersion: v1
     appVersion: 1.14.0
-    created: "2026-09-17T20:11:04.06225+02:00"
+    created: "2026-10-21T08:49:32.561115+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 948967fe087549fe9765e4fd39d03b88a36485ab82793ed37beb2f2b7699b938
@@ -1544,7 +1567,7 @@ entries:
     version: 1.14.0
   - apiVersion: v1
     appVersion: 1.13.0
-    created: "2026-09-17T20:11:04.059604+02:00"
+    created: "2026-10-21T08:49:32.558537+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: c1984bb5799ffb8ec926db505654bc2ea131d6f2ef2d988de1b1ace63cc0ac00
@@ -1567,7 +1590,7 @@ entries:
     version: 1.13.0
   - apiVersion: v1
     appVersion: 1.13.0-rc5
-    created: "2026-09-17T20:11:04.057188+02:00"
+    created: "2026-10-21T08:49:32.556144+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 723e82e6a7b96b40ad725ef4b90889010ad26e21049159613780ff73bba38b35
@@ -1590,7 +1613,7 @@ entries:
     version: 1.13.0-rc5
   - apiVersion: v1
     appVersion: 1.13.0-rc4
-    created: "2026-09-17T20:11:04.054693+02:00"
+    created: "2026-10-21T08:49:32.553648+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: d423fd9dbcd43f53bc95835297510506a50412a6bf0329475b80850ae7808091
@@ -1613,7 +1636,7 @@ entries:
     version: 1.13.0-rc4
   - apiVersion: v1
     appVersion: 1.13.0-rc3
-    created: "2026-09-17T20:11:04.052285+02:00"
+    created: "2026-10-21T08:49:32.551423+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: d822bf93f5630abfb08175516aadda933508e90765531f82431425a44eb74fa8
@@ -1636,7 +1659,7 @@ entries:
     version: 1.13.0-rc3
   - apiVersion: v1
     appVersion: 1.13.0-rc0
-    created: "2026-09-17T20:11:04.049818+02:00"
+    created: "2026-10-21T08:49:32.548682+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 77b9020c205542dde87aa2c74588898ba5208991595b6243a6fb1cfa05e9a99e
@@ -1659,7 +1682,7 @@ entries:
     version: 1.13.0-rc0
   - apiVersion: v1
     appVersion: 1.12.3
-    created: "2026-09-17T20:11:04.048159+02:00"
+    created: "2026-10-21T08:49:32.54661+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 65421c04df739c8ee1bf88c1b717923d25121164360425bb0acca8c291781f7b
@@ -1682,7 +1705,7 @@ entries:
     version: 1.12.3
   - apiVersion: v1
     appVersion: 1.12.2
-    created: "2026-09-17T20:11:04.046067+02:00"
+    created: "2026-10-21T08:49:32.544744+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: c869efe5781206794f6e3492fba09c8caef58a5224acf10687119acd6ae58099
@@ -1705,7 +1728,7 @@ entries:
     version: 1.12.2
   - apiVersion: v1
     appVersion: 1.12.0
-    created: "2026-09-17T20:11:04.044447+02:00"
+    created: "2026-10-21T08:49:32.542965+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 36bf7fb1015b9884dc6fd03bb3184662a0c5a135e5f9ee87ff4a33c9b588b8a9
@@ -1728,7 +1751,7 @@ entries:
     version: 1.12.0
   - apiVersion: v1
     appVersion: 1.11.3
-    created: "2026-09-17T20:11:04.042481+02:00"
+    created: "2026-10-21T08:49:32.541076+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 3e6ac0dcf9eea83687760909f5ca43496c2574845175512f867902aa04d730b2
@@ -1751,7 +1774,7 @@ entries:
     version: 1.11.3
   - apiVersion: v1
     appVersion: 1.11.2
-    created: "2026-09-17T20:11:04.039586+02:00"
+    created: "2026-10-21T08:49:32.538235+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 2c514bdbfd5ea6e7416f047e866b29a1d69a6e103539793d3592a3c66bfb3172
@@ -1774,7 +1797,7 @@ entries:
     version: 1.11.2
   - apiVersion: v1
     appVersion: 1.11.1
-    created: "2026-09-17T20:11:04.036754+02:00"
+    created: "2026-10-21T08:49:32.535937+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: a91d13d3720067c9ab8ca6622bbed075951200d23e85006d659f500b15a0e409
@@ -1797,7 +1820,7 @@ entries:
     version: 1.11.1
   - apiVersion: v1
     appVersion: 1.11.0
-    created: "2026-09-17T20:11:04.033799+02:00"
+    created: "2026-10-21T08:49:32.533229+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 47e38a3543ee0f39c112d4f4de2cb704f59cd97e4ae010fd4da5a77cdb8219d1
@@ -1820,7 +1843,7 @@ entries:
     version: 1.11.0
   - apiVersion: v1
     appVersion: 1.10.1
-    created: "2026-09-17T20:11:04.030974+02:00"
+    created: "2026-10-21T08:49:32.530387+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 6c55ad656771a5b0a393a69feb3e07280c84db7bd3912db5d3ae2989f4a736a5
@@ -1843,7 +1866,7 @@ entries:
     version: 1.10.1
   - apiVersion: v1
     appVersion: 1.10.0
-    created: "2026-09-17T20:11:04.027923+02:00"
+    created: "2026-10-21T08:49:32.527708+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: c9806b3a31aacd528671cb3f1bf7b3913f771d402802ec61ebd3878efb92de03
@@ -1866,7 +1889,7 @@ entries:
     version: 1.10.0
   - apiVersion: v1
     appVersion: 1.9.5
-    created: "2026-09-17T20:11:04.180165+02:00"
+    created: "2026-10-21T08:49:32.679384+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 5e76c467e73effec5ec0583f8ea7d5d85f8667c0b990c5adb3e0ee7e04a8d2cd
@@ -1889,7 +1912,7 @@ entries:
     version: 1.9.5
   - apiVersion: v1
     appVersion: 1.9.4
-    created: "2026-09-17T20:11:04.177239+02:00"
+    created: "2026-10-21T08:49:32.676929+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 4ee27455de515778a56edbe4a190fe446dcf798ec62c3d767cc08f3897de3429
@@ -1912,7 +1935,7 @@ entries:
     version: 1.9.4
   - apiVersion: v1
     appVersion: 1.9.3
-    created: "2026-09-17T20:11:04.174316+02:00"
+    created: "2026-10-21T08:49:32.674203+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: de69766ede3025add249412c4eb1b2a1eb855b666d75f82fbb063328c2a67dff
@@ -1935,7 +1958,7 @@ entries:
     version: 1.9.3
   - apiVersion: v1
     appVersion: 1.9.2
-    created: "2026-09-17T20:11:04.171465+02:00"
+    created: "2026-10-21T08:49:32.671535+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: f74b43b1de6d7bc0c394b5e5758862b6d3e43aff9bd623dad05e1980e7ef78ae
@@ -1958,7 +1981,7 @@ entries:
     version: 1.9.2
   - apiVersion: v1
     appVersion: 1.9.1
-    created: "2026-09-17T20:11:04.168532+02:00"
+    created: "2026-10-21T08:49:32.668919+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: c5849d57d46dcd3ca02f7354948662f162357007fcdcfef2a70f08fe3102110a
@@ -1981,7 +2004,7 @@ entries:
     version: 1.9.1
   - apiVersion: v1
     appVersion: 1.9.0
-    created: "2026-09-17T20:11:04.165615+02:00"
+    created: "2026-10-21T08:49:32.666302+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 3e5fc5552b3134d6d8b7d275c9100fb68604bf1966a0ac3fd3ca0cb8aa31c882
@@ -2004,7 +2027,7 @@ entries:
     version: 1.9.0
   - apiVersion: v1
     appVersion: 1.8.4
-    created: "2026-09-17T20:11:04.162831+02:00"
+    created: "2026-10-21T08:49:32.66365+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 003abd4a8b07138ea12174b8586d8319919f7d1f6811a29581ed65013e642eb7
@@ -2027,7 +2050,7 @@ entries:
     version: 1.8.4
   - apiVersion: v1
     appVersion: 1.8.3
-    created: "2026-09-17T20:11:04.159989+02:00"
+    created: "2026-10-21T08:49:32.661061+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 4563d5c5f261e178a9b587ab64c13828130530892f152d6232f1b64489128a31
@@ -2050,7 +2073,7 @@ entries:
     version: 1.8.3
   - apiVersion: v1
     appVersion: 1.8.2
-    created: "2026-09-17T20:11:04.157111+02:00"
+    created: "2026-10-21T08:49:32.658426+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 47962083bad8f55182c5654059e70d2d0780c2cac509982c345134ba6f44f3f7
@@ -2073,7 +2096,7 @@ entries:
     version: 1.8.2
   - apiVersion: v1
     appVersion: 1.8.1
-    created: "2026-09-17T20:11:04.154298+02:00"
+    created: "2026-10-21T08:49:32.655795+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 40c15863d958e8947941169a62a9a5b2d71f5af733d7e31833f1289e8abf3d20
@@ -2096,7 +2119,7 @@ entries:
     version: 1.8.1
   - apiVersion: v1
     appVersion: 1.8.0
-    created: "2026-09-17T20:11:04.151403+02:00"
+    created: "2026-10-21T08:49:32.653436+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: e485af6f72e2a5c3e7a3450e979a771a4bf30f159997ba1a6b156128614a23f0
@@ -2119,7 +2142,7 @@ entries:
     version: 1.8.0
   - apiVersion: v1
     appVersion: 1.7.6
-    created: "2026-09-17T20:11:04.14868+02:00"
+    created: "2026-10-21T08:49:32.650738+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 0485ccb357f0020aae4fa39c0d556ce602aa97f50aa7c08bc6241fa245a6a9c6
@@ -2142,7 +2165,7 @@ entries:
     version: 1.7.6
   - apiVersion: v1
     appVersion: 1.7.4
-    created: "2026-09-17T20:11:04.145898+02:00"
+    created: "2026-10-21T08:49:32.647954+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: b8b2c5b3b8d7399209b4becb9d786301f7aaba366316476298cc0391a9af6b89
@@ -2165,7 +2188,7 @@ entries:
     version: 1.7.4
   - apiVersion: v1
     appVersion: 1.7.3
-    created: "2026-09-17T20:11:04.143189+02:00"
+    created: "2026-10-21T08:49:32.645147+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: a2836ec85cb7e32ea39b711b264eb1513e4c35e83e8ef20f3f7d475e3325f329
@@ -2188,7 +2211,7 @@ entries:
     version: 1.7.3
   - apiVersion: v1
     appVersion: 1.7.2
-    created: "2026-09-17T20:11:04.140551+02:00"
+    created: "2026-10-21T08:49:32.642835+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 3ed45b1bdf552ffaf18b49b786b45ac740d4e2c778a8197c529e0ac96111dcaf
@@ -2211,7 +2234,7 @@ entries:
     version: 1.7.2
   - apiVersion: v1
     appVersion: 1.7.0
-    created: "2026-09-17T20:11:04.137864+02:00"
+    created: "2026-10-21T08:49:32.639974+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: daa28e3942b86a80634c66211505b2bb456e9dbc67a44b0d65a1564f798edacf
@@ -2234,7 +2257,7 @@ entries:
     version: 1.7.0
   - apiVersion: v1
     appVersion: 1.6.2
-    created: "2026-09-17T20:11:04.135145+02:00"
+    created: "2026-10-21T08:49:32.637218+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 83e5e4f095e9c03545cdf7a7a1435b83dcd7d3ba961b74b9233768473ea1c2bd
@@ -2257,7 +2280,7 @@ entries:
     version: 1.6.2
   - apiVersion: v1
     appVersion: 1.6.1
-    created: "2026-09-17T20:11:04.133573+02:00"
+    created: "2026-10-21T08:49:32.635617+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 8ac4016a962d6860e47816f290c8d19d905a601ae9f788d12c6039a15f585235
@@ -2280,7 +2303,7 @@ entries:
     version: 1.6.1
   - apiVersion: v1
     appVersion: 1.6.0
-    created: "2026-09-17T20:11:04.131615+02:00"
+    created: "2026-10-21T08:49:32.633552+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 98100dfbf8ebdced0561b9a6c7b373755b11c18d1605fc0f3fb675e7ae2235f2
@@ -2303,7 +2326,7 @@ entries:
     version: 1.6.0
   - apiVersion: v1
     appVersion: 1.5.4
-    created: "2026-09-17T20:11:04.130076+02:00"
+    created: "2026-10-21T08:49:32.631665+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: f06830e12a1675e24abf3a6b051b5d29786caf2a860f8ac092aba574924b7352
@@ -2326,7 +2349,7 @@ entries:
     version: 1.5.4
   - apiVersion: v1
     appVersion: 1.5.3
-    created: "2026-09-17T20:11:04.128033+02:00"
+    created: "2026-10-21T08:49:32.630138+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: e6208a130863deed394afed3ce6f2c21e598f5eb830e7a4fdd7501b32384af8c
@@ -2349,7 +2372,7 @@ entries:
     version: 1.5.3
   - apiVersion: v1
     appVersion: 1.5.2
-    created: "2026-09-17T20:11:04.126502+02:00"
+    created: "2026-10-21T08:49:32.62823+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: e851bf3938dd5bd38b524b610a3e6907fec210cc796b43074ced546e059ba404
@@ -2372,7 +2395,7 @@ entries:
     version: 1.5.2
   - apiVersion: v1
     appVersion: 1.5.1
-    created: "2026-09-17T20:11:04.124577+02:00"
+    created: "2026-10-21T08:49:32.62663+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 8b61d35cc319c08b87d472fb99ff61572afe83d414aa0fddd0e7a649e3a79ff9
@@ -2395,7 +2418,7 @@ entries:
     version: 1.5.1
   - apiVersion: v1
     appVersion: 1.5.0
-    created: "2026-09-17T20:11:04.12304+02:00"
+    created: "2026-10-21T08:49:32.624776+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: ed306d12c8a4a98c70ac3b007690370578b0f6a463dc4c79fb98abbc1b6ecbe3
@@ -2418,7 +2441,7 @@ entries:
     version: 1.5.0
   - apiVersion: v1
     appVersion: 1.4.6
-    created: "2026-09-17T20:11:04.121167+02:00"
+    created: "2026-10-21T08:49:32.623099+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: a8755d9ab70aff9ceac0a573c3f49036ad7a34b450ff9cd80ed96fd50dcfde5c
@@ -2441,7 +2464,7 @@ entries:
     version: 1.4.6
   - apiVersion: v1
     appVersion: 1.4.5
-    created: "2026-09-17T20:11:04.119645+02:00"
+    created: "2026-10-21T08:49:32.621296+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: a35fa688fdd27cfc773bb636466e6dfd7c7bdbc1a64a49210cfdb599b40b7811
@@ -2464,7 +2487,7 @@ entries:
     version: 1.4.5
   - apiVersion: v1
     appVersion: 1.4.4
-    created: "2026-09-17T20:11:04.117805+02:00"
+    created: "2026-10-21T08:49:32.619771+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 84be5f727a2cf1c5667b41bd04a5e1c326e80bb927d55db785508446da833db4
@@ -2487,7 +2510,7 @@ entries:
     version: 1.4.4
   - apiVersion: v1
     appVersion: 1.4.3
-    created: "2026-09-17T20:11:04.11627+02:00"
+    created: "2026-10-21T08:49:32.61799+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 194fe48657ad0e3d1386df902b91875d9eabc022e06d6b2d907739058aba0a6f
@@ -2510,7 +2533,7 @@ entries:
     version: 1.4.3
   - apiVersion: v1
     appVersion: 1.4.2
-    created: "2026-09-17T20:11:04.114375+02:00"
+    created: "2026-10-21T08:49:32.616452+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: cb05f71dd032ffcc965d64b5c697a2d43881af76d394ace49d7121717261dce5
@@ -2533,7 +2556,7 @@ entries:
     version: 1.4.2
   - apiVersion: v1
     appVersion: 1.4.1
-    created: "2026-09-17T20:11:04.112876+02:00"
+    created: "2026-10-21T08:49:32.614478+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 2387122912def3367c1c3a91480c64d20a41c739ab9e41a77cd54f74e3047e04
@@ -2556,7 +2579,7 @@ entries:
     version: 1.4.1
   - apiVersion: v1
     appVersion: 1.4.0
-    created: "2026-09-17T20:11:04.11093+02:00"
+    created: "2026-10-21T08:49:32.6129+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 934e3b4a3a53555b023fa40d18b72fe1aef8ef6157315729db32f3969a26e3ff
@@ -2579,7 +2602,7 @@ entries:
     version: 1.4.0
   - apiVersion: v1
     appVersion: 1.3.4
-    created: "2026-09-17T20:11:04.109421+02:00"
+    created: "2026-10-21T08:49:32.611042+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: a4a2482a1c7ea9ecc2a9331ae356a190a87f70239393c731c4f4a543f6da2120
@@ -2602,7 +2625,7 @@ entries:
     version: 1.3.4
   - apiVersion: v1
     appVersion: 1.3.3
-    created: "2026-09-17T20:11:04.107372+02:00"
+    created: "2026-10-21T08:49:32.609582+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 7132dff841f9d6fca55843d8e40cd391d23dd63d65a561c0c5d235523436cd9d
@@ -2625,7 +2648,7 @@ entries:
     version: 1.3.3
   - apiVersion: v1
     appVersion: 1.3.2
-    created: "2026-09-17T20:11:04.105794+02:00"
+    created: "2026-10-21T08:49:32.607642+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 151366e5b8e5e5630aa00c79fa3a38845c5634adf81221e6622bc443557e0460
@@ -2648,7 +2671,7 @@ entries:
     version: 1.3.2
   - apiVersion: v1
     appVersion: 1.3.1
-    created: "2026-09-17T20:11:04.104022+02:00"
+    created: "2026-10-21T08:49:32.606093+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: d7d0ad23017236d5ab2381f82e3b0768b1122b3fa9ca9c257fed717981bc8d16
@@ -2671,7 +2694,7 @@ entries:
     version: 1.3.1
   - apiVersion: v1
     appVersion: 1.2.1
-    created: "2026-09-17T20:11:04.099743+02:00"
+    created: "2026-10-21T08:49:32.601373+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 539459505d6457c393731841bee596c5e62d20c388276ca7795d48ad15a18ccc
@@ -2694,7 +2717,7 @@ entries:
     version: 1.2.1
   - apiVersion: v1
     appVersion: 1.2.0
-    created: "2026-09-17T20:11:04.097927+02:00"
+    created: "2026-10-21T08:49:32.59979+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 412e882d7453f5d0e9e691f0bc88d81be2ab22ff829efece657f2e21e0143645
@@ -2717,7 +2740,7 @@ entries:
     version: 1.2.0
   - apiVersion: v1
     appVersion: 1.1.9
-    created: "2026-09-17T20:11:04.025027+02:00"
+    created: "2026-10-21T08:49:32.524495+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: a9d23162eff99dfd923290e41145a6021a36a29eb6a3c69bcf164a6269627980
@@ -2740,7 +2763,7 @@ entries:
     version: 1.1.9
   - apiVersion: v1
     appVersion: 1.1.9-rc6
-    created: "2026-09-17T20:11:04.023363+02:00"
+    created: "2026-10-21T08:49:32.522959+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 9f4200d8b4f886e222607521a1765768d6e70a4bab57dd5d9bfbfe04c1270123
@@ -2763,7 +2786,7 @@ entries:
     version: 1.1.9-rc6
   - apiVersion: v1
     appVersion: 1.1.9-rc5
-    created: "2026-09-17T20:11:04.021672+02:00"
+    created: "2026-10-21T08:49:32.520801+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: dd547f57cd8ec9c779d59591e762c48e930d9eaa33272f88f172190c4c6e8a24
@@ -2786,7 +2809,7 @@ entries:
     version: 1.1.9-rc5
   - apiVersion: v1
     appVersion: 1.1.8
-    created: "2026-09-17T20:11:04.019444+02:00"
+    created: "2026-10-21T08:49:32.519265+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: e0916f1a031d0dd43b337c095ab818ea804807585bacfaed2ebbe818df69af14
@@ -2809,7 +2832,7 @@ entries:
     version: 1.1.8
   - apiVersion: v1
     appVersion: 1.1.7
-    created: "2026-09-17T20:11:04.013715+02:00"
+    created: "2026-10-21T08:49:32.513085+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: b451ee59c1555909b20341e2c65899a931e7f03c882a3f980623354faa3775db
@@ -2832,7 +2855,7 @@ entries:
     version: 1.1.7
   - apiVersion: v1
     appVersion: 1.1.6
-    created: "2026-09-17T20:11:04.007453+02:00"
+    created: "2026-10-21T08:49:32.507017+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 9a035ef0329586098e6d97d467d79108d0408ee732d829349f149f8ab20bb590
@@ -2855,7 +2878,7 @@ entries:
     version: 1.1.6
   - apiVersion: v1
     appVersion: 1.1.5
-    created: "2026-09-17T20:11:04.001475+02:00"
+    created: "2026-10-21T08:49:32.500906+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 05fea953d679b0792072af3973c1863e42014a5904d7dd9c32c95951e1b56a72
@@ -2878,7 +2901,7 @@ entries:
     version: 1.1.5
   - apiVersion: v1
     appVersion: 1.1.4
-    created: "2026-09-17T20:11:03.995725+02:00"
+    created: "2026-10-21T08:49:32.4949+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 9b9601f0a80a60473323ff734c7fef6cab51a0934f00c84d3ff82b5dffa9229f
@@ -2901,7 +2924,7 @@ entries:
     version: 1.1.4
   - apiVersion: v1
     appVersion: 1.1.3
-    created: "2026-09-17T20:11:03.989727+02:00"
+    created: "2026-10-21T08:49:32.488834+02:00"
     description: An enterprise-grade open source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 6d995603a8e64419fd782cb545e9dfb5aa1d8e660e75bbef57983a7e9c6ed868
@@ -2924,7 +2947,7 @@ entries:
     version: 1.1.3
   - apiVersion: v1
     appVersion: 1.1.2
-    created: "2026-09-17T20:11:03.983669+02:00"
+    created: "2026-10-21T08:49:32.482626+02:00"
     description: An enterprise-grade open source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 3fa209db92e7c6f5d1e2f071b14c25478e6d577949586d034f768b3429328871
@@ -2947,7 +2970,7 @@ entries:
     version: 1.1.2
   - apiVersion: v1
     appVersion: 1.1.1
-    created: "2026-09-17T20:11:03.977984+02:00"
+    created: "2026-10-21T08:49:32.476389+02:00"
     description: An enterprise-grade open source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: d1d53d10849dc8f5ca5ae7640603b58cf4ab2eaf0eb8e55376bcdffa37c1c710
@@ -2970,7 +2993,7 @@ entries:
     version: 1.1.1
   - apiVersion: v1
     appVersion: 1.1.1-rc0
-    created: "2026-09-17T20:11:03.971972+02:00"
+    created: "2026-10-21T08:49:32.470359+02:00"
     description: An enterprise-grade open source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 28831b02fa9b72ac11ce641d91aff22d0daeff53a5eab3d87d6cef219694dd3d
@@ -2992,7 +3015,7 @@ entries:
     - agent-1.1.1-rc0.tgz
     version: 1.1.1-rc0
   - apiVersion: v1
-    created: "2026-09-17T20:11:03.965697+02:00"
+    created: "2026-10-21T08:49:32.46412+02:00"
     description: An enterprise-grade open source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 58239623fd1c9997533721f29a0a9798b868acabfa381a8b0b915b69c3a70490
@@ -3014,7 +3037,7 @@ entries:
     - agent-1.1.0.tgz
     version: 1.1.0
   - apiVersion: v1
-    created: "2026-09-17T20:11:03.959764+02:00"
+    created: "2026-10-21T08:49:32.458275+02:00"
     description: An enterprise-grade open source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: a6cc24eab600e03332f935bd4874985bb4a04fab3915dc0931b3adf83ab9d2f8
@@ -3036,7 +3059,7 @@ entries:
     - agent-1.1.0-rc2.tgz
     version: 1.1.0-rc2
   - apiVersion: v1
-    created: "2026-09-17T20:11:03.953665+02:00"
+    created: "2026-10-21T08:49:32.451637+02:00"
     description: An enterprise-grade open source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 0531675b03c54c9ce02c833fef5168a7fcc09b57b541f9d268d2b25579911369
@@ -3058,7 +3081,7 @@ entries:
     - agent-1.1.0-rc1.tgz
     version: 1.1.0-rc1
   - apiVersion: v1
-    created: "2026-09-17T20:11:03.947088+02:00"
+    created: "2026-10-21T08:49:32.445439+02:00"
     description: An enterprise-grade open source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 09671d2b820ac2ab4a45a86be59c07a2e102da348cd5789d034304c259805b29
@@ -3080,7 +3103,7 @@ entries:
     - agent-1.1.0-rc0.tgz
     version: 1.1.0-rc0
   - apiVersion: v1
-    created: "2026-09-17T20:11:03.940804+02:00"
+    created: "2026-10-21T08:49:32.43941+02:00"
     description: An enterprise-grade open source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 2e48c77729cbe00dc9e9ab42240862e6113c7fd7b0ac9ff99d08ec48a7250437
@@ -3103,8 +3126,40 @@ entries:
     version: 1.0.9
   polyaxon:
   - apiVersion: v2
+    appVersion: 2.18.0
+    created: "2026-10-21T08:49:34.225313+02:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.5.35
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 20.1.5
+    description: An enterprise-grade open-source platform for building, training,
+      and monitoring large scale deep learning applications.
+    digest: c5018edf8c813a2922a0546ead86941ecf093914aa7d318942095678b9de2b80
+    home: https://polyaxon.com
+    icon: https://raw.githubusercontent.com/polyaxon/polyaxon/master/artifacts/logo/logo-small.png
+    keywords:
+    - deep learning
+    - a.i.
+    - machine learning
+    - infrastructure
+    maintainers:
+    - email: contact@polyaxon.com
+      name: Polyaxon
+      url: polyaxon.com
+    name: polyaxon
+    sources:
+    - https://github.com/polyaxon
+    urls:
+    - polyaxon-2.18.0.tgz
+    version: 2.18.0
+  - apiVersion: v2
     appVersion: 2.17.0
-    created: "2026-09-17T20:11:05.676923+02:00"
+    created: "2026-10-21T08:49:34.211957+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3136,7 +3191,7 @@ entries:
     version: 2.17.0
   - apiVersion: v2
     appVersion: 2.16.3
-    created: "2026-09-17T20:11:05.663268+02:00"
+    created: "2026-10-21T08:49:34.198112+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3172,7 +3227,7 @@ entries:
     version: 2.16.3
   - apiVersion: v2
     appVersion: 2.16.2
-    created: "2026-09-17T20:11:05.6472+02:00"
+    created: "2026-10-21T08:49:34.180891+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3208,7 +3263,7 @@ entries:
     version: 2.16.2
   - apiVersion: v2
     appVersion: 2.16.0
-    created: "2026-09-17T20:11:05.630501+02:00"
+    created: "2026-10-21T08:49:34.16348+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3244,7 +3299,7 @@ entries:
     version: 2.16.0
   - apiVersion: v2
     appVersion: 2.15.1
-    created: "2026-09-17T20:11:05.613631+02:00"
+    created: "2026-10-21T08:49:34.146341+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3280,7 +3335,7 @@ entries:
     version: 2.15.1
   - apiVersion: v2
     appVersion: 2.15.0
-    created: "2026-09-17T20:11:05.59648+02:00"
+    created: "2026-10-21T08:49:34.129226+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3316,7 +3371,7 @@ entries:
     version: 2.15.0
   - apiVersion: v2
     appVersion: 2.14.1
-    created: "2026-09-17T20:11:05.579852+02:00"
+    created: "2026-10-21T08:49:34.112495+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3352,7 +3407,7 @@ entries:
     version: 2.14.1
   - apiVersion: v2
     appVersion: 2.14.0
-    created: "2026-09-17T20:11:05.563334+02:00"
+    created: "2026-10-21T08:49:34.094949+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3388,7 +3443,7 @@ entries:
     version: 2.14.0
   - apiVersion: v2
     appVersion: 2.13.3
-    created: "2026-09-17T20:11:05.546908+02:00"
+    created: "2026-10-21T08:49:34.077411+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3424,7 +3479,7 @@ entries:
     version: 2.13.3
   - apiVersion: v2
     appVersion: 2.13.2
-    created: "2026-09-17T20:11:05.529793+02:00"
+    created: "2026-10-21T08:49:34.060671+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3460,7 +3515,7 @@ entries:
     version: 2.13.2
   - apiVersion: v2
     appVersion: 2.13.1
-    created: "2026-09-17T20:11:05.512317+02:00"
+    created: "2026-10-21T08:49:34.0432+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3496,7 +3551,7 @@ entries:
     version: 2.13.1
   - apiVersion: v2
     appVersion: 2.13.0
-    created: "2026-09-17T20:11:05.495504+02:00"
+    created: "2026-10-21T08:49:34.025678+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3532,7 +3587,7 @@ entries:
     version: 2.13.0
   - apiVersion: v2
     appVersion: 2.12.0
-    created: "2026-09-17T20:11:05.478796+02:00"
+    created: "2026-10-21T08:49:34.008463+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3568,7 +3623,7 @@ entries:
     version: 2.12.0
   - apiVersion: v2
     appVersion: 2.11.1
-    created: "2026-09-17T20:11:05.462036+02:00"
+    created: "2026-10-21T08:49:33.991031+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3604,7 +3659,7 @@ entries:
     version: 2.11.1
   - apiVersion: v2
     appVersion: 2.11.0
-    created: "2026-09-17T20:11:05.445429+02:00"
+    created: "2026-10-21T08:49:33.97376+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3640,7 +3695,7 @@ entries:
     version: 2.11.0
   - apiVersion: v2
     appVersion: 2.10.0
-    created: "2026-09-17T20:11:05.429205+02:00"
+    created: "2026-10-21T08:49:33.957069+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3676,7 +3731,7 @@ entries:
     version: 2.10.0
   - apiVersion: v2
     appVersion: 2.9.4
-    created: "2026-09-17T20:11:05.994675+02:00"
+    created: "2026-10-21T08:49:34.551676+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3712,7 +3767,7 @@ entries:
     version: 2.9.4
   - apiVersion: v2
     appVersion: 2.9.3
-    created: "2026-09-17T20:11:05.978114+02:00"
+    created: "2026-10-21T08:49:34.534779+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3748,7 +3803,7 @@ entries:
     version: 2.9.3
   - apiVersion: v2
     appVersion: 2.9.2
-    created: "2026-09-17T20:11:05.961841+02:00"
+    created: "2026-10-21T08:49:34.517965+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3784,7 +3839,7 @@ entries:
     version: 2.9.2
   - apiVersion: v2
     appVersion: 2.9.1
-    created: "2026-09-17T20:11:05.945112+02:00"
+    created: "2026-10-21T08:49:34.500797+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3820,7 +3875,7 @@ entries:
     version: 2.9.1
   - apiVersion: v2
     appVersion: 2.9.0
-    created: "2026-09-17T20:11:05.92857+02:00"
+    created: "2026-10-21T08:49:34.484188+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3856,7 +3911,7 @@ entries:
     version: 2.9.0
   - apiVersion: v2
     appVersion: 2.8.1
-    created: "2026-09-17T20:11:05.912424+02:00"
+    created: "2026-10-21T08:49:34.467139+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3892,7 +3947,7 @@ entries:
     version: 2.8.1
   - apiVersion: v2
     appVersion: 2.8.0
-    created: "2026-09-17T20:11:05.895746+02:00"
+    created: "2026-10-21T08:49:34.450209+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3928,7 +3983,7 @@ entries:
     version: 2.8.0
   - apiVersion: v2
     appVersion: 2.7.0
-    created: "2026-09-17T20:11:05.879049+02:00"
+    created: "2026-10-21T08:49:34.433749+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3964,7 +4019,7 @@ entries:
     version: 2.7.0
   - apiVersion: v2
     appVersion: 2.6.1
-    created: "2026-09-17T20:11:05.862835+02:00"
+    created: "2026-10-21T08:49:34.416786+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4000,7 +4055,7 @@ entries:
     version: 2.6.1
   - apiVersion: v2
     appVersion: 2.6.0
-    created: "2026-09-17T20:11:05.846427+02:00"
+    created: "2026-10-21T08:49:34.400021+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4036,7 +4091,7 @@ entries:
     version: 2.6.0
   - apiVersion: v2
     appVersion: 2.5.3
-    created: "2026-09-17T20:11:05.83004+02:00"
+    created: "2026-10-21T08:49:34.383084+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4072,7 +4127,7 @@ entries:
     version: 2.5.3
   - apiVersion: v2
     appVersion: 2.5.2
-    created: "2026-09-17T20:11:05.813748+02:00"
+    created: "2026-10-21T08:49:34.366241+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4108,7 +4163,7 @@ entries:
     version: 2.5.2
   - apiVersion: v2
     appVersion: 2.5.1
-    created: "2026-09-17T20:11:05.797178+02:00"
+    created: "2026-10-21T08:49:34.349443+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4144,7 +4199,7 @@ entries:
     version: 2.5.1
   - apiVersion: v2
     appVersion: 2.5.0
-    created: "2026-09-17T20:11:05.780861+02:00"
+    created: "2026-10-21T08:49:34.332484+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4180,7 +4235,7 @@ entries:
     version: 2.5.0
   - apiVersion: v2
     appVersion: 2.4.0
-    created: "2026-09-17T20:11:05.763801+02:00"
+    created: "2026-10-21T08:49:34.315613+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4216,7 +4271,7 @@ entries:
     version: 2.4.0
   - apiVersion: v2
     appVersion: 2.3.3
-    created: "2026-09-17T20:11:05.749576+02:00"
+    created: "2026-10-21T08:49:34.301091+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4252,7 +4307,7 @@ entries:
     version: 2.3.3
   - apiVersion: v2
     appVersion: 2.3.2
-    created: "2026-09-17T20:11:05.735411+02:00"
+    created: "2026-10-21T08:49:34.286113+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4288,7 +4343,7 @@ entries:
     version: 2.3.2
   - apiVersion: v2
     appVersion: 2.3.1
-    created: "2026-09-17T20:11:05.720908+02:00"
+    created: "2026-10-21T08:49:34.271317+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4324,7 +4379,7 @@ entries:
     version: 2.3.1
   - apiVersion: v2
     appVersion: 2.3.0
-    created: "2026-09-17T20:11:05.706125+02:00"
+    created: "2026-10-21T08:49:34.255626+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4360,7 +4415,7 @@ entries:
     version: 2.3.0
   - apiVersion: v2
     appVersion: 2.2.0
-    created: "2026-09-17T20:11:05.691059+02:00"
+    created: "2026-10-21T08:49:34.240482+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4396,7 +4451,7 @@ entries:
     version: 2.2.0
   - apiVersion: v2
     appVersion: 2.1.8
-    created: "2026-09-17T20:11:05.412579+02:00"
+    created: "2026-10-21T08:49:33.940027+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4432,7 +4487,7 @@ entries:
     version: 2.1.8
   - apiVersion: v2
     appVersion: 2.1.7
-    created: "2026-09-17T20:11:05.397592+02:00"
+    created: "2026-10-21T08:49:33.924918+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4468,7 +4523,7 @@ entries:
     version: 2.1.7
   - apiVersion: v2
     appVersion: 2.1.6
-    created: "2026-09-17T20:11:05.383092+02:00"
+    created: "2026-10-21T08:49:33.909835+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4504,7 +4559,7 @@ entries:
     version: 2.1.6
   - apiVersion: v2
     appVersion: 2.1.4
-    created: "2026-09-17T20:11:05.368408+02:00"
+    created: "2026-10-21T08:49:33.895172+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4540,7 +4595,7 @@ entries:
     version: 2.1.4
   - apiVersion: v2
     appVersion: 2.1.3
-    created: "2026-09-17T20:11:05.353827+02:00"
+    created: "2026-10-21T08:49:33.880454+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4576,7 +4631,7 @@ entries:
     version: 2.1.3
   - apiVersion: v2
     appVersion: 2.1.2
-    created: "2026-09-17T20:11:05.339569+02:00"
+    created: "2026-10-21T08:49:33.865513+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4612,7 +4667,7 @@ entries:
     version: 2.1.2
   - apiVersion: v2
     appVersion: 2.1.1
-    created: "2026-09-17T20:11:05.325208+02:00"
+    created: "2026-10-21T08:49:33.850383+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4648,7 +4703,7 @@ entries:
     version: 2.1.1
   - apiVersion: v2
     appVersion: 2.1.0
-    created: "2026-09-17T20:11:05.310568+02:00"
+    created: "2026-10-21T08:49:33.83517+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4684,7 +4739,7 @@ entries:
     version: 2.1.0
   - apiVersion: v2
     appVersion: 2.0.6
-    created: "2026-09-17T20:11:05.296294+02:00"
+    created: "2026-10-21T08:49:33.820682+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4720,7 +4775,7 @@ entries:
     version: 2.0.6
   - apiVersion: v2
     appVersion: 2.0.5
-    created: "2026-09-17T20:11:05.281827+02:00"
+    created: "2026-10-21T08:49:33.806048+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4756,7 +4811,7 @@ entries:
     version: 2.0.5
   - apiVersion: v2
     appVersion: 2.0.4
-    created: "2026-09-17T20:11:05.267496+02:00"
+    created: "2026-10-21T08:49:33.791814+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4792,7 +4847,7 @@ entries:
     version: 2.0.4
   - apiVersion: v1
     appVersion: 2.0.3
-    created: "2026-09-17T20:11:05.25317+02:00"
+    created: "2026-10-21T08:49:33.777083+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: d832dfaa02c390d3142e6726381a328e367b2a654b08fa264a265b3baab03057
@@ -4815,7 +4870,7 @@ entries:
     version: 2.0.3
   - apiVersion: v1
     appVersion: 2.0.2
-    created: "2026-09-17T20:11:05.238825+02:00"
+    created: "2026-10-21T08:49:33.762548+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: ce8dab39d491ae7781b57fee9895e090f9644c41a5689391da38de9076087392
@@ -4838,7 +4893,7 @@ entries:
     version: 2.0.2
   - apiVersion: v1
     appVersion: 2.0.1
-    created: "2026-09-17T20:11:05.224562+02:00"
+    created: "2026-10-21T08:49:33.748351+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 9aa77ad447bdeacbec1aefd3f147c6452a94c0d533387caf12fd207486f28834
@@ -4861,7 +4916,7 @@ entries:
     version: 2.0.1
   - apiVersion: v1
     appVersion: 2.0.0
-    created: "2026-09-17T20:11:05.209975+02:00"
+    created: "2026-10-21T08:49:33.733678+02:00"
     description: An enterprise-grade open-source platform for building, training,
       and monitoring large scale deep learning applications.
     digest: 3894ad1e23a362e4864194dbf053c056e0b410db1924f17f4473580f3f91aa9e
@@ -4884,7 +4939,7 @@ entries:
     version: 2.0.0
   - apiVersion: v1
     appVersion: 1.20.0
-    created: "2026-09-17T20:11:04.965663+02:00"
+    created: "2026-10-21T08:49:33.483298+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4920,7 +4975,7 @@ entries:
     version: 1.20.0
   - apiVersion: v1
     appVersion: 1.19.0
-    created: "2026-09-17T20:11:04.943397+02:00"
+    created: "2026-10-21T08:49:33.460369+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4956,7 +5011,7 @@ entries:
     version: 1.19.0
   - apiVersion: v1
     appVersion: 1.18.2
-    created: "2026-09-17T20:11:04.935568+02:00"
+    created: "2026-10-21T08:49:33.452791+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4992,7 +5047,7 @@ entries:
     version: 1.18.2
   - apiVersion: v1
     appVersion: 1.18.1
-    created: "2026-09-17T20:11:04.927601+02:00"
+    created: "2026-10-21T08:49:33.44466+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5028,7 +5083,7 @@ entries:
     version: 1.18.1
   - apiVersion: v1
     appVersion: 1.18.0
-    created: "2026-09-17T20:11:04.919836+02:00"
+    created: "2026-10-21T08:49:33.436739+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5064,7 +5119,7 @@ entries:
     version: 1.18.0
   - apiVersion: v1
     appVersion: 1.18.0-rc0
-    created: "2026-09-17T20:11:04.911967+02:00"
+    created: "2026-10-21T08:49:33.428599+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5100,7 +5155,7 @@ entries:
     version: 1.18.0-rc0
   - apiVersion: v1
     appVersion: 1.17.1
-    created: "2026-09-17T20:11:04.903844+02:00"
+    created: "2026-10-21T08:49:33.420725+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5136,7 +5191,7 @@ entries:
     version: 1.17.1
   - apiVersion: v1
     appVersion: 1.17.0
-    created: "2026-09-17T20:11:04.895897+02:00"
+    created: "2026-10-21T08:49:33.412526+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5172,7 +5227,7 @@ entries:
     version: 1.17.0
   - apiVersion: v1
     appVersion: 1.16.1
-    created: "2026-09-17T20:11:04.888059+02:00"
+    created: "2026-10-21T08:49:33.404679+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5208,7 +5263,7 @@ entries:
     version: 1.16.1
   - apiVersion: v1
     appVersion: 1.16.0
-    created: "2026-09-17T20:11:04.880295+02:00"
+    created: "2026-10-21T08:49:33.396797+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5244,7 +5299,7 @@ entries:
     version: 1.16.0
   - apiVersion: v1
     appVersion: 1.15.0
-    created: "2026-09-17T20:11:04.872139+02:00"
+    created: "2026-10-21T08:49:33.38869+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5280,7 +5335,7 @@ entries:
     version: 1.15.0
   - apiVersion: v1
     appVersion: 1.14.3
-    created: "2026-09-17T20:11:04.864142+02:00"
+    created: "2026-10-21T08:49:33.380745+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5316,7 +5371,7 @@ entries:
     version: 1.14.3
   - apiVersion: v1
     appVersion: 1.14.3-rc4
-    created: "2026-09-17T20:11:04.856431+02:00"
+    created: "2026-10-21T08:49:33.372767+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5352,7 +5407,7 @@ entries:
     version: 1.14.3-rc4
   - apiVersion: v1
     appVersion: 1.14.2
-    created: "2026-09-17T20:11:04.848649+02:00"
+    created: "2026-10-21T08:49:33.364739+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5388,7 +5443,7 @@ entries:
     version: 1.14.2
   - apiVersion: v1
     appVersion: 1.14.1
-    created: "2026-09-17T20:11:04.840836+02:00"
+    created: "2026-10-21T08:49:33.356888+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5424,7 +5479,7 @@ entries:
     version: 1.14.1
   - apiVersion: v1
     appVersion: 1.14.0
-    created: "2026-09-17T20:11:04.833156+02:00"
+    created: "2026-10-21T08:49:33.34892+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5460,7 +5515,7 @@ entries:
     version: 1.14.0
   - apiVersion: v1
     appVersion: 1.13.0
-    created: "2026-09-17T20:11:04.825308+02:00"
+    created: "2026-10-21T08:49:33.340929+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5496,7 +5551,7 @@ entries:
     version: 1.13.0
   - apiVersion: v1
     appVersion: 1.13.0-rc4
-    created: "2026-09-17T20:11:04.817594+02:00"
+    created: "2026-10-21T08:49:33.332846+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5532,7 +5587,7 @@ entries:
     version: 1.13.0-rc4
   - apiVersion: v1
     appVersion: 1.13.0-rc3
-    created: "2026-09-17T20:11:04.809807+02:00"
+    created: "2026-10-21T08:49:33.324659+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5568,7 +5623,7 @@ entries:
     version: 1.13.0-rc3
   - apiVersion: v1
     appVersion: 1.13.0-rc0
-    created: "2026-09-17T20:11:04.801796+02:00"
+    created: "2026-10-21T08:49:33.316412+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5604,7 +5659,7 @@ entries:
     version: 1.13.0-rc0
   - apiVersion: v1
     appVersion: 1.12.3
-    created: "2026-09-17T20:11:04.794605+02:00"
+    created: "2026-10-21T08:49:33.308913+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5640,7 +5695,7 @@ entries:
     version: 1.12.3
   - apiVersion: v1
     appVersion: 1.12.2
-    created: "2026-09-17T20:11:04.787429+02:00"
+    created: "2026-10-21T08:49:33.30143+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5676,7 +5731,7 @@ entries:
     version: 1.12.2
   - apiVersion: v1
     appVersion: 1.11.3
-    created: "2026-09-17T20:11:04.780177+02:00"
+    created: "2026-10-21T08:49:33.293966+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5712,7 +5767,7 @@ entries:
     version: 1.11.3
   - apiVersion: v1
     appVersion: 1.11.2
-    created: "2026-09-17T20:11:04.772005+02:00"
+    created: "2026-10-21T08:49:33.285731+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5748,7 +5803,7 @@ entries:
     version: 1.11.2
   - apiVersion: v1
     appVersion: 1.11.1
-    created: "2026-09-17T20:11:04.763369+02:00"
+    created: "2026-10-21T08:49:33.276975+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5784,7 +5839,7 @@ entries:
     version: 1.11.1
   - apiVersion: v1
     appVersion: 1.11.0
-    created: "2026-09-17T20:11:04.755357+02:00"
+    created: "2026-10-21T08:49:33.268785+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5820,7 +5875,7 @@ entries:
     version: 1.11.0
   - apiVersion: v1
     appVersion: 1.10.1
-    created: "2026-09-17T20:11:04.747535+02:00"
+    created: "2026-10-21T08:49:33.260757+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5856,7 +5911,7 @@ entries:
     version: 1.10.1
   - apiVersion: v1
     appVersion: 1.10.0
-    created: "2026-09-17T20:11:04.739514+02:00"
+    created: "2026-10-21T08:49:33.252738+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5892,7 +5947,7 @@ entries:
     version: 1.10.0
   - apiVersion: v1
     appVersion: 1.9.5
-    created: "2026-09-17T20:11:05.195531+02:00"
+    created: "2026-10-21T08:49:33.71845+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5928,7 +5983,7 @@ entries:
     version: 1.9.5
   - apiVersion: v1
     appVersion: 1.9.4
-    created: "2026-09-17T20:11:05.187415+02:00"
+    created: "2026-10-21T08:49:33.709904+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -5964,7 +6019,7 @@ entries:
     version: 1.9.4
   - apiVersion: v1
     appVersion: 1.9.3
-    created: "2026-09-17T20:11:05.179624+02:00"
+    created: "2026-10-21T08:49:33.701796+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6000,7 +6055,7 @@ entries:
     version: 1.9.3
   - apiVersion: v1
     appVersion: 1.9.2
-    created: "2026-09-17T20:11:05.171561+02:00"
+    created: "2026-10-21T08:49:33.693681+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6036,7 +6091,7 @@ entries:
     version: 1.9.2
   - apiVersion: v1
     appVersion: 1.9.1
-    created: "2026-09-17T20:11:05.162954+02:00"
+    created: "2026-10-21T08:49:33.685596+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6072,7 +6127,7 @@ entries:
     version: 1.9.1
   - apiVersion: v1
     appVersion: 1.9.0
-    created: "2026-09-17T20:11:05.154877+02:00"
+    created: "2026-10-21T08:49:33.67734+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6108,7 +6163,7 @@ entries:
     version: 1.9.0
   - apiVersion: v1
     appVersion: 1.8.4
-    created: "2026-09-17T20:11:05.146455+02:00"
+    created: "2026-10-21T08:49:33.668782+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6144,7 +6199,7 @@ entries:
     version: 1.8.4
   - apiVersion: v1
     appVersion: 1.8.3
-    created: "2026-09-17T20:11:05.138451+02:00"
+    created: "2026-10-21T08:49:33.660546+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6180,7 +6235,7 @@ entries:
     version: 1.8.3
   - apiVersion: v1
     appVersion: 1.8.2
-    created: "2026-09-17T20:11:05.130363+02:00"
+    created: "2026-10-21T08:49:33.652423+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6216,7 +6271,7 @@ entries:
     version: 1.8.2
   - apiVersion: v1
     appVersion: 1.8.1
-    created: "2026-09-17T20:11:05.122272+02:00"
+    created: "2026-10-21T08:49:33.644105+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6252,7 +6307,7 @@ entries:
     version: 1.8.1
   - apiVersion: v1
     appVersion: 1.8.0
-    created: "2026-09-17T20:11:05.113824+02:00"
+    created: "2026-10-21T08:49:33.635512+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6288,7 +6343,7 @@ entries:
     version: 1.8.0
   - apiVersion: v1
     appVersion: 1.7.4
-    created: "2026-09-17T20:11:05.105926+02:00"
+    created: "2026-10-21T08:49:33.627468+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6324,7 +6379,7 @@ entries:
     version: 1.7.4
   - apiVersion: v1
     appVersion: 1.7.3
-    created: "2026-09-17T20:11:05.097965+02:00"
+    created: "2026-10-21T08:49:33.619452+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6360,7 +6415,7 @@ entries:
     version: 1.7.3
   - apiVersion: v1
     appVersion: 1.7.2
-    created: "2026-09-17T20:11:05.089946+02:00"
+    created: "2026-10-21T08:49:33.611008+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6396,7 +6451,7 @@ entries:
     version: 1.7.2
   - apiVersion: v1
     appVersion: 1.7.0
-    created: "2026-09-17T20:11:05.08149+02:00"
+    created: "2026-10-21T08:49:33.602537+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6432,7 +6487,7 @@ entries:
     version: 1.7.0
   - apiVersion: v1
     appVersion: 1.6.2
-    created: "2026-09-17T20:11:05.073631+02:00"
+    created: "2026-10-21T08:49:33.594731+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6468,7 +6523,7 @@ entries:
     version: 1.6.2
   - apiVersion: v1
     appVersion: 1.6.1
-    created: "2026-09-17T20:11:05.066501+02:00"
+    created: "2026-10-21T08:49:33.587516+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6504,7 +6559,7 @@ entries:
     version: 1.6.1
   - apiVersion: v1
     appVersion: 1.6.0
-    created: "2026-09-17T20:11:05.059393+02:00"
+    created: "2026-10-21T08:49:33.580158+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6540,7 +6595,7 @@ entries:
     version: 1.6.0
   - apiVersion: v1
     appVersion: 1.5.4
-    created: "2026-09-17T20:11:05.052263+02:00"
+    created: "2026-10-21T08:49:33.572688+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6576,7 +6631,7 @@ entries:
     version: 1.5.4
   - apiVersion: v1
     appVersion: 1.5.3
-    created: "2026-09-17T20:11:05.045082+02:00"
+    created: "2026-10-21T08:49:33.565241+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6612,7 +6667,7 @@ entries:
     version: 1.5.3
   - apiVersion: v1
     appVersion: 1.5.2
-    created: "2026-09-17T20:11:05.037747+02:00"
+    created: "2026-10-21T08:49:33.557803+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6648,7 +6703,7 @@ entries:
     version: 1.5.2
   - apiVersion: v1
     appVersion: 1.5.1
-    created: "2026-09-17T20:11:05.03043+02:00"
+    created: "2026-10-21T08:49:33.550267+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6684,7 +6739,7 @@ entries:
     version: 1.5.1
   - apiVersion: v1
     appVersion: 1.5.0
-    created: "2026-09-17T20:11:05.023407+02:00"
+    created: "2026-10-21T08:49:33.542768+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6720,7 +6775,7 @@ entries:
     version: 1.5.0
   - apiVersion: v1
     appVersion: 1.4.4
-    created: "2026-09-17T20:11:05.016277+02:00"
+    created: "2026-10-21T08:49:33.535037+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6756,7 +6811,7 @@ entries:
     version: 1.4.4
   - apiVersion: v1
     appVersion: 1.4.3
-    created: "2026-09-17T20:11:05.009391+02:00"
+    created: "2026-10-21T08:49:33.527133+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6792,7 +6847,7 @@ entries:
     version: 1.4.3
   - apiVersion: v1
     appVersion: 1.4.2
-    created: "2026-09-17T20:11:05.002075+02:00"
+    created: "2026-10-21T08:49:33.520076+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6828,7 +6883,7 @@ entries:
     version: 1.4.2
   - apiVersion: v1
     appVersion: 1.4.1
-    created: "2026-09-17T20:11:04.994831+02:00"
+    created: "2026-10-21T08:49:33.512546+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6864,7 +6919,7 @@ entries:
     version: 1.4.1
   - apiVersion: v1
     appVersion: 1.4.0
-    created: "2026-09-17T20:11:04.987641+02:00"
+    created: "2026-10-21T08:49:33.50515+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6900,7 +6955,7 @@ entries:
     version: 1.4.0
   - apiVersion: v1
     appVersion: 1.3.2
-    created: "2026-09-17T20:11:04.980262+02:00"
+    created: "2026-10-21T08:49:33.497704+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6936,7 +6991,7 @@ entries:
     version: 1.3.2
   - apiVersion: v1
     appVersion: 1.3.1
-    created: "2026-09-17T20:11:04.97307+02:00"
+    created: "2026-10-21T08:49:33.49047+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -6972,7 +7027,7 @@ entries:
     version: 1.3.1
   - apiVersion: v1
     appVersion: 1.2.1
-    created: "2026-09-17T20:11:04.95788+02:00"
+    created: "2026-10-21T08:49:33.475159+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7008,7 +7063,7 @@ entries:
     version: 1.2.1
   - apiVersion: v1
     appVersion: 1.2.0
-    created: "2026-09-17T20:11:04.950541+02:00"
+    created: "2026-10-21T08:49:33.467707+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7044,7 +7099,7 @@ entries:
     version: 1.2.0
   - apiVersion: v1
     appVersion: 1.1.9
-    created: "2026-09-17T20:11:04.731262+02:00"
+    created: "2026-10-21T08:49:33.244441+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7080,7 +7135,7 @@ entries:
     version: 1.1.9
   - apiVersion: v1
     appVersion: 1.1.9-rc6
-    created: "2026-09-17T20:11:04.723874+02:00"
+    created: "2026-10-21T08:49:33.236965+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7116,7 +7171,7 @@ entries:
     version: 1.1.9-rc6
   - apiVersion: v1
     appVersion: 1.1.9-rc5
-    created: "2026-09-17T20:11:04.716565+02:00"
+    created: "2026-10-21T08:49:33.229521+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7152,7 +7207,7 @@ entries:
     version: 1.1.9-rc5
   - apiVersion: v1
     appVersion: 1.1.8
-    created: "2026-09-17T20:11:04.709372+02:00"
+    created: "2026-10-21T08:49:33.222075+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7188,7 +7243,7 @@ entries:
     version: 1.1.8
   - apiVersion: v1
     appVersion: 1.1.7
-    created: "2026-09-17T20:11:04.698345+02:00"
+    created: "2026-10-21T08:49:33.21045+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7224,7 +7279,7 @@ entries:
     version: 1.1.7
   - apiVersion: v1
     appVersion: 1.1.6
-    created: "2026-09-17T20:11:04.687812+02:00"
+    created: "2026-10-21T08:49:33.199888+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7260,7 +7315,7 @@ entries:
     version: 1.1.6
   - apiVersion: v1
     appVersion: 1.1.5
-    created: "2026-09-17T20:11:04.677336+02:00"
+    created: "2026-10-21T08:49:33.18898+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7296,7 +7351,7 @@ entries:
     version: 1.1.5
   - apiVersion: v1
     appVersion: 1.1.4
-    created: "2026-09-17T20:11:04.666862+02:00"
+    created: "2026-10-21T08:49:33.178252+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7332,7 +7387,7 @@ entries:
     version: 1.1.4
   - apiVersion: v1
     appVersion: 1.1.3
-    created: "2026-09-17T20:11:04.656352+02:00"
+    created: "2026-10-21T08:49:33.167511+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7368,7 +7423,7 @@ entries:
     version: 1.1.3
   - apiVersion: v1
     appVersion: 1.1.2
-    created: "2026-09-17T20:11:04.645946+02:00"
+    created: "2026-10-21T08:49:33.157138+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7404,7 +7459,7 @@ entries:
     version: 1.1.2
   - apiVersion: v1
     appVersion: 1.1.1
-    created: "2026-09-17T20:11:04.635229+02:00"
+    created: "2026-10-21T08:49:33.146632+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7440,7 +7495,7 @@ entries:
     version: 1.1.1
   - apiVersion: v1
     appVersion: 1.1.1-rc0
-    created: "2026-09-17T20:11:04.624599+02:00"
+    created: "2026-10-21T08:49:33.136094+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7475,7 +7530,7 @@ entries:
     - polyaxon-1.1.1-rc0.tgz
     version: 1.1.1-rc0
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.614165+02:00"
+    created: "2026-10-21T08:49:33.125574+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7510,7 +7565,7 @@ entries:
     - polyaxon-1.1.0.tgz
     version: 1.1.0
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.60353+02:00"
+    created: "2026-10-21T08:49:33.115174+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7545,7 +7600,7 @@ entries:
     - polyaxon-1.1.0-rc2.tgz
     version: 1.1.0-rc2
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.592883+02:00"
+    created: "2026-10-21T08:49:33.104572+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7580,7 +7635,7 @@ entries:
     - polyaxon-1.1.0-rc1.tgz
     version: 1.1.0-rc1
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.582041+02:00"
+    created: "2026-10-21T08:49:33.093723+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7615,7 +7670,7 @@ entries:
     - polyaxon-1.1.0-rc0.tgz
     version: 1.1.0-rc0
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.571625+02:00"
+    created: "2026-10-21T08:49:33.083071+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7650,7 +7705,7 @@ entries:
     - polyaxon-1.0.99-rc5.tgz
     version: 1.0.99-rc5
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.561011+02:00"
+    created: "2026-10-21T08:49:33.072831+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7685,7 +7740,7 @@ entries:
     - polyaxon-1.0.99-rc3.tgz
     version: 1.0.99-rc3
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.550799+02:00"
+    created: "2026-10-21T08:49:33.062185+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7720,7 +7775,7 @@ entries:
     - polyaxon-1.0.99-rc2.tgz
     version: 1.0.99-rc2
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.540398+02:00"
+    created: "2026-10-21T08:49:33.05165+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7755,7 +7810,7 @@ entries:
     - polyaxon-1.0.99-rc1.tgz
     version: 1.0.99-rc1
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.529789+02:00"
+    created: "2026-10-21T08:49:33.040886+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7790,7 +7845,7 @@ entries:
     - polyaxon-1.0.98-rc1.tgz
     version: 1.0.98-rc1
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.519223+02:00"
+    created: "2026-10-21T08:49:33.030179+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7829,7 +7884,7 @@ entries:
     - polyaxon-0.6.1.tgz
     version: 0.6.1
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.51258+02:00"
+    created: "2026-10-21T08:49:33.023281+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7868,7 +7923,7 @@ entries:
     - polyaxon-0.6.0.tgz
     version: 0.6.0
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.50741+02:00"
+    created: "2026-10-21T08:49:33.017893+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7907,7 +7962,7 @@ entries:
     - polyaxon-0.5.6.tgz
     version: 0.5.6
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.502968+02:00"
+    created: "2026-10-21T08:49:33.012997+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7946,7 +8001,7 @@ entries:
     - polyaxon-0.5.5.tgz
     version: 0.5.5
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.498139+02:00"
+    created: "2026-10-21T08:49:33.008576+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -7985,7 +8040,7 @@ entries:
     - polyaxon-0.5.4.tgz
     version: 0.5.4
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.493253+02:00"
+    created: "2026-10-21T08:49:33.003486+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8024,7 +8079,7 @@ entries:
     - polyaxon-0.5.3.tgz
     version: 0.5.3
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.488828+02:00"
+    created: "2026-10-21T08:49:32.998889+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8063,7 +8118,7 @@ entries:
     - polyaxon-0.5.2.tgz
     version: 0.5.2
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.483991+02:00"
+    created: "2026-10-21T08:49:32.993714+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8102,7 +8157,7 @@ entries:
     - polyaxon-0.5.1.tgz
     version: 0.5.1
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.479127+02:00"
+    created: "2026-10-21T08:49:32.988926+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8141,7 +8196,7 @@ entries:
     - polyaxon-0.5.0.tgz
     version: 0.5.0
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.474849+02:00"
+    created: "2026-10-21T08:49:32.984407+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8178,7 +8233,7 @@ entries:
     - polyaxon-0.4.4.tgz
     version: 0.4.4
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.471494+02:00"
+    created: "2026-10-21T08:49:32.98118+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8215,7 +8270,7 @@ entries:
     - polyaxon-0.4.3.tgz
     version: 0.4.3
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.468769+02:00"
+    created: "2026-10-21T08:49:32.978329+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8252,7 +8307,7 @@ entries:
     - polyaxon-0.4.2.tgz
     version: 0.4.2
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.465384+02:00"
+    created: "2026-10-21T08:49:32.975295+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8289,7 +8344,7 @@ entries:
     - polyaxon-0.4.1.tgz
     version: 0.4.1
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.462552+02:00"
+    created: "2026-10-21T08:49:32.971716+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8326,7 +8381,7 @@ entries:
     - polyaxon-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.459631+02:00"
+    created: "2026-10-21T08:49:32.968728+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8363,7 +8418,7 @@ entries:
     - polyaxon-0.3.9.tgz
     version: 0.3.9
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.456235+02:00"
+    created: "2026-10-21T08:49:32.965148+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8400,7 +8455,7 @@ entries:
     - polyaxon-0.3.8.tgz
     version: 0.3.8
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.45333+02:00"
+    created: "2026-10-21T08:49:32.962181+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8437,7 +8492,7 @@ entries:
     - polyaxon-0.3.7.tgz
     version: 0.3.7
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.449878+02:00"
+    created: "2026-10-21T08:49:32.959223+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8473,7 +8528,7 @@ entries:
     - polyaxon-0.3.5.tgz
     version: 0.3.5
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.447081+02:00"
+    created: "2026-10-21T08:49:32.955779+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8509,7 +8564,7 @@ entries:
     - polyaxon-0.3.4.tgz
     version: 0.3.4
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.444165+02:00"
+    created: "2026-10-21T08:49:32.952766+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8545,7 +8600,7 @@ entries:
     - polyaxon-0.3.3.tgz
     version: 0.3.3
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.440711+02:00"
+    created: "2026-10-21T08:49:32.949317+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8581,7 +8636,7 @@ entries:
     - polyaxon-0.3.2.tgz
     version: 0.3.2
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.437929+02:00"
+    created: "2026-10-21T08:49:32.946369+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8617,7 +8672,7 @@ entries:
     - polyaxon-0.3.1.tgz
     version: 0.3.1
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.435036+02:00"
+    created: "2026-10-21T08:49:32.943277+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8653,7 +8708,7 @@ entries:
     - polyaxon-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.432005+02:00"
+    created: "2026-10-21T08:49:32.9398+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8689,7 +8744,7 @@ entries:
     - polyaxon-0.2.9.tgz
     version: 0.2.9
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.42935+02:00"
+    created: "2026-10-21T08:49:32.936793+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8725,7 +8780,7 @@ entries:
     - polyaxon-0.2.8.tgz
     version: 0.2.8
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.426174+02:00"
+    created: "2026-10-21T08:49:32.93361+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8761,7 +8816,7 @@ entries:
     - polyaxon-0.2.7.tgz
     version: 0.2.7
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.423535+02:00"
+    created: "2026-10-21T08:49:32.930658+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8797,7 +8852,7 @@ entries:
     - polyaxon-0.2.6.tgz
     version: 0.2.6
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.420834+02:00"
+    created: "2026-10-21T08:49:32.927669+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8833,7 +8888,7 @@ entries:
     - polyaxon-0.2.5.tgz
     version: 0.2.5
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.417652+02:00"
+    created: "2026-10-21T08:49:32.924489+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8869,7 +8924,7 @@ entries:
     - polyaxon-0.2.3.tgz
     version: 0.2.3
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.415089+02:00"
+    created: "2026-10-21T08:49:32.92162+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8905,7 +8960,7 @@ entries:
     - polyaxon-0.2.2.tgz
     version: 0.2.2
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.412156+02:00"
+    created: "2026-10-21T08:49:32.918756+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8941,7 +8996,7 @@ entries:
     - polyaxon-0.2.1.tgz
     version: 0.2.1
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.40948+02:00"
+    created: "2026-10-21T08:49:32.915499+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -8977,7 +9032,7 @@ entries:
     - polyaxon-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.406703+02:00"
+    created: "2026-10-21T08:49:32.912574+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -9013,7 +9068,7 @@ entries:
     - polyaxon-0.1.9.tgz
     version: 0.1.9
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.403469+02:00"
+    created: "2026-10-21T08:49:32.909479+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -9049,7 +9104,7 @@ entries:
     - polyaxon-0.1.8.tgz
     version: 0.1.8
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.400683+02:00"
+    created: "2026-10-21T08:49:32.906743+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -9085,7 +9140,7 @@ entries:
     - polyaxon-0.1.7.tgz
     version: 0.1.7
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.397815+02:00"
+    created: "2026-10-21T08:49:32.903885+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -9121,7 +9176,7 @@ entries:
     - polyaxon-0.1.6.tgz
     version: 0.1.6
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.394637+02:00"
+    created: "2026-10-21T08:49:32.90062+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -9157,7 +9212,7 @@ entries:
     - polyaxon-0.1.5.tgz
     version: 0.1.5
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.391897+02:00"
+    created: "2026-10-21T08:49:32.897811+02:00"
     dependencies:
     - name: postgresql
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -9192,7 +9247,7 @@ entries:
     - polyaxon-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.388591+02:00"
+    created: "2026-10-21T08:49:32.89461+02:00"
     dependencies:
     - name: postgresql
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -9227,7 +9282,7 @@ entries:
     - polyaxon-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.385923+02:00"
+    created: "2026-10-21T08:49:32.891728+02:00"
     dependencies:
     - name: postgresql
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -9262,7 +9317,7 @@ entries:
     - polyaxon-0.1.2.tgz
     version: 0.1.2
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.383249+02:00"
+    created: "2026-10-21T08:49:32.888995+02:00"
     dependencies:
     - name: postgresql
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -9297,7 +9352,7 @@ entries:
     - polyaxon-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.380129+02:00"
+    created: "2026-10-21T08:49:32.88571+02:00"
     dependencies:
     - name: postgresql
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -9332,7 +9387,7 @@ entries:
     - polyaxon-0.1.0.tgz
     version: 0.1.0
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.377551+02:00"
+    created: "2026-10-21T08:49:32.883038+02:00"
     dependencies:
     - name: postgresql
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -9367,7 +9422,7 @@ entries:
     - polyaxon-0.0.9.tgz
     version: 0.0.9
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.374666+02:00"
+    created: "2026-10-21T08:49:32.879922+02:00"
     dependencies:
     - name: postgresql
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -9401,7 +9456,7 @@ entries:
     - polyaxon-0.0.8.tgz
     version: 0.0.8
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.37229+02:00"
+    created: "2026-10-21T08:49:32.877459+02:00"
     dependencies:
     - name: postgresql
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -9435,7 +9490,7 @@ entries:
     - polyaxon-0.0.7.tgz
     version: 0.0.7
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.369825+02:00"
+    created: "2026-10-21T08:49:32.875054+02:00"
     dependencies:
     - name: postgresql
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -9469,7 +9524,7 @@ entries:
     - polyaxon-0.0.6.tgz
     version: 0.0.6
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.366916+02:00"
+    created: "2026-10-21T08:49:32.872216+02:00"
     dependencies:
     - name: postgresql
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -9503,7 +9558,7 @@ entries:
     - polyaxon-0.0.5.tgz
     version: 0.0.5
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.364467+02:00"
+    created: "2026-10-21T08:49:32.869839+02:00"
     dependencies:
     - name: postgresql
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -9537,7 +9592,7 @@ entries:
     - polyaxon-0.0.4.tgz
     version: 0.0.4
   - apiVersion: v1
-    created: "2026-09-17T20:11:04.361583+02:00"
+    created: "2026-10-21T08:49:32.867136+02:00"
     dependencies:
     - name: postgresql
       repository: https://kubernetes-charts.storage.googleapis.com/
@@ -9572,8 +9627,30 @@ entries:
     version: 0.0.3
   trainingjobs:
   - apiVersion: v2
+    appVersion: 2.18.0
+    created: "2026-10-21T08:49:34.55954+02:00"
+    description: Kubeflow training operators integration with Polyaxon
+    digest: 2501bc7cceece562a375170a40e34c01e4700aaee77240c7b4423590b69e06a3
+    home: https://polyaxon.com
+    icon: https://raw.githubusercontent.com/polyaxon/polyaxon/master/artifacts/logo/logo-small.png
+    keywords:
+    - deep learning
+    - a.i.
+    - machine learning
+    - infrastructure
+    maintainers:
+    - email: contact@polyaxon.com
+      name: Polyaxon
+      url: polyaxon.com
+    name: trainingjobs
+    sources:
+    - https://github.com/polyaxon
+    urls:
+    - trainingjobs-2.18.0.tgz
+    version: 2.18.0
+  - apiVersion: v2
     appVersion: 2.1.0
-    created: "2026-09-17T20:11:06.000971+02:00"
+    created: "2026-10-21T08:49:34.558367+02:00"
     description: Kubeflow training operators integration with Polyaxon
     digest: 8de4488a0a66b04f83eff8a37c22e32a8bbca66b45c95f104a840f72c08e5dcc
     home: https://polyaxon.com
@@ -9595,7 +9672,7 @@ entries:
     version: 2.1.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2026-09-17T20:11:05.999365+02:00"
+    created: "2026-10-21T08:49:34.556752+02:00"
     description: Kubeflow training operators integration with Polyaxon
     digest: 37cb73124b00ba047df6188dc854b64ed7f21439396e81063fded086336de3ac
     home: https://polyaxon.com
@@ -9617,7 +9694,7 @@ entries:
     version: 1.16.0
   - apiVersion: v1
     appVersion: 1.15.1
-    created: "2026-09-17T20:11:05.997233+02:00"
+    created: "2026-10-21T08:49:34.554765+02:00"
     description: Kubeflow training operators integration with Polyaxon
     digest: 704a0472561e9262b35b76767e0ed852a91cbcf74e2addef5bd2c436a115bc23
     home: https://polyaxon.com
@@ -9639,7 +9716,7 @@ entries:
     version: 1.15.1
   - apiVersion: v1
     appVersion: 1.15.0
-    created: "2026-09-17T20:11:05.995972+02:00"
+    created: "2026-10-21T08:49:34.553443+02:00"
     description: Kubeflow training operators integration with Polyaxon
     digest: 98e160e16926099a6c92f40c2cc35b407f7884272ee53f8a35c31934d273ec8f
     home: https://polyaxon.com
@@ -9659,4 +9736,4 @@ entries:
     urls:
     - trainingjobs-1.15.0.tgz
     version: 1.15.0
-generated: "2026-09-17T20:11:03.9337+02:00"
+generated: "2026-10-21T08:49:32.432925+02:00"
