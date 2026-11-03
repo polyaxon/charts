@@ -239,6 +239,8 @@ sidecar:
 
 securityContext:
   enabled: false
+  # Also use this context as the default for run pods
+  applyToRuns: false
   runAsUser: 2222
   runAsGroup: 2222
   fsGroup: 2222
