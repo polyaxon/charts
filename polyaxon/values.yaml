@@ -435,6 +435,11 @@ postgresql:
                       - "polyaxon-core"
               topologyKey: "kubernetes.io/hostname"
 
+cache:
+  # Share API rate-limit counters across API workers and replicas through Redis (DB 4).
+  # Requires scheduler.enabled (Redis). When disabled, each API worker keeps its own counters.
+  enabled: false
+
 redis:
   # Whether to deploy a redis server in-cluster.
   # To use an external redis instance:
