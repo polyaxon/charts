@@ -68,6 +68,19 @@ tolerations:
 {{- end }}
 {{- end -}}
 
+{{- /*
+Default scheduling for runs, the agent's own pods use config.agent.scheduling
+*/}}
+{{- define "config.agent.defaultScheduling" -}}
+{{ include "config.agent.scheduling" . }}
+{{- if .Values.securityContext.applyToRuns }}
+{{ include "securityContext.pod" . }}
+{{- if and .Values.securityContext.enabled (not .Values.securityContext.fsGroupChangePolicy) }}
+  fsGroupChangePolicy: OnRootMismatch
+{{- end }}
+{{- end }}
+{{- end -}}
+
 {{- define "config.agent.imagePullSecrets" -}}
 {{- if .Values.agent.imagePullSecrets }}
 imagePullSecrets:

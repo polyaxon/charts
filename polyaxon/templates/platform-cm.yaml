@@ -41,6 +41,9 @@ data:
   POLYAXON_REDIS_CELERY_RESULT_BACKEND_URL: {{ template "redis.host" . }}:{{ template "redis.port" . }}/1
   POLYAXON_REDIS_SESSIONS_URL: {{ template "redis.host" . }}:{{ template "redis.port" . }}/2
   POLYAXON_REDIS_HEARTBEAT_URL: {{ template "redis.host" . }}:{{ template "redis.port" . }}/3
+  {{- if .Values.gateway.cache.enabled }}
+  POLYAXON_REDIS_CACHE_URL: {{ template "redis.host" . }}:{{ template "redis.port" . }}/4
+  {{- end }}
   POLYAXON_REDIS_HOST: "{{ template "redis.host" . }}"
   POLYAXON_REDIS_PORT: "{{ template "redis.port" . }}"
   {{- end }}
@@ -61,6 +64,10 @@ data:
   {{- end }}
   {{- if .Values.cleaningIntervals.warningRuns }}
   POLYAXON_CLEANING_INTERVALS_WARNING_RUNS: {{ .Values.cleaningIntervals.warningRuns | quote }}
+  {{- end }}
+  # Throttle
+  {{- range $scope, $rate := .Values.gateway.throttle.rates }}
+  POLYAXON_THROTTLE_RATES_{{ $scope | upper | replace "-" "_" }}: {{ $rate | quote }}
   {{- end }}
   # DB
   POLYAXON_DB_USER: {{ template "pgsql.user" . }}
