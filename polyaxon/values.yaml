@@ -109,6 +109,19 @@ gateway:
     api: true
     streams: true
 
+  cache:
+    # Share API rate-limit counters across API workers and replicas through Redis (DB 4).
+    # Requires scheduler.enabled (Redis). When disabled, each API worker keeps its own counters.
+    enabled: false
+
+  throttle:
+    # API rate limits in requests per minute, except `auth` (per second).
+    # Scopes: impersonate, auth, user, agent, run_status, run_lineage, run, anon, checks.
+    # Scopes not listed keep their defaults.
+    rates: {}
+    #   run: 300
+    #   user: 240
+
 agent:
   token:
   instance:
@@ -434,11 +447,6 @@ postgresql:
                     values:
                       - "polyaxon-core"
               topologyKey: "kubernetes.io/hostname"
-
-cache:
-  # Share API rate-limit counters across API workers and replicas through Redis (DB 4).
-  # Requires scheduler.enabled (Redis). When disabled, each API worker keeps its own counters.
-  enabled: false
 
 redis:
   # Whether to deploy a redis server in-cluster.
